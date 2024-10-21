@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>2024数信杯北区决赛 - Wh1teJ0kerのCTF日记</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="2024数信杯北区决赛备注：图片图床使用为Github，打不开需要挂梯子！  数据分析secret_1 小强离开电脑的时候，某人把小强的秘密给偷走了，还把文件修改覆盖了，作案脚本也删了。请帮助小强找到丢失的相关数据。 1.提交加密算法工具当中的flag值。（提交示例：flag{*}）  010直接搜索到了 ​​ secret_2 2.恢复图片中的flag值。  python2 vol.py -f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024数信杯北区决赛">
+<meta property="og:url" content="https://wh1tej0ker.github.io/post/2024-digital-cup-north-district-final-z1f5wbd.html">
+<meta property="og:site_name" content="Wh1teJ0kerのCTF日记">
+<meta property="og:description" content="2024数信杯北区决赛备注：图片图床使用为Github，打不开需要挂梯子！  数据分析secret_1 小强离开电脑的时候，某人把小强的秘密给偷走了，还把文件修改覆盖了，作案脚本也删了。请帮助小强找到丢失的相关数据。 1.提交加密算法工具当中的flag值。（提交示例：flag{*}）  010直接搜索到了 ​​ secret_2 2.恢复图片中的flag值。  python2 vol.py -f">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929105902-unfy12s.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929154653-6xnpnk7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929154923-zhdadtq.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155248-l5hfsb2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155314-wtpmccl.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155457-glljhw5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155627-cqijbes.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155637-tkgvloq.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155801-iqodphc.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155845-w281ibg.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929102759-bvl6c0h.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929170251-rtlsrki.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/42f55394355b851f5adfaa50b5f0480-20240929170301-qi1ipqv.jpg">
+<meta property="article:published_time" content="2024-09-30T09:35:28.000Z">
+<meta property="article:modified_time" content="2024-09-30T18:50:52.000Z">
+<meta property="article:author" content="Wh1teJ0ker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929105902-unfy12s.png">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://wh1tej0ker.github.io/post/2024-digital-cup-north-district-final-z1f5wbd.html">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Wh1teJ0kerのCTF日记</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo.svg" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/">主页</a></li>
+            
+            <li><a href="/archives">归档</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            2024数信杯北区决赛
+        </div>
+        <div class="post-meta">
+            2024-09-30 ｜ 
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <h1 id="2024数信杯北区决赛"><a href="#2024数信杯北区决赛" class="headerlink" title="2024数信杯北区决赛"></a>2024数信杯北区决赛</h1><p>备注：图片图床使用为Github，打不开需要挂梯子！</p>
+<hr>
+<h1 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h1><h2 id="secret-1"><a href="#secret-1" class="headerlink" title="secret_1"></a>secret_1</h2><blockquote>
+<p>小强离开电脑的时候，某人把小强的秘密给偷走了，还把文件修改覆盖了，作案脚本也删了。请帮助小强找到丢失的相关数据。</p>
+<p>1.提交加密算法工具当中的flag值。（提交示例：flag{*}）</p>
+</blockquote>
+<p>010直接搜索到了</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929105902-unfy12s.png" alt="image">​</p>
+<h2 id="secret-2"><a href="#secret-2" class="headerlink" title="secret_2"></a>secret_2</h2><blockquote>
+<p>2.恢复图片中的flag值。</p>
+</blockquote>
+<pre><code class="highlight bash">python2 vol.py -f ../data1.raw --profile=Win7SP1x64 filescan | grep flag
+python2 vol.py -f ../data1.raw --profile=Win7SP1x64 dumpfiles -Q 0x000000007f3f17b0 -D ./</code></pre>
+
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929154653-6xnpnk7.png" alt="image">​</p>
+<p>找到了flagg.png</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929154923-zhdadtq.png" alt="image">​</p>
+<p>然后在相同目录下发下了一个pyc文件，提取出来进行反编译得到源码</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155248-l5hfsb2.png" alt="image">​</p>
+<pre><code class="highlight bash"><span class="meta">#!/usr/bin/env python</span>
+<span class="comment"># Version: Python 3.7</span>
+
+def encode(png):
+    flag = <span class="string">&#x27;flag&#123;eba771fd-2b03-418f-b11a-60f1141c99ee&#125;&#x27;</span>
+    lens = len(flag)
+    with open(png, <span class="string">&#x27;rb&#x27;</span>) as f:
+        pic_bytes = f.read()
+        output_bytes = bytearray()
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pic_bytes)):
+            output_bytes.append(pic_bytes[i] ^ ord(flag[i * 2 % lens]))
+    with open(png, <span class="string">&#x27;wb&#x27;</span>) as f:
+        f.write(output_bytes)
+
+def decode(png):
+    flag = <span class="string">&#x27;flag&#123;eba771fd-2b03-418f-b11a-60f1141c99ee&#125;&#x27;</span>
+    lens = len(flag)
+    with open(png, <span class="string">&#x27;rb&#x27;</span>) as f:
+        pic_bytes = f.read()
+        output_bytes = bytearray()
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pic_bytes)):
+            output_bytes.append(pic_bytes[i] ^ ord(flag[i * 2 % lens]))
+    with open(png, <span class="string">&#x27;wb&#x27;</span>) as f:
+        f.write(output_bytes)
+
+<span class="comment"># 示例文件路径</span>
+file_path = <span class="string">&#x27;./flag.png&#x27;</span>
+
+<span class="comment"># 使用示例</span>
+<span class="comment">#encode(file_path)  # 加密</span>
+decode(file_path)  <span class="comment"># 解密</span>
+</code></pre>
+
+<p>最终得到flag</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155314-wtpmccl.png" alt="image">​</p>
+<h2 id="secret-3"><a href="#secret-3" class="headerlink" title="secret_3"></a>secret_3</h2><blockquote>
+<p>3.提交压缩包当中的flag值。</p>
+</blockquote>
+<p>待复现（</p>
+<h2 id="history-1-history-2"><a href="#history-1-history-2" class="headerlink" title="history_1&amp;&amp;history_2"></a>history_1&amp;&amp;history_2</h2><blockquote>
+<p>浏览器历史数据查找。</p>
+<p>1.提交flag中uuid值32位小写md5加密第一位为4的uuid（提交示例：9c26d7a6-ea44-4beb-96a8-bc9c75866fef)</p>
+<p>2.提交flag中uuid值32位小写md5加密第一位为a的uuid（提交示例：9c26d7a6-ea44-4beb-96a8-bc9c75866fef）</p>
+</blockquote>
+<pre><code class="highlight bash">python2 vol.py -f ../data2.raw --profile=Win7SP1x64  filescan | grep <span class="string">&quot;.ipynb&quot;</span></code></pre>
+
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155457-glljhw5.png" alt="image">​</p>
+<pre><code class="highlight bash">python2 vol.py -f ../data2.raw --profile=Win7SP1x64  dumpfiles -Q 0x000000007d843bd0 -D ../
+python2 vol.py -f ../data2.raw --profile=Win7SP1x64  dumpfiles -Q 0x000000007da54b40 -D ../</code></pre>
+
+<p>分别提取出来得到两个flag</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155627-cqijbes.png" alt="image">​</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155637-tkgvloq.png" alt="image">​</p>
+<pre><code class="highlight bash">3d45f56a-b63c-44bd-adea-9aad22ae2e20
+fe55e2fb-ae4f-4b6d-b93d-da42479b5d69</code></pre>
+
+<h1 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h1><h2 id="ez-sign"><a href="#ez-sign" class="headerlink" title="ez_sign"></a>ez_sign</h2><p>弱密码爆破出来，123456</p>
+<p>然后part1直接在图片</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155801-iqodphc.png" alt="image">​</p>
+<p>part2流量包直接得到</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155845-w281ibg.png" alt="image">​</p>
+<p>part3将异或FF得到压缩包</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929102759-bvl6c0h.png" alt="image">​</p>
+<pre><code class="highlight bash">flag&#123;266c7354-0817-4694-9494-c727479d8f1a&#125;</code></pre>
+
+<h2 id="签到寄语"><a href="#签到寄语" class="headerlink" title="签到寄语"></a>签到寄语</h2><p>找到开源项目<a target="_blank" rel="noopener" href="https://github.com/sz3/libcimbar">libcimbar</a></p>
+<p>扫码即得</p>
+<h2 id="Pixel"><a href="#Pixel" class="headerlink" title="Pixel"></a>Pixel</h2><p>先把文件头改一下得到png图片</p>
+<p>同时文件头有提示sm4</p>
+<p>然后lsb隐写得到三个参数</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929170251-rtlsrki.png" alt="image">​</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/42f55394355b851f5adfaa50b5f0480-20240929170301-qi1ipqv.jpg" alt="42f55394355b851f5adfaa50b5f0480">​</p>
+<h1 id="数据算法"><a href="#数据算法" class="headerlink" title="数据算法"></a>数据算法</h1><h2 id="水印攻击"><a href="#水印攻击" class="headerlink" title="水印攻击"></a>水印攻击</h2><p>这个版本分不是很高（</p>
+<pre><code class="highlight python"><span class="keyword">import</span> cv2
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+
+<span class="keyword">def</span> <span class="title function_">add_gaussian_noise</span>(<span class="params">image, mean=<span class="number">0</span>, var=<span class="number">0.01</span></span>):
+    sigma = var**<span class="number">0.5</span>
+    gauss = np.random.normal(mean, sigma, image.shape).astype(<span class="string">&#x27;uint8&#x27;</span>)
+    noisy_image = cv2.add(image, gauss)
+    <span class="keyword">return</span> noisy_image
+
+<span class="keyword">def</span> <span class="title function_">add_salt_and_pepper_noise</span>(<span class="params">image, salt_prob=<span class="number">0.01</span>, pepper_prob=<span class="number">0.01</span></span>):
+    noisy_image = np.copy(image)
+    total_pixels = image.size
+    num_salt = np.ceil(salt_prob * total_pixels)
+    num_pepper = np.ceil(pepper_prob * total_pixels)
+
+    <span class="comment"># 添加盐噪声</span>
+    coords = [np.random.randint(<span class="number">0</span>, i - <span class="number">1</span>, <span class="built_in">int</span>(num_salt)) <span class="keyword">for</span> i <span class="keyword">in</span> image.shape]
+    noisy_image[coords[<span class="number">0</span>], coords[<span class="number">1</span>], :] = <span class="number">1</span>
+
+    <span class="comment"># 添加胡椒噪声</span>
+    coords = [np.random.randint(<span class="number">0</span>, i - <span class="number">1</span>, <span class="built_in">int</span>(num_pepper)) <span class="keyword">for</span> i <span class="keyword">in</span> image.shape]
+    noisy_image[coords[<span class="number">0</span>], coords[<span class="number">1</span>], :] = <span class="number">0</span>
+
+    <span class="keyword">return</span> noisy_image
+
+<span class="comment"># 读取原图</span>
+input_image = cv2.imread(<span class="string">&#x27;./input.png&#x27;</span>)
+
+<span class="comment"># 添加高斯噪音</span>
+noisy_image = add_gaussian_noise(input_image)
+
+<span class="comment"># 添加椒盐噪音</span>
+final_image = add_salt_and_pepper_noise(noisy_image)
+
+<span class="comment"># 保存结果</span>
+cv2.imwrite(<span class="string">&#x27;result1.png&#x27;</span>, final_image)
+</code></pre>
+
+        </div>
+    
+<!-- tags -->
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> Wh1teJ0kerのCTF日记</span>
+    <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> with <a target="_blank" rel="noopener" href="https:///imzl.com/zenmind">ZenMind</a></span>
+</div>
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+<script src="/js/highlight.min.js"></script>
+
+
+<script src="/js/highlightjs-line-numbers.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
+
+            </div>
+        </div>
+    </body>
+</html>
