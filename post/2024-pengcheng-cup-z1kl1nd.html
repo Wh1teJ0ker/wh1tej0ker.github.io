@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/./img/favicon.ico">
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>2024鹏程杯 | Wh1teJ0kerのCTF日记</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Wh1teJ0kerのCTF日记</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">HOME</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">HOME</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        2024鹏程杯
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2024/11/" class="post-meta__date button">2024-11-09</a>
+        
+ 
+        
+     
+    <span id="leancloud_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="leancloud_value_page_pv"></span>
+        <span>Views</span>
+    </span>
+
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="2024鹏程杯"><a href="#2024鹏程杯" class="headerlink" title="2024鹏程杯"></a>2024鹏程杯</h1><p>备注：图片图床使用为Github，打不开需要挂梯子！</p>
+<hr>
+<h1 id="Simple-steganography-pcb2024"><a href="#Simple-steganography-pcb2024" class="headerlink" title="Simple_steganography-pcb2024"></a>Simple_steganography-pcb2024</h1><p>‍</p>
+<p>首先我们使用7z打开压缩包，发现存在一个奇怪的图片，直接解压无法打开</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731147865970-20241109182427-hukfnuv.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731147865970-20241109182427-hukfnuv.png" srcset="./img/load.gif" alt="QQ_1731147865970">​</p>
+<p>这里转折了一下，用了神奇的qq浏览器</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148032700-20241109182713-8ahekyw.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148032700-20241109182713-8ahekyw.png" srcset="./img/load.gif" alt="QQ_1731148032700">​</p>
+<p>然后分离出来一个jpg图片</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148134965-20241109182858-hn9hqpx.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148134965-20241109182858-hn9hqpx.png" srcset="./img/load.gif" alt="QQ_1731148134965">​</p>
+<p>直接一眼看出来是猫脸变换，联想到a&#x3D;7,b&#x3D;35</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/00000000-20241109182907-i94qxy8.jpg" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/00000000-20241109182907-i94qxy8.jpg" srcset="./img/load.gif" alt="00000000">​</p>
+<pre><code class="highlight python"><span class="comment"># -*- coding: UTF-8 -*-</span>
+
+<span class="keyword">import</span> cv2
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">import</span> os
+
+<span class="keyword">def</span> <span class="title function_">arnold_decode</span>(<span class="params">image, shuffle_times, a, b, output_file=<span class="string">&#x27;decoded_image.png&#x27;</span></span>):
+    <span class="string">&quot;&quot;&quot;</span>
+<span class="string">    Decodes an RGB image that was encoded by the Arnold transformation.</span>
+<span class="string"></span>
+<span class="string">    Args:</span>
+<span class="string">        image (np.array): The RGB image encoded by Arnold transformation.</span>
+<span class="string">        shuffle_times (int): Number of iterations for shuffling.</span>
+<span class="string">        a (int): Arnold transformation parameter.</span>
+<span class="string">        b (int): Arnold transformation parameter.</span>
+<span class="string">        output_file (str): Filename for saving the decoded image.</span>
+<span class="string"></span>
+<span class="string">    Returns:</span>
+<span class="string">        np.array: The decoded image.</span>
+<span class="string">    &quot;&quot;&quot;</span>
+    <span class="keyword">if</span> image <span class="keyword">is</span> <span class="literal">None</span>:
+        <span class="keyword">raise</span> ValueError(<span class="string">&quot;Image not loaded. Check file path or file integrity.&quot;</span>)
+  
+    <span class="comment"># Create a new image with the same shape as the input</span>
+    decode_image = np.zeros_like(image)
+  
+
+    h, w = image.shape[:<span class="number">2</span>]
+    N = h  
+
+
+    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(shuffle_times):
+        <span class="keyword">for</span> ori_x <span class="keyword">in</span> <span class="built_in">range</span>(h):
+            <span class="keyword">for</span> ori_y <span class="keyword">in</span> <span class="built_in">range</span>(w):
+
+                new_x = ((a * b + <span class="number">1</span>) * ori_x - b * ori_y) % N
+                new_y = (-a * ori_x + ori_y) % N
+                decode_image[new_x, new_y, :] = image[ori_x, ori_y, :]
+
+    cv2.imwrite(output_file, decode_image, [<span class="built_in">int</span>(cv2.IMWRITE_PNG_COMPRESSION), <span class="number">0</span>])
+    <span class="keyword">return</span> decode_image
+
+
+image_path = <span class="string">&#x27;/home/Work/pcb/00000000.jpg&#x27;</span>
+img = cv2.imread(image_path)
+
+
+<span class="keyword">if</span> img <span class="keyword">is</span> <span class="literal">None</span>:
+    <span class="keyword">raise</span> FileNotFoundError(<span class="string">f&quot;Image at path &#x27;<span class="subst">&#123;image_path&#125;</span>&#x27; not found. Please check the file path.&quot;</span>)
+
+
+<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):
+    output_filename = <span class="string">f&#x27;./decoded_image_<span class="subst">&#123;i&#125;</span>.png&#x27;</span>
+    arnold_decode(img, shuffle_times=<span class="number">7</span>, a=<span class="number">35</span>, b=i, output_file=output_filename)
+</code></pre>
+
+<p>最终是在变换次数是7的时候得到应该是原始图片</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148193153-20241109182955-krrmely.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148193153-20241109182955-krrmely.png" srcset="./img/load.gif" alt="QQ_1731148193153">​</p>
+<p>得到后一半的flag</p>
+<pre><code class="highlight python">3_h4ck1ng&#125;</code></pre>
+
+<p>还有一个secret.zip压缩包</p>
+<p>所以呢，我们刚刚一直没有找到相关的任何线索，发现一个png图片和一个svg文件，所以我们就思考是不是能够直接通过png的头进行爆破</p>
+<p>将<code>89504E470D0A1A0A0000000D49484452</code>​放入</p>
+<p>开始爆破</p>
+<pre><code class="highlight python">bkcrack.exe -C secret.<span class="built_in">zip</span> -c flag.png -p pngheader -o <span class="number">0</span></code></pre>
+
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148698674-20241109183820-r00vql5.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148698674-20241109183820-r00vql5.png" srcset="./img/load.gif" alt="QQ_1731148698674">​</p>
+<p>修改压缩包密码</p>
+<pre><code class="highlight python">bkcrack.exe -C secret.<span class="built_in">zip</span> -k f45dd89f e3e929fb 3202ba17 -U flag.<span class="built_in">zip</span> easy</code></pre>
+
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148799110-20241109184011-zt2pld3.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148799110-20241109184011-zt2pld3.png" srcset="./img/load.gif" alt="QQ_1731148799110">​</p>
+<p>爆破图片宽高得到前半部分</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148890263-20241109184139-7lbufwk.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1731148890263-20241109184139-7lbufwk.png" srcset="./img/load.gif" alt="QQ_1731148890263">​</p>
+<pre><code class="highlight python">flag&#123;We_11k</code></pre>
+
+<p>合并起来flag</p>
+<pre><code class="highlight python">flag&#123;We_11k3_h4ck1ng&#125;</code></pre>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2024-11-10</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/post/2024-digital-cup-offline-finals-z18wmjn.html" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            2024数信杯线下决赛
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/post/2024-net-ding-cup-xltap.html" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            2024网鼎杯
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+        <span id="leancloud_container_site_uv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="leancloud_container_site_pv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024&nbsp;-&nbsp;2024 <a href="/">Wh1teJ0kerのCTF日记</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+    <script>
+        (function () {
+            function getRecord(Counter, target) {
+                return new Promise(function (resolve, reject) {
+                    Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+                        .then(response => response.json())
+                        .then(({results}) => {
+                            if (results && results.length > 0) {
+                                var record = results[0];
+                                resolve(record);
+                            } else {
+                                Counter('post', '/classes/Counter', {
+                                        target, time: 0
+                                    })
+                                    .then(response => response.json())
+                                    .then(record => {
+                                        resolve(record);
+                                    }).catch(error => {
+                                        console.error('Failed to create', error);
+                                        reject(error);
+                                    });
+                            }
+                        }).catch(error => {
+                            console.error('LeanCloud Counter Error', error);
+                            reject(error);
+                        });
+                })
+            }
+        
+            function buildIncrement(objectId) {
+                return {
+                    "method": "PUT",
+                    "path": `/1.1/classes/Counter/${ objectId }`,
+                    "body": {
+                        "time": {
+                            '__op': 'Increment',
+                            'amount': 1
+                        }
+                    }
+                }
+            }
+        
+            function increment(Counter, incrArr) {
+                return new Promise(function (resolve, reject) {
+                    Counter('post', '/batch', {
+                        "requests": incrArr
+                    }).then((res) => {
+                        resolve(res);
+                    }).catch(error => {
+                        console.error('Failed to save visitor count', error);
+                        reject(error);
+                    });
+                });
+            }
+        
+            function validUV() {
+                var key = 'LeanCloud_UV_Flag';
+                var flag = localStorage.getItem(key);
+                if (flag) {
+                    if (new Date().getTime() - parseInt(flag) <= 86400000) {
+                        return false;
+                    }
+                }
+                localStorage.setItem(key, new Date().getTime().toString());
+                return true;
+            }
+        
+            function addCount(Counter) {
+                var enableIncr = 'leancloud' === 'leancloud';
+                var getterArr = [];
+                var incrArr = [];
+                var pvCtn = document.querySelector('#leancloud_container_site_pv');
+                if (pvCtn || enableIncr) {
+                    var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+                        incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_pv');
+                        if (ele) {
+                            ele.innerText = record.time + 1;
+                            if (pvCtn) {
+                                pvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(pvGetter);
+                }
+                var uvCtn = document.querySelector('#leancloud_container_site_uv');
+                if (uvCtn || enableIncr) {
+                    var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+                        var vuv = validUV();
+                        vuv && incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_uv');
+                        if (ele) {
+                            ele.innerText = record.time + (vuv ? 1 : 0);
+                            if (uvCtn) {
+                                uvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(uvGetter);
+                }
+                if ('true' === 'true') {
+                    var viewCtn = document.querySelector('#leancloud_container_page_pv');
+                    if (viewCtn || enableIncr) {
+                        var target = decodeURI('/post/2024-pengcheng-cup-z1kl1nd.html');
+                        var viewGetter = getRecord(Counter, target).then((record) => {
+                            incrArr.push(buildIncrement(record.objectId))
+                            if (viewCtn) {
+                                var ele = document.querySelector('#leancloud_value_page_pv');
+                                if (ele) {
+                                    ele.innerText = (record.time || 0) + 1;
+                                    viewCtn.style.display = 'inline';
+                                }
+                            }
+                        });
+                        getterArr.push(viewGetter);
+                    }
+                }
+                if (enableIncr) {
+                    Promise.all(getterArr).then(() => {
+                        incrArr.length > 0 && increment(Counter, incrArr);
+                    })
+                }
+            }
+        
+            var app_id = 'vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz';
+            var app_key = 'KcrLQh8tdhzsVRby2L7bi6lp';
+            var server_url = 'https://vx1uewrs.lc-cn-n1-shared.com';
+        
+            function fetchData(api_server) {
+                var Counter = (method, url, data) => {
+                    return fetch(`${ api_server }/1.1${ url }`, {
+                        method,
+                        headers: {
+                                'X-LC-Id': app_id,
+                                'X-LC-Key': app_key,
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data)
+                    });
+                };
+                addCount(Counter);
+            }
+            var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+            if (api_server) {
+                fetchData(api_server);
+            } else {
+                fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+                    .then(response => response.json())
+                    .then(({api_server}) => {
+                        fetchData('https://' + api_server);
+                    });
+            }
+        })();
+    </script>
+
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz","appKey":"KcrLQh8tdhzsVRby2L7bi6lp","placeholder":null,"path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":true,"visitor":true,"highlight":null,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":true,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

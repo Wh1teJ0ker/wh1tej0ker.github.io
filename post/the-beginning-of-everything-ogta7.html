@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/./img/favicon.ico">
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>一切的初始~~~ | Wh1teJ0kerのCTF日记</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Wh1teJ0kerのCTF日记</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">HOME</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">HOME</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        一切的初始~~~
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2024/07/" class="post-meta__date button">2024-07-26</a>
+        
+ 
+        
+     
+    <span id="leancloud_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="leancloud_value_page_pv"></span>
+        <span>Views</span>
+    </span>
+
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PicGo"><span class="toc-number">1.</span> <span class="toc-text">PicGo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Publisher"><span class="toc-number">2.</span> <span class="toc-text">Publisher</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E5%9F%BA%E7%A1%80%E9%83%A8%E7%BD%B2"><span class="toc-number">3.</span> <span class="toc-text">Hexo基础部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Actions%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">4.</span> <span class="toc-text">Github Actions自动化部署</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PicGo"><span class="toc-number">1.</span> <span class="toc-text">PicGo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Publisher"><span class="toc-number">2.</span> <span class="toc-text">Publisher</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E5%9F%BA%E7%A1%80%E9%83%A8%E7%BD%B2"><span class="toc-number">3.</span> <span class="toc-text">Hexo基础部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Actions%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">4.</span> <span class="toc-text">Github Actions自动化部署</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="一切的初始"><a href="#一切的初始" class="headerlink" title="一切的初始~~~"></a>一切的初始~~~</h1><p>备注：图片图床使用为Github，打不开需要挂梯子！</p>
+<hr>
+<p>原本呢，很长一段时间都没怎么写过博客了，很多东西都记录在语雀上了</p>
+<p>本次重新搭建一个专门用于记录与CTF的故事，在这个上面只会发布比赛Writeup的部分分享~~</p>
+<p>一方面也是语雀的服务器在体验上有些不如人意，连续几次在我专心写的时候，出现问题，qwq~~</p>
+<p>顺便第一篇也分享一下我目前是如何使用一套全免费的自动化静态博客部署方案</p>
+<p>目前使用的包括Siyuan+PicGo+Github actions</p>
+<h1 id="思源笔记"><a href="#思源笔记" class="headerlink" title="思源笔记"></a>思源笔记</h1><p>首先来看一下有关思源笔记的配置</p>
+<p>所有的配置考虑长远，我的优先需求均为便于迁移</p>
+<p>因此采用的是docker搭建，基础的docker环境不过多叙述</p>
+<pre><code class="highlight plain">docker run -d \
+  -v /Data/siyuan/workspace:/siyuan/workspace \
+  -p 6806:6806 \
+  -u 1000:1000 \
+  b3log/siyuan \
+  --workspace=/siyuan/workspace \
+  --restart=always \
+  --accessAuthCode=joker</code></pre>
+
+<pre><code class="highlight plain">chown 1000:1000 /Data/siyuan/workspace</code></pre>
+
+<p>完成拉取和运行，再对工作目录赋予权限即可完成</p>
+<p>本次需要使用的两个插件为</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/terwer/siyuan-plugin-publisher">siyuan-plugin-publisher</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/terwer/siyuan-plugin-picgo">siyuan-plugin-picgo</a></li>
+</ul>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221032.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221032.png" srcset="./img/load.gif" alt="image">​</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726220808.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726220808.png" srcset="./img/load.gif" alt="image">​</p>
+<h2 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h2><p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726220951.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726220951.png" srcset="./img/load.gif" alt="image">​</p>
+<p>参考这张图，完成个人的仓库名，分支，以及Token设定</p>
+<p>token生成如下：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/settings/tokens">Personal Access Tokens (Classic) (github.com)</a></p>
+<p>完成设置后，可以上传图片测试是否成功</p>
+<h2 id="Publisher"><a href="#Publisher" class="headerlink" title="Publisher"></a>Publisher</h2><p><a target="_blank" rel="noopener" href="https://blog.terwer.space/s/20230810132040-nn4q7vs">《发布工具平台配置指南》 - 在线分享 (terwer.space)</a></p>
+<p>首先由于我是docker进行的搭建，因此要完成偏好设置-&gt;思源设置</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221034.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221034.png" srcset="./img/load.gif" alt="image">​</p>
+<p>换成自己的访问IP</p>
+<p>主要需要完成的设置就是鉴权Token</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221036.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221036.png" srcset="./img/load.gif" alt="image">​</p>
+<p>其余基本默认即可，完成后及时完成测试</p>
+<h1 id="Github-Actions"><a href="#Github-Actions" class="headerlink" title="Github Actions"></a>Github Actions</h1><p>到了最重要的完成自动化部署了</p>
+<table>
+<thead>
+<tr>
+<th><a target="_blank" rel="noopener" href="https://github.com/Wh1teJ0ker/Blog">https://github.com/Wh1teJ0ker/Blog</a></th>
+<th>存放markdown</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/Wh1teJ0ker/wh1tej0ker.github.io">https://github.com/Wh1teJ0ker/wh1tej0ker.github.io</a></td>
+<td>存放静态网页</td>
+</tr>
+</tbody></table>
+<h2 id="Hexo基础部署"><a href="#Hexo基础部署" class="headerlink" title="Hexo基础部署"></a>Hexo基础部署</h2><p>先做一个测试环境</p>
+<pre><code class="highlight plain">docker run -it --name Blog \
+  -p 250:8080 \
+  -v &quot;/Data/Blog/coder/.config:/home/coder/.config&quot; \
+  -v &quot;/Data/Blog/project:/home/coder/project&quot; \
+  -u &quot;$(id -u):$(id -g)&quot; \
+  -e &quot;DOCKER_USER=coder&quot; \
+  -e PASSWORD=&#x27;admin&#x27; \
+  -d codercom/code-server:latest</code></pre>
+
+<p>安装nvm</p>
+<pre><code class="highlight plain">cd /root
+wget https://github.com/nvm-sh/nvm/archive/refs/tags/v0.38.0.tar.gz
+mkdir -p /root/.nvm
+tar -zxvf nvm-0.38.0.tar.gz -C /root/.nvm
+vim ~/.bashrc 
+#####
+export NVM_DIR=&quot;$HOME/.nvm/nvm-0.38.0&quot;
+[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
+[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
+#####
+source ~/.bashrc</code></pre>
+
+<p>切换npm</p>
+<pre><code class="highlight plain">nvm install
+nvm use
+nvm ls
+nvm uninstall</code></pre>
+
+<p>安装npm</p>
+<pre><code class="highlight plain">#配置源
+nvm node_mirror https://registry.npmmirror.com/node/
+nvm npm_mirror https://registry.npmmirror.com/npm/
+#版本选择
+nvm install 16
+# verifies the right Node.js version is in the environment
+node -v # should print `v16.20.2`
+# verifies the right npm version is in the environment
+npm -v # should print `8.19.4`
+#设置权限
+npm config set user 0	设置用户权限
+npm config set unsafe-perm true	设置权限
+sudo chown -R $(whoami) ~/.npm
+sudo chown -R $(whoami) ~/.nvm</code></pre>
+
+<p>安装hexo</p>
+<pre><code class="highlight plain">#阿里源
+npm config set registry https://npm.aliyun.com
+#淘宝
+npm config set registry https://registry.npmmirror.com
+#原始
+npm config set registry https://registry.npmjs.org/
+npm install -g hexo-cli
+npm install hexo-deployer-git --save</code></pre>
+
+<p>选择目录初始化操作</p>
+<pre><code class="highlight plain">hexo init</code></pre>
+
+<p>本次主题选用的极简风格</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/LenChou95/hexo-theme-ZenMind">LenChou95&#x2F;hexo-theme-ZenMind: 一款 Hexo 单栏简洁主题 A simple and elegant theme for hexo. (github.com)</a></p>
+<p>deploy需要使用ssh</p>
+<p>以上是正常的过程，将其放置于Blog仓库</p>
+<h2 id="Github-Actions自动化部署"><a href="#Github-Actions自动化部署" class="headerlink" title="Github Actions自动化部署"></a>Github Actions自动化部署</h2><p>需要先使用生成密钥</p>
+<p>​<code>ssh-keygen -f github-deploy-key</code>​</p>
+<p>在我们第一个存放源码的仓库Blog中将github-deploy-key放入secret</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221038.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221038.png" srcset="./img/load.gif" alt="image">​</p>
+<p>第二个github.io的仓库Deploy存放github-deploy-key.pub</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726220816.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726220816.png" srcset="./img/load.gif" alt="image">​</p>
+<p>完成上述之后，我们实际上为了完成两个仓库之间交互的第一步</p>
+<p>接下来就是编写Actions脚本</p>
+<p><a target="_blank" rel="noopener" href="https://op30132.github.io/2020/02/05/github-action/">Hexo + github actions 自動化部署 | Winnie&apos;s blog (op30132.github.io)</a></p>
+<p>借鉴如上</p>
+<pre><code class="highlight plaintext">name: HEXO CI
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js $&#123;&#123; matrix.node-version &#125;&#125;
+        uses: actions/setup-node@v2
+        with:
+          node-version: $&#123;&#123; matrix.node-version &#125;&#125;
+
+      - name: Configuration environment
+        env:
+          HEXO_DEPLOY_PRI: $&#123;&#123; secrets.HEXO_DEPLOY_PRI &#125;&#125;
+        run: |
+          mkdir -p ~/.ssh/
+          echo &quot;$HEXO_DEPLOY_PRI&quot; | tr -d &#x27;\r&#x27; &gt; ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts
+          git config --global user.name &quot;Wh1teJ0ker&quot;
+          git config --global user.email &quot;1430100306@qq.com&quot;
+
+      - name: Install dependencies
+        run: |
+          npm install -g hexo-cli
+          npm install
+
+      - name: Deploy hexo
+        run: |
+          hexo clean
+          hexo g
+          hexo d</code></pre>
+
+<p>如遇报错，需要查看日志进行debug</p>
+<p>希望自己之后能记得更新吧~~！！</p>
+<p>‍</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2024-07-26</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/post/2024basectfweek1-und65.html" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            2024BaseCTF-Week1
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+        <span id="leancloud_container_site_uv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="leancloud_container_site_pv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024&nbsp;-&nbsp;2024 <a href="/">Wh1teJ0kerのCTF日记</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+    <script>
+        (function () {
+            function getRecord(Counter, target) {
+                return new Promise(function (resolve, reject) {
+                    Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+                        .then(response => response.json())
+                        .then(({results}) => {
+                            if (results && results.length > 0) {
+                                var record = results[0];
+                                resolve(record);
+                            } else {
+                                Counter('post', '/classes/Counter', {
+                                        target, time: 0
+                                    })
+                                    .then(response => response.json())
+                                    .then(record => {
+                                        resolve(record);
+                                    }).catch(error => {
+                                        console.error('Failed to create', error);
+                                        reject(error);
+                                    });
+                            }
+                        }).catch(error => {
+                            console.error('LeanCloud Counter Error', error);
+                            reject(error);
+                        });
+                })
+            }
+        
+            function buildIncrement(objectId) {
+                return {
+                    "method": "PUT",
+                    "path": `/1.1/classes/Counter/${ objectId }`,
+                    "body": {
+                        "time": {
+                            '__op': 'Increment',
+                            'amount': 1
+                        }
+                    }
+                }
+            }
+        
+            function increment(Counter, incrArr) {
+                return new Promise(function (resolve, reject) {
+                    Counter('post', '/batch', {
+                        "requests": incrArr
+                    }).then((res) => {
+                        resolve(res);
+                    }).catch(error => {
+                        console.error('Failed to save visitor count', error);
+                        reject(error);
+                    });
+                });
+            }
+        
+            function validUV() {
+                var key = 'LeanCloud_UV_Flag';
+                var flag = localStorage.getItem(key);
+                if (flag) {
+                    if (new Date().getTime() - parseInt(flag) <= 86400000) {
+                        return false;
+                    }
+                }
+                localStorage.setItem(key, new Date().getTime().toString());
+                return true;
+            }
+        
+            function addCount(Counter) {
+                var enableIncr = 'leancloud' === 'leancloud';
+                var getterArr = [];
+                var incrArr = [];
+                var pvCtn = document.querySelector('#leancloud_container_site_pv');
+                if (pvCtn || enableIncr) {
+                    var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+                        incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_pv');
+                        if (ele) {
+                            ele.innerText = record.time + 1;
+                            if (pvCtn) {
+                                pvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(pvGetter);
+                }
+                var uvCtn = document.querySelector('#leancloud_container_site_uv');
+                if (uvCtn || enableIncr) {
+                    var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+                        var vuv = validUV();
+                        vuv && incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_uv');
+                        if (ele) {
+                            ele.innerText = record.time + (vuv ? 1 : 0);
+                            if (uvCtn) {
+                                uvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(uvGetter);
+                }
+                if ('true' === 'true') {
+                    var viewCtn = document.querySelector('#leancloud_container_page_pv');
+                    if (viewCtn || enableIncr) {
+                        var target = decodeURI('/post/the-beginning-of-everything-ogta7.html');
+                        var viewGetter = getRecord(Counter, target).then((record) => {
+                            incrArr.push(buildIncrement(record.objectId))
+                            if (viewCtn) {
+                                var ele = document.querySelector('#leancloud_value_page_pv');
+                                if (ele) {
+                                    ele.innerText = (record.time || 0) + 1;
+                                    viewCtn.style.display = 'inline';
+                                }
+                            }
+                        });
+                        getterArr.push(viewGetter);
+                    }
+                }
+                if (enableIncr) {
+                    Promise.all(getterArr).then(() => {
+                        incrArr.length > 0 && increment(Counter, incrArr);
+                    })
+                }
+            }
+        
+            var app_id = 'vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz';
+            var app_key = 'KcrLQh8tdhzsVRby2L7bi6lp';
+            var server_url = 'https://vx1uewrs.lc-cn-n1-shared.com';
+        
+            function fetchData(api_server) {
+                var Counter = (method, url, data) => {
+                    return fetch(`${ api_server }/1.1${ url }`, {
+                        method,
+                        headers: {
+                                'X-LC-Id': app_id,
+                                'X-LC-Key': app_key,
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data)
+                    });
+                };
+                addCount(Counter);
+            }
+            var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+            if (api_server) {
+                fetchData(api_server);
+            } else {
+                fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+                    .then(response => response.json())
+                    .then(({api_server}) => {
+                        fetchData('https://' + api_server);
+                    });
+            }
+        })();
+    </script>
+
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz","appKey":"KcrLQh8tdhzsVRby2L7bi6lp","placeholder":null,"path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":true,"visitor":true,"highlight":null,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":true,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

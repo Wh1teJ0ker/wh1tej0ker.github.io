@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/./img/favicon.ico">
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>2024数信杯北区决赛 | Wh1teJ0kerのCTF日记</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Wh1teJ0kerのCTF日记</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">HOME</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">HOME</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        2024数信杯北区决赛
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2024/09/" class="post-meta__date button">2024-09-30</a>
+        
+ 
+        
+     
+    <span id="leancloud_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="leancloud_value_page_pv"></span>
+        <span>Views</span>
+    </span>
+
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#secret-1"><span class="toc-number">1.</span> <span class="toc-text">secret_1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#secret-2"><span class="toc-number">2.</span> <span class="toc-text">secret_2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#secret-3"><span class="toc-number">3.</span> <span class="toc-text">secret_3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history-1-history-2"><span class="toc-number">4.</span> <span class="toc-text">history_1&amp;&amp;history_2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ez-sign"><span class="toc-number">5.</span> <span class="toc-text">ez_sign</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%88%B0%E5%AF%84%E8%AF%AD"><span class="toc-number">6.</span> <span class="toc-text">签到寄语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pixel"><span class="toc-number">7.</span> <span class="toc-text">Pixel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B4%E5%8D%B0%E6%94%BB%E5%87%BB"><span class="toc-number">8.</span> <span class="toc-text">水印攻击</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#secret-1"><span class="toc-number">1.</span> <span class="toc-text">secret_1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#secret-2"><span class="toc-number">2.</span> <span class="toc-text">secret_2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#secret-3"><span class="toc-number">3.</span> <span class="toc-text">secret_3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history-1-history-2"><span class="toc-number">4.</span> <span class="toc-text">history_1&amp;&amp;history_2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ez-sign"><span class="toc-number">5.</span> <span class="toc-text">ez_sign</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%88%B0%E5%AF%84%E8%AF%AD"><span class="toc-number">6.</span> <span class="toc-text">签到寄语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pixel"><span class="toc-number">7.</span> <span class="toc-text">Pixel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B4%E5%8D%B0%E6%94%BB%E5%87%BB"><span class="toc-number">8.</span> <span class="toc-text">水印攻击</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="2024数信杯北区决赛"><a href="#2024数信杯北区决赛" class="headerlink" title="2024数信杯北区决赛"></a>2024数信杯北区决赛</h1><p>备注：图片图床使用为Github，打不开需要挂梯子！</p>
+<hr>
+<h1 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h1><h2 id="secret-1"><a href="#secret-1" class="headerlink" title="secret_1"></a>secret_1</h2><blockquote>
+<p>小强离开电脑的时候，某人把小强的秘密给偷走了，还把文件修改覆盖了，作案脚本也删了。请帮助小强找到丢失的相关数据。</p>
+<p>1.提交加密算法工具当中的flag值。（提交示例：flag{*}）</p>
+</blockquote>
+<p>010直接搜索到了</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929105902-unfy12s.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929105902-unfy12s.png" srcset="./img/load.gif" alt="image">​</p>
+<h2 id="secret-2"><a href="#secret-2" class="headerlink" title="secret_2"></a>secret_2</h2><blockquote>
+<p>2.恢复图片中的flag值。</p>
+</blockquote>
+<pre><code class="highlight bash">python2 vol.py -f ../data1.raw --profile=Win7SP1x64 filescan | grep flag
+python2 vol.py -f ../data1.raw --profile=Win7SP1x64 dumpfiles -Q 0x000000007f3f17b0 -D ./</code></pre>
+
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929154653-6xnpnk7.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929154653-6xnpnk7.png" srcset="./img/load.gif" alt="image">​</p>
+<p>找到了flagg.png</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929154923-zhdadtq.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929154923-zhdadtq.png" srcset="./img/load.gif" alt="image">​</p>
+<p>然后在相同目录下发下了一个pyc文件，提取出来进行反编译得到源码</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155248-l5hfsb2.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155248-l5hfsb2.png" srcset="./img/load.gif" alt="image">​</p>
+<pre><code class="highlight bash"><span class="meta">#!/usr/bin/env python</span>
+<span class="comment"># Version: Python 3.7</span>
+
+def encode(png):
+    flag = <span class="string">&#x27;flag&#123;eba771fd-2b03-418f-b11a-60f1141c99ee&#125;&#x27;</span>
+    lens = len(flag)
+    with open(png, <span class="string">&#x27;rb&#x27;</span>) as f:
+        pic_bytes = f.read()
+        output_bytes = bytearray()
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pic_bytes)):
+            output_bytes.append(pic_bytes[i] ^ ord(flag[i * 2 % lens]))
+    with open(png, <span class="string">&#x27;wb&#x27;</span>) as f:
+        f.write(output_bytes)
+
+def decode(png):
+    flag = <span class="string">&#x27;flag&#123;eba771fd-2b03-418f-b11a-60f1141c99ee&#125;&#x27;</span>
+    lens = len(flag)
+    with open(png, <span class="string">&#x27;rb&#x27;</span>) as f:
+        pic_bytes = f.read()
+        output_bytes = bytearray()
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pic_bytes)):
+            output_bytes.append(pic_bytes[i] ^ ord(flag[i * 2 % lens]))
+    with open(png, <span class="string">&#x27;wb&#x27;</span>) as f:
+        f.write(output_bytes)
+
+<span class="comment"># 示例文件路径</span>
+file_path = <span class="string">&#x27;./flag.png&#x27;</span>
+
+<span class="comment"># 使用示例</span>
+<span class="comment">#encode(file_path)  # 加密</span>
+decode(file_path)  <span class="comment"># 解密</span>
+</code></pre>
+
+<p>最终得到flag</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155314-wtpmccl.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155314-wtpmccl.png" srcset="./img/load.gif" alt="image">​</p>
+<h2 id="secret-3"><a href="#secret-3" class="headerlink" title="secret_3"></a>secret_3</h2><blockquote>
+<p>3.提交压缩包当中的flag值。</p>
+</blockquote>
+<p>待复现（</p>
+<h2 id="history-1-history-2"><a href="#history-1-history-2" class="headerlink" title="history_1&amp;&amp;history_2"></a>history_1&amp;&amp;history_2</h2><blockquote>
+<p>浏览器历史数据查找。</p>
+<p>1.提交flag中uuid值32位小写md5加密第一位为4的uuid（提交示例：9c26d7a6-ea44-4beb-96a8-bc9c75866fef)</p>
+<p>2.提交flag中uuid值32位小写md5加密第一位为a的uuid（提交示例：9c26d7a6-ea44-4beb-96a8-bc9c75866fef）</p>
+</blockquote>
+<pre><code class="highlight bash">python2 vol.py -f ../data2.raw --profile=Win7SP1x64  filescan | grep <span class="string">&quot;.ipynb&quot;</span></code></pre>
+
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155457-glljhw5.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155457-glljhw5.png" srcset="./img/load.gif" alt="image">​</p>
+<pre><code class="highlight bash">python2 vol.py -f ../data2.raw --profile=Win7SP1x64  dumpfiles -Q 0x000000007d843bd0 -D ../
+python2 vol.py -f ../data2.raw --profile=Win7SP1x64  dumpfiles -Q 0x000000007da54b40 -D ../</code></pre>
+
+<p>分别提取出来得到两个flag</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155627-cqijbes.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155627-cqijbes.png" srcset="./img/load.gif" alt="image">​</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155637-tkgvloq.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155637-tkgvloq.png" srcset="./img/load.gif" alt="image">​</p>
+<pre><code class="highlight bash">3d45f56a-b63c-44bd-adea-9aad22ae2e20
+fe55e2fb-ae4f-4b6d-b93d-da42479b5d69</code></pre>
+
+<h1 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h1><h2 id="ez-sign"><a href="#ez-sign" class="headerlink" title="ez_sign"></a>ez_sign</h2><p>弱密码爆破出来，123456</p>
+<p>然后part1直接在图片</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155801-iqodphc.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155801-iqodphc.png" srcset="./img/load.gif" alt="image">​</p>
+<p>part2流量包直接得到</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155845-w281ibg.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155845-w281ibg.png" srcset="./img/load.gif" alt="image">​</p>
+<p>part3将异或FF得到压缩包</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929102759-bvl6c0h.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929102759-bvl6c0h.png" srcset="./img/load.gif" alt="image">​</p>
+<pre><code class="highlight bash">flag&#123;266c7354-0817-4694-9494-c727479d8f1a&#125;</code></pre>
+
+<h2 id="签到寄语"><a href="#签到寄语" class="headerlink" title="签到寄语"></a>签到寄语</h2><p>找到开源项目<a target="_blank" rel="noopener" href="https://github.com/sz3/libcimbar">libcimbar</a></p>
+<p>扫码即得</p>
+<h2 id="Pixel"><a href="#Pixel" class="headerlink" title="Pixel"></a>Pixel</h2><p>先把文件头改一下得到png图片</p>
+<p>同时文件头有提示sm4</p>
+<p>然后lsb隐写得到三个参数</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929170251-rtlsrki.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929170251-rtlsrki.png" srcset="./img/load.gif" alt="image">​</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/42f55394355b851f5adfaa50b5f0480-20240929170301-qi1ipqv.jpg" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/42f55394355b851f5adfaa50b5f0480-20240929170301-qi1ipqv.jpg" srcset="./img/load.gif" alt="42f55394355b851f5adfaa50b5f0480">​</p>
+<h1 id="数据算法"><a href="#数据算法" class="headerlink" title="数据算法"></a>数据算法</h1><h2 id="水印攻击"><a href="#水印攻击" class="headerlink" title="水印攻击"></a>水印攻击</h2><p>这个版本分不是很高（</p>
+<pre><code class="highlight python"><span class="keyword">import</span> cv2
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+
+<span class="keyword">def</span> <span class="title function_">add_gaussian_noise</span>(<span class="params">image, mean=<span class="number">0</span>, var=<span class="number">0.01</span></span>):
+    sigma = var**<span class="number">0.5</span>
+    gauss = np.random.normal(mean, sigma, image.shape).astype(<span class="string">&#x27;uint8&#x27;</span>)
+    noisy_image = cv2.add(image, gauss)
+    <span class="keyword">return</span> noisy_image
+
+<span class="keyword">def</span> <span class="title function_">add_salt_and_pepper_noise</span>(<span class="params">image, salt_prob=<span class="number">0.01</span>, pepper_prob=<span class="number">0.01</span></span>):
+    noisy_image = np.copy(image)
+    total_pixels = image.size
+    num_salt = np.ceil(salt_prob * total_pixels)
+    num_pepper = np.ceil(pepper_prob * total_pixels)
+
+    <span class="comment"># 添加盐噪声</span>
+    coords = [np.random.randint(<span class="number">0</span>, i - <span class="number">1</span>, <span class="built_in">int</span>(num_salt)) <span class="keyword">for</span> i <span class="keyword">in</span> image.shape]
+    noisy_image[coords[<span class="number">0</span>], coords[<span class="number">1</span>], :] = <span class="number">1</span>
+
+    <span class="comment"># 添加胡椒噪声</span>
+    coords = [np.random.randint(<span class="number">0</span>, i - <span class="number">1</span>, <span class="built_in">int</span>(num_pepper)) <span class="keyword">for</span> i <span class="keyword">in</span> image.shape]
+    noisy_image[coords[<span class="number">0</span>], coords[<span class="number">1</span>], :] = <span class="number">0</span>
+
+    <span class="keyword">return</span> noisy_image
+
+<span class="comment"># 读取原图</span>
+input_image = cv2.imread(<span class="string">&#x27;./input.png&#x27;</span>)
+
+<span class="comment"># 添加高斯噪音</span>
+noisy_image = add_gaussian_noise(input_image)
+
+<span class="comment"># 添加椒盐噪音</span>
+final_image = add_salt_and_pepper_noise(noisy_image)
+
+<span class="comment"># 保存结果</span>
+cv2.imwrite(<span class="string">&#x27;result1.png&#x27;</span>, final_image)
+</code></pre>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2024-10-01</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/post/2024-huawei-cup-z1tnmrv.html" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            2024华为杯
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/post/2024-heilongjiang-university-network-security-competition-z176qsj.html" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            2024黑龙江省大学网络安全竞赛
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+        <span id="leancloud_container_site_uv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="leancloud_container_site_pv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024&nbsp;-&nbsp;2024 <a href="/">Wh1teJ0kerのCTF日记</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+    <script>
+        (function () {
+            function getRecord(Counter, target) {
+                return new Promise(function (resolve, reject) {
+                    Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+                        .then(response => response.json())
+                        .then(({results}) => {
+                            if (results && results.length > 0) {
+                                var record = results[0];
+                                resolve(record);
+                            } else {
+                                Counter('post', '/classes/Counter', {
+                                        target, time: 0
+                                    })
+                                    .then(response => response.json())
+                                    .then(record => {
+                                        resolve(record);
+                                    }).catch(error => {
+                                        console.error('Failed to create', error);
+                                        reject(error);
+                                    });
+                            }
+                        }).catch(error => {
+                            console.error('LeanCloud Counter Error', error);
+                            reject(error);
+                        });
+                })
+            }
+        
+            function buildIncrement(objectId) {
+                return {
+                    "method": "PUT",
+                    "path": `/1.1/classes/Counter/${ objectId }`,
+                    "body": {
+                        "time": {
+                            '__op': 'Increment',
+                            'amount': 1
+                        }
+                    }
+                }
+            }
+        
+            function increment(Counter, incrArr) {
+                return new Promise(function (resolve, reject) {
+                    Counter('post', '/batch', {
+                        "requests": incrArr
+                    }).then((res) => {
+                        resolve(res);
+                    }).catch(error => {
+                        console.error('Failed to save visitor count', error);
+                        reject(error);
+                    });
+                });
+            }
+        
+            function validUV() {
+                var key = 'LeanCloud_UV_Flag';
+                var flag = localStorage.getItem(key);
+                if (flag) {
+                    if (new Date().getTime() - parseInt(flag) <= 86400000) {
+                        return false;
+                    }
+                }
+                localStorage.setItem(key, new Date().getTime().toString());
+                return true;
+            }
+        
+            function addCount(Counter) {
+                var enableIncr = 'leancloud' === 'leancloud';
+                var getterArr = [];
+                var incrArr = [];
+                var pvCtn = document.querySelector('#leancloud_container_site_pv');
+                if (pvCtn || enableIncr) {
+                    var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+                        incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_pv');
+                        if (ele) {
+                            ele.innerText = record.time + 1;
+                            if (pvCtn) {
+                                pvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(pvGetter);
+                }
+                var uvCtn = document.querySelector('#leancloud_container_site_uv');
+                if (uvCtn || enableIncr) {
+                    var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+                        var vuv = validUV();
+                        vuv && incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_uv');
+                        if (ele) {
+                            ele.innerText = record.time + (vuv ? 1 : 0);
+                            if (uvCtn) {
+                                uvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(uvGetter);
+                }
+                if ('true' === 'true') {
+                    var viewCtn = document.querySelector('#leancloud_container_page_pv');
+                    if (viewCtn || enableIncr) {
+                        var target = decodeURI('/post/2024-digital-cup-north-district-final-z1f5wbd.html');
+                        var viewGetter = getRecord(Counter, target).then((record) => {
+                            incrArr.push(buildIncrement(record.objectId))
+                            if (viewCtn) {
+                                var ele = document.querySelector('#leancloud_value_page_pv');
+                                if (ele) {
+                                    ele.innerText = (record.time || 0) + 1;
+                                    viewCtn.style.display = 'inline';
+                                }
+                            }
+                        });
+                        getterArr.push(viewGetter);
+                    }
+                }
+                if (enableIncr) {
+                    Promise.all(getterArr).then(() => {
+                        incrArr.length > 0 && increment(Counter, incrArr);
+                    })
+                }
+            }
+        
+            var app_id = 'vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz';
+            var app_key = 'KcrLQh8tdhzsVRby2L7bi6lp';
+            var server_url = 'https://vx1uewrs.lc-cn-n1-shared.com';
+        
+            function fetchData(api_server) {
+                var Counter = (method, url, data) => {
+                    return fetch(`${ api_server }/1.1${ url }`, {
+                        method,
+                        headers: {
+                                'X-LC-Id': app_id,
+                                'X-LC-Key': app_key,
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data)
+                    });
+                };
+                addCount(Counter);
+            }
+            var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+            if (api_server) {
+                fetchData(api_server);
+            } else {
+                fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+                    .then(response => response.json())
+                    .then(({api_server}) => {
+                        fetchData('https://' + api_server);
+                    });
+            }
+        })();
+    </script>
+
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz","appKey":"KcrLQh8tdhzsVRby2L7bi6lp","placeholder":null,"path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":true,"visitor":true,"highlight":null,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":true,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/./img/favicon.ico">
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>2024网鼎杯 | Wh1teJ0kerのCTF日记</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Wh1teJ0kerのCTF日记</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">HOME</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">HOME</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        2024网鼎杯
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2024/10/" class="post-meta__date button">2024-10-29</a>
+        
+ 
+        
+     
+    <span id="leancloud_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="leancloud_value_page_pv"></span>
+        <span>Views</span>
+    </span>
+
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MISC01"><span class="toc-number">1.</span> <span class="toc-text">MISC01</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MISC02"><span class="toc-number">2.</span> <span class="toc-text">MISC02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MISC03"><span class="toc-number">3.</span> <span class="toc-text">MISC03</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MISC04"><span class="toc-number">4.</span> <span class="toc-text">MISC04</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MISC01"><span class="toc-number">1.</span> <span class="toc-text">MISC01</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MISC02"><span class="toc-number">2.</span> <span class="toc-text">MISC02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MISC03"><span class="toc-number">3.</span> <span class="toc-text">MISC03</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MISC04"><span class="toc-number">4.</span> <span class="toc-text">MISC04</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="2024网鼎杯-青龙组"><a href="#2024网鼎杯-青龙组" class="headerlink" title="2024网鼎杯-青龙组"></a>2024网鼎杯-青龙组</h1><p>备注：图片图床使用为Github，打不开需要挂梯子！</p>
+<hr>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="MISC01"><a href="#MISC01" class="headerlink" title="MISC01"></a>MISC01</h2><p>首先打开流量，发现存在多种协议</p>
+<pre><code class="highlight python">S1AP
+GTPv2
+DIAMETER</code></pre>
+
+<pre><code class="highlight python">在移动通信协议中，S1AP、GTPv2 和 Diameter 协议都可能涉及位置信息。这些协议通常携带不同层级的位置信息，用于不同的功能，如位置更新、会话管理和用户的移动性管理。以下是每种协议中与位置信息相关的字段：
+
+---
+
+<span class="comment">### 1. **S1AP (S1 Application Protocol)**</span>
+S1AP 是 EPC 和 eNodeB 之间的接口协议，用于管理和信令。以下是 S1AP 中一些与位置信息相关的字段：
+
+- **eCGI (E-UTRAN Cell Global Identifier)**: 包含了小区的唯一标识符。
+  - **组成**：PLMN ID (包含 MCC 和 MNC) 和 Cell ID。
+  
+- **TAI (Tracking Area Identity)**: 标识用户当前所在的跟踪区域。
+  - **组成**：PLMN ID 和 TAC (Tracking Area Code)。
+
+- **MME Code 和 MME Group ID**: 用于标识用户接入的 MME。
+  
+- **Location Reporting Information**: 包含用户的位置报告设置，用于位置更新和用户的移动管理。
+
+- **Global-ENB-ID**: 标识特定的 eNodeB，包含 PLMN ID 和 eNodeB ID。
+  
+这些字段用于位置更新、移动管理和跟踪用户在网络中的位置变化。
+
+---
+
+<span class="comment">### 2. **GTPv2 (GPRS Tunneling Protocol Version 2)**</span>
+GTPv2 用于 EPC 中的信令和会话管理，特别是在 S-GW 和 P-GW 之间。以下是 GTPv2 中常见的位置信息字段：
+
+- **User Location Information (ULI)**: 包含用户的位置信息。
+  - 可能包含多个字段，如 CGI (Cell Global Identity)、SAI (Service Area Identity)、RAI (Routing Area Identity)、TAI、ECGI 等。
+  
+- **CGI (Cell Global Identity)**: 包含 PLMN ID 和 Cell ID，用于标识具体的小区。
+
+- **SAI (Service Area Identity)**: 包含 PLMN ID 和 Service Area Code，用于标识服务区域。
+
+- **RAI (Routing Area Identity)**: 包含 PLMN ID 和 Routing Area Code，用于路由区域标识。
+
+- **TAI (Tracking Area Identity)**: 用于标识用户所在的跟踪区域，与 S1AP 中的 TAI 类似。
+
+这些字段在位置更新和会话管理消息中经常使用，例如位置更新请求和建立会话时。
+
+---
+
+<span class="comment">### 3. **Diameter (用于 S6a/S6d 接口)**</span>
+Diameter 协议用于 MME 和 HSS 之间的信令，通常承载用户订阅和认证信息。在 Diameter 中，位置信息通常存在于以下字段中：
+
+- **EPS-Location-Information**: 包含 eNodeB 信息，用于标识用户的位置信息。
+  - 可能包含 MME Code、MME Group ID、ECGI、TAI 等。
+
+- **Location-Information**: 包含用户的位置信息，可用于鉴权或更新位置请求。
+  
+- **RAT-<span class="type">Type</span>**: 虽然不直接是位置字段，但可以指示用户接入的无线接入类型（如 LTE），这与位置信息一起使用。
+
+- **Origin-Host 和 Origin-Realm**: 表示请求的来源 MME 和域，用于标识服务的源位置。
+
+- **Serving-Node**: 表示服务节点的信息，包括可能的 MME 信息。
+
+这些字段在用户位置更新和设备连接的认证请求中被频繁使用。
+
+---
+
+<span class="comment">### 总结</span>
+
+| 协议      | 位置相关字段                               | 说明                                            |
+|-----------|-------------------------------------------|-------------------------------------------------|
+| **S1AP**  | eCGI, TAI, MME Code, MME Group ID         | 小区标识、跟踪区域标识、MME 标识                |
+| **GTPv2** | ULI, CGI, SAI, RAI, TAI                   | 用户位置信息、服务区域、路由区域、跟踪区域      |
+| **Diameter** | EPS-Location-Information, Location-Information, Origin-Host | 用户位置信息、位置更新                           |
+
+这些字段用于标识用户的位置和当前连接的网络组件，在不同的通信阶段为用户提供会话管理和位置更新支持。</code></pre>
+
+<p>根据gpt的回复，再加上附件名称位MME，重点怀疑是Diameter</p>
+<p>依次寻找尝试</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730190191264-20241029162313-4j2oci3.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730190191264-20241029162313-4j2oci3.png" srcset="./img/load.gif" alt="QQ_1730190191264">​</p>
+<p>最终在这个流中发现EPS-Location-Information字段</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730190262965-20241029162426-zut3olm.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730190262965-20241029162426-zut3olm.png" srcset="./img/load.gif" alt="QQ_1730190262965">​</p>
+<pre><code class="highlight python">da18bee581c4ae</code></pre>
+
+<p>md5加密一下</p>
+<pre><code class="highlight python">daedc32bdeceb78094502e481c90c6cc</code></pre>
+
+<h2 id="MISC02"><a href="#MISC02" class="headerlink" title="MISC02"></a>MISC02</h2><pre><code class="highlight python">LinuxUbuntu_6_5_0-<span class="number">41</span>-generic_profilex64</code></pre>
+
+<h2 id="MISC03"><a href="#MISC03" class="headerlink" title="MISC03"></a>MISC03</h2><p>一个数据很多的流量</p>
+<p>开始的时候查找到有相关webshell的信息</p>
+<p>开始的时候一直怀疑需要将webshell进行解密</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730189599339-20241029161324-441xbp1.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730189599339-20241029161324-441xbp1.png" srcset="./img/load.gif" alt="QQ_1730189599339">​</p>
+<p>但是解了半天，一直有问题，后来发现原来是将源ip直接提交就行</p>
+<p>过滤一下200响应的流，就很容易找到了</p>
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730189771130-20241029161616-l31904r.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730189771130-20241029161616-l31904r.png" srcset="./img/load.gif" alt="QQ_1730189771130">​</p>
+<p>最终提交这个ip即可</p>
+<pre><code class="highlight python"><span class="number">39.168</span><span class="number">.5</span><span class="number">.60</span></code></pre>
+
+<h2 id="MISC04"><a href="#MISC04" class="headerlink" title="MISC04"></a>MISC04</h2><p>原题在IrisCTF2024peanoscramble</p>
+<p>然后找到原题的wp</p>
+<p><a target="_blank" rel="noopener" href="https://almostgph.github.io/2024/01/08/IrisCTF2024/">https://almostgph.github.io/2024/01/08/IrisCTF2024/</a></p>
+<pre><code class="highlight python"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image
+<span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm
+
+<span class="keyword">def</span> <span class="title function_">peano</span>(<span class="params">n</span>):
+    <span class="keyword">if</span> n == <span class="number">0</span>:
+        <span class="keyword">return</span> [[<span class="number">0</span>,<span class="number">0</span>]]
+    <span class="keyword">else</span>:
+        in_lst = peano(n - <span class="number">1</span>)
+        lst = in_lst.copy()
+        px,py = lst[-<span class="number">1</span>]
+        lst.extend([px - i[<span class="number">0</span>], py + <span class="number">1</span> + i[<span class="number">1</span>]] <span class="keyword">for</span> i <span class="keyword">in</span> in_lst)
+        px,py = lst[-<span class="number">1</span>]
+        lst.extend([px + i[<span class="number">0</span>], py + <span class="number">1</span> + i[<span class="number">1</span>]] <span class="keyword">for</span> i <span class="keyword">in</span> in_lst)
+        px,py = lst[-<span class="number">1</span>]
+        lst.extend([px + <span class="number">1</span> + i[<span class="number">0</span>], py - i[<span class="number">1</span>]] <span class="keyword">for</span> i <span class="keyword">in</span> in_lst)
+        px,py = lst[-<span class="number">1</span>]
+        lst.extend([px - i[<span class="number">0</span>], py - <span class="number">1</span> - i[<span class="number">1</span>]] <span class="keyword">for</span> i <span class="keyword">in</span> in_lst)
+        px,py = lst[-<span class="number">1</span>]
+        lst.extend([px + i[<span class="number">0</span>], py - <span class="number">1</span> - i[<span class="number">1</span>]] <span class="keyword">for</span> i <span class="keyword">in</span> in_lst)
+        px,py = lst[-<span class="number">1</span>]
+        lst.extend([px + <span class="number">1</span> + i[<span class="number">0</span>], py + i[<span class="number">1</span>]] <span class="keyword">for</span> i <span class="keyword">in</span> in_lst)
+        px,py = lst[-<span class="number">1</span>]
+        lst.extend([px - i[<span class="number">0</span>], py + <span class="number">1</span> + i[<span class="number">1</span>]] <span class="keyword">for</span> i <span class="keyword">in</span> in_lst)
+        px,py = lst[-<span class="number">1</span>]
+        lst.extend([px + i[<span class="number">0</span>], py + <span class="number">1</span> + i[<span class="number">1</span>]] <span class="keyword">for</span> i <span class="keyword">in</span> in_lst)
+        <span class="keyword">return</span> lst
+
+order = peano(<span class="number">6</span>)
+
+img = Image.<span class="built_in">open</span>(<span class="string">r&quot;C:\Users\ASUSROG\Desktop\chal.png&quot;</span>)
+
+width, height = img.size
+
+block_width = width <span class="comment"># // 3</span>
+block_height = height <span class="comment"># // 3</span>
+
+new_image = Image.new(<span class="string">&quot;RGB&quot;</span>, (width, height))
+
+<span class="keyword">for</span> i, (x, y) <span class="keyword">in</span> tqdm(<span class="built_in">enumerate</span>(order)):
+    <span class="comment"># 根据列表顺序获取新的坐标</span>
+    new_x, new_y = i % width, i // width
+    <span class="comment"># 获取原图像素</span>
+    pixel = img.getpixel((x, height - <span class="number">1</span> - y))
+    <span class="comment"># 在新图像中放置像素</span>
+    new_image.putpixel((new_x, new_y), pixel)
+
+new_image.save(<span class="string">&quot;rearranged_image.jpg&quot;</span>)</code></pre>
+
+<p>​<img src="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730189087698-20241029160451-lo0ip5f.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/QQ_1730189087698-20241029160451-lo0ip5f.png" srcset="./img/load.gif" alt="QQ_1730189087698">​</p>
+<p>翻转图像后使用微信扫码得到flag</p>
+<pre><code class="highlight python">wdflag&#123;3f531c43-3b8b-42ab-babf-567f1216fa06&#125;</code></pre>
+
+<p>‍</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2024-10-30</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/post/2024-pengcheng-cup-z1kl1nd.html" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            2024鹏程杯
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/post/2024-strong-network-arabia-z2jdx0.html" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            2024强网拟态
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+        <span id="leancloud_container_site_uv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="leancloud_container_site_pv" hidden>
+            <span></span>
+            <span id="leancloud_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024&nbsp;-&nbsp;2024 <a href="/">Wh1teJ0kerのCTF日记</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+    <script>
+        (function () {
+            function getRecord(Counter, target) {
+                return new Promise(function (resolve, reject) {
+                    Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+                        .then(response => response.json())
+                        .then(({results}) => {
+                            if (results && results.length > 0) {
+                                var record = results[0];
+                                resolve(record);
+                            } else {
+                                Counter('post', '/classes/Counter', {
+                                        target, time: 0
+                                    })
+                                    .then(response => response.json())
+                                    .then(record => {
+                                        resolve(record);
+                                    }).catch(error => {
+                                        console.error('Failed to create', error);
+                                        reject(error);
+                                    });
+                            }
+                        }).catch(error => {
+                            console.error('LeanCloud Counter Error', error);
+                            reject(error);
+                        });
+                })
+            }
+        
+            function buildIncrement(objectId) {
+                return {
+                    "method": "PUT",
+                    "path": `/1.1/classes/Counter/${ objectId }`,
+                    "body": {
+                        "time": {
+                            '__op': 'Increment',
+                            'amount': 1
+                        }
+                    }
+                }
+            }
+        
+            function increment(Counter, incrArr) {
+                return new Promise(function (resolve, reject) {
+                    Counter('post', '/batch', {
+                        "requests": incrArr
+                    }).then((res) => {
+                        resolve(res);
+                    }).catch(error => {
+                        console.error('Failed to save visitor count', error);
+                        reject(error);
+                    });
+                });
+            }
+        
+            function validUV() {
+                var key = 'LeanCloud_UV_Flag';
+                var flag = localStorage.getItem(key);
+                if (flag) {
+                    if (new Date().getTime() - parseInt(flag) <= 86400000) {
+                        return false;
+                    }
+                }
+                localStorage.setItem(key, new Date().getTime().toString());
+                return true;
+            }
+        
+            function addCount(Counter) {
+                var enableIncr = 'leancloud' === 'leancloud';
+                var getterArr = [];
+                var incrArr = [];
+                var pvCtn = document.querySelector('#leancloud_container_site_pv');
+                if (pvCtn || enableIncr) {
+                    var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+                        incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_pv');
+                        if (ele) {
+                            ele.innerText = record.time + 1;
+                            if (pvCtn) {
+                                pvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(pvGetter);
+                }
+                var uvCtn = document.querySelector('#leancloud_container_site_uv');
+                if (uvCtn || enableIncr) {
+                    var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+                        var vuv = validUV();
+                        vuv && incrArr.push(buildIncrement(record.objectId))
+                        var ele = document.querySelector('#leancloud_value_site_uv');
+                        if (ele) {
+                            ele.innerText = record.time + (vuv ? 1 : 0);
+                            if (uvCtn) {
+                                uvCtn.style.display = 'inline';
+                            }
+                        }
+                    });
+                    getterArr.push(uvGetter);
+                }
+                if ('true' === 'true') {
+                    var viewCtn = document.querySelector('#leancloud_container_page_pv');
+                    if (viewCtn || enableIncr) {
+                        var target = decodeURI('/post/2024-net-ding-cup-xltap.html');
+                        var viewGetter = getRecord(Counter, target).then((record) => {
+                            incrArr.push(buildIncrement(record.objectId))
+                            if (viewCtn) {
+                                var ele = document.querySelector('#leancloud_value_page_pv');
+                                if (ele) {
+                                    ele.innerText = (record.time || 0) + 1;
+                                    viewCtn.style.display = 'inline';
+                                }
+                            }
+                        });
+                        getterArr.push(viewGetter);
+                    }
+                }
+                if (enableIncr) {
+                    Promise.all(getterArr).then(() => {
+                        incrArr.length > 0 && increment(Counter, incrArr);
+                    })
+                }
+            }
+        
+            var app_id = 'vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz';
+            var app_key = 'KcrLQh8tdhzsVRby2L7bi6lp';
+            var server_url = 'https://vx1uewrs.lc-cn-n1-shared.com';
+        
+            function fetchData(api_server) {
+                var Counter = (method, url, data) => {
+                    return fetch(`${ api_server }/1.1${ url }`, {
+                        method,
+                        headers: {
+                                'X-LC-Id': app_id,
+                                'X-LC-Key': app_key,
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data)
+                    });
+                };
+                addCount(Counter);
+            }
+            var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+            if (api_server) {
+                fetchData(api_server);
+            } else {
+                fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+                    .then(response => response.json())
+                    .then(({api_server}) => {
+                        fetchData('https://' + api_server);
+                    });
+            }
+        })();
+    </script>
+
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"vX1ueWRsZOzivgPodwOrN3Ar-gzGzoHsz","appKey":"KcrLQh8tdhzsVRby2L7bi6lp","placeholder":null,"path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":true,"visitor":true,"highlight":null,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":true,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>
