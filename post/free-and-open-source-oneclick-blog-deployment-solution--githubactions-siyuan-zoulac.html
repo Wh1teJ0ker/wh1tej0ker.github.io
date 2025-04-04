@@ -18,7 +18,7 @@
 </span></span></span><span class=line><span class=cl><span class=se></span>  --restart<span class=o>=</span>always <span class=se>\
 </span></span></span><span class=line><span class=cl><span class=se></span>  --accessAuthCode<span class=o>=</span>joker
 </span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>chown 1000:1000 /Data/siyuan/workspace
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>chown 1000:1000 /Data/siyuan/workspace
 </span></span></code></pre></td></tr></table></div></div><p>完成拉取和运行，再对工作目录赋予权限即可完成</p><p>本次需要使用的两个插件为</p><ul><li><a href=https://github.com/terwer/siyuan-plugin-publisher>siyuan-plugin-publisher</a></li><li><a href=https://github.com/terwer/siyuan-plugin-picgo>siyuan-plugin-picgo</a></li></ul><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221032.png alt=image>​</p><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726220808.png alt=image>​</p><h2 id=picgo>PicGo</h2><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726220951.png alt=image>​</p><p>参考这张图，完成个人的仓库名，分支，以及Token设定</p><p>token生成如下：</p><p><a href=https://github.com/settings/tokens>Personal Access Tokens (Classic) (github.com)</a></p><p>完成设置后，可以上传图片测试是否成功</p><h2 id=publisher>Publisher</h2><p><a href=https://blog.terwer.space/s/20230810132040-nn4q7vs>《发布工具平台配置指南》 - 在线分享 (terwer.space)</a></p><p>首先由于我是docker进行的搭建，因此要完成偏好设置->思源设置</p><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221034.png alt=image>​</p><p>换成自己的访问IP</p><p>主要需要完成的设置就是鉴权Token</p><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221036.png alt=image>​</p><p>其余基本默认即可，完成后及时完成测试</p><h1 id=github-actions>Github Actions</h1><p>到了最重要的完成自动化部署了</p><table><thead><tr><th><a href=https://github.com/Wh1teJ0ker/Blog>https://github.com/Wh1teJ0ker/Blog</a></th><th>存放markdown</th></tr></thead><tbody><tr><td><a href=https://github.com/Wh1teJ0ker/wh1tej0ker.github.io>https://github.com/Wh1teJ0ker/wh1tej0ker.github.io</a></td><td>存放静态网页</td></tr></tbody></table><h2 id=hexo基础部署>Hexo基础部署</h2><p>先做一个测试环境</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -27,14 +27,14 @@
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>docker run -it --name Blog \
-</span></span><span class=line><span class=cl>  -p 250:8080 \
-</span></span><span class=line><span class=cl>  -v &#34;/Data/Blog/coder/.config:/home/coder/.config&#34; \
-</span></span><span class=line><span class=cl>  -v &#34;/Data/Blog/project:/home/coder/project&#34; \
-</span></span><span class=line><span class=cl>  -u &#34;$(id -u):$(id -g)&#34; \
-</span></span><span class=line><span class=cl>  -e &#34;DOCKER_USER=coder&#34; \
-</span></span><span class=line><span class=cl>  -e PASSWORD=&#39;admin&#39; \
-</span></span><span class=line><span class=cl>  -d codercom/code-server:latest
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>docker run -it --name Blog <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -p 250:8080 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -v <span class=s2>&#34;/Data/Blog/coder/.config:/home/coder/.config&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -v <span class=s2>&#34;/Data/Blog/project:/home/coder/project&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -u <span class=s2>&#34;</span><span class=k>$(</span>id -u<span class=k>)</span><span class=s2>:</span><span class=k>$(</span>id -g<span class=k>)</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=s2>&#34;DOCKER_USER=coder&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=nv>PASSWORD</span><span class=o>=</span><span class=s1>&#39;admin&#39;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -d codercom/code-server:latest
 </span></span></code></pre></td></tr></table></div></div><p>安装nvm</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -46,22 +46,22 @@
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>cd /root
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=nb>cd</span> /root
 </span></span><span class=line><span class=cl>wget https://github.com/nvm-sh/nvm/archive/refs/tags/v0.38.0.tar.gz
 </span></span><span class=line><span class=cl>mkdir -p /root/.nvm
 </span></span><span class=line><span class=cl>tar -zxvf nvm-0.38.0.tar.gz -C /root/.nvm
 </span></span><span class=line><span class=cl>vim ~/.bashrc 
-</span></span><span class=line><span class=cl>#####
-</span></span><span class=line><span class=cl>export NVM_DIR=&#34;$HOME/.nvm/nvm-0.38.0&#34;
-</span></span><span class=line><span class=cl>[ -s &#34;$NVM_DIR/nvm.sh&#34; ] &amp;&amp; \. &#34;$NVM_DIR/nvm.sh&#34;  # This loads nvm
-</span></span><span class=line><span class=cl>[ -s &#34;$NVM_DIR/bash_completion&#34; ] &amp;&amp; \. &#34;$NVM_DIR/bash_completion&#34;  # This loads nvm bash_completion
-</span></span><span class=line><span class=cl>#####
-</span></span><span class=line><span class=cl>source ~/.bashrc
+</span></span><span class=line><span class=cl><span class=c1>#####</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>NVM_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$HOME</span><span class=s2>/.nvm/nvm-0.38.0&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>[</span> -s <span class=s2>&#34;</span><span class=nv>$NVM_DIR</span><span class=s2>/nvm.sh&#34;</span> <span class=o>]</span> <span class=o>&amp;&amp;</span> <span class=se>\.</span> <span class=s2>&#34;</span><span class=nv>$NVM_DIR</span><span class=s2>/nvm.sh&#34;</span>  <span class=c1># This loads nvm</span>
+</span></span><span class=line><span class=cl><span class=o>[</span> -s <span class=s2>&#34;</span><span class=nv>$NVM_DIR</span><span class=s2>/bash_completion&#34;</span> <span class=o>]</span> <span class=o>&amp;&amp;</span> <span class=se>\.</span> <span class=s2>&#34;</span><span class=nv>$NVM_DIR</span><span class=s2>/bash_completion&#34;</span>  <span class=c1># This loads nvm bash_completion</span>
+</span></span><span class=line><span class=cl><span class=c1>#####</span>
+</span></span><span class=line><span class=cl><span class=nb>source</span> ~/.bashrc
 </span></span></code></pre></td></tr></table></div></div><p>切换npm</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>nvm install
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>nvm install
 </span></span><span class=line><span class=cl>nvm use
 </span></span><span class=line><span class=cl>nvm ls
 </span></span><span class=line><span class=cl>nvm uninstall
@@ -79,20 +79,20 @@
 </span><span class=lnt>12
 </span><span class=lnt>13
 </span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>#配置源
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1>#配置源</span>
 </span></span><span class=line><span class=cl>nvm node_mirror https://registry.npmmirror.com/node/
 </span></span><span class=line><span class=cl>nvm npm_mirror https://registry.npmmirror.com/npm/
-</span></span><span class=line><span class=cl>#版本选择
-</span></span><span class=line><span class=cl>nvm install 16
-</span></span><span class=line><span class=cl># verifies the right Node.js version is in the environment
-</span></span><span class=line><span class=cl>node -v # should print `v16.20.2`
-</span></span><span class=line><span class=cl># verifies the right npm version is in the environment
-</span></span><span class=line><span class=cl>npm -v # should print `8.19.4`
-</span></span><span class=line><span class=cl>#设置权限
-</span></span><span class=line><span class=cl>npm config set user 0	设置用户权限
-</span></span><span class=line><span class=cl>npm config set unsafe-perm true	设置权限
-</span></span><span class=line><span class=cl>sudo chown -R $(whoami) ~/.npm
-</span></span><span class=line><span class=cl>sudo chown -R $(whoami) ~/.nvm
+</span></span><span class=line><span class=cl><span class=c1>#版本选择</span>
+</span></span><span class=line><span class=cl>nvm install <span class=m>16</span>
+</span></span><span class=line><span class=cl><span class=c1># verifies the right Node.js version is in the environment</span>
+</span></span><span class=line><span class=cl>node -v <span class=c1># should print `v16.20.2`</span>
+</span></span><span class=line><span class=cl><span class=c1># verifies the right npm version is in the environment</span>
+</span></span><span class=line><span class=cl>npm -v <span class=c1># should print `8.19.4`</span>
+</span></span><span class=line><span class=cl><span class=c1>#设置权限</span>
+</span></span><span class=line><span class=cl>npm config <span class=nb>set</span> user 0	设置用户权限
+</span></span><span class=line><span class=cl>npm config <span class=nb>set</span> unsafe-perm <span class=nb>true</span>	设置权限
+</span></span><span class=line><span class=cl>sudo chown -R <span class=k>$(</span>whoami<span class=k>)</span> ~/.npm
+</span></span><span class=line><span class=cl>sudo chown -R <span class=k>$(</span>whoami<span class=k>)</span> ~/.nvm
 </span></span></code></pre></td></tr></table></div></div><p>安装hexo</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -101,16 +101,16 @@
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>#阿里源
-</span></span><span class=line><span class=cl>npm config set registry https://npm.aliyun.com
-</span></span><span class=line><span class=cl>#淘宝
-</span></span><span class=line><span class=cl>npm config set registry https://registry.npmmirror.com
-</span></span><span class=line><span class=cl>#原始
-</span></span><span class=line><span class=cl>npm config set registry https://registry.npmjs.org/
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1>#阿里源</span>
+</span></span><span class=line><span class=cl>npm config <span class=nb>set</span> registry https://npm.aliyun.com
+</span></span><span class=line><span class=cl><span class=c1>#淘宝</span>
+</span></span><span class=line><span class=cl>npm config <span class=nb>set</span> registry https://registry.npmmirror.com
+</span></span><span class=line><span class=cl><span class=c1>#原始</span>
+</span></span><span class=line><span class=cl>npm config <span class=nb>set</span> registry https://registry.npmjs.org/
 </span></span><span class=line><span class=cl>npm install -g hexo-cli
 </span></span><span class=line><span class=cl>npm install hexo-deployer-git --save
 </span></span></code></pre></td></tr></table></div></div><p>选择目录初始化操作</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>hexo init
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>hexo init
 </span></span></code></pre></td></tr></table></div></div><p>本次主题选用的极简风格</p><p><a href=https://github.com/LenChou95/hexo-theme-ZenMind>LenChou95/hexo-theme-ZenMind: 一款 Hexo 单栏简洁主题 A simple and elegant theme for hexo. (github.com)</a></p><p>deploy需要使用ssh</p><p>以上是正常的过程，将其放置于Blog仓库</p><h2 id=github-actions自动化部署>Github Actions自动化部署</h2><p>需要先使用生成密钥</p><p>​<code>ssh-keygen -f github-deploy-key</code>​</p><p>在我们第一个存放源码的仓库Blog中将github-deploy-key放入secret</p><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726221038.png alt=image>​</p><p>第二个github.io的仓库Deploy存放github-deploy-key.pub</p><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/20240726220816.png alt=image>​</p><p>完成上述之后，我们实际上为了完成两个仓库之间交互的第一步</p><p>接下来就是编写Actions脚本</p><p><a href=https://op30132.github.io/2020/02/05/github-action/>Hexo + github actions 自動化部署 | Winnie's blog (op30132.github.io)</a></p><p>借鉴如上</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -154,7 +154,7 @@
 </span><span class=lnt>41
 </span><span class=lnt>42
 </span><span class=lnt>43
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>name: HEXO CI
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>name: HEXO CI
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>on:
 </span></span><span class=line><span class=cl>  push:
@@ -166,34 +166,34 @@
 </span></span><span class=line><span class=cl>    runs-on: ubuntu-latest
 </span></span><span class=line><span class=cl>    strategy:
 </span></span><span class=line><span class=cl>      matrix:
-</span></span><span class=line><span class=cl>        node-version: [18.x]
+</span></span><span class=line><span class=cl>        node-version: <span class=o>[</span>18.x<span class=o>]</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    steps:
 </span></span><span class=line><span class=cl>      - uses: actions/checkout@v2
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>      - name: Use Node.js ${{ matrix.node-version }}
+</span></span><span class=line><span class=cl>      - name: Use Node.js <span class=si>${</span><span class=p>{ matrix.node-version </span><span class=si>}</span><span class=o>}</span>
 </span></span><span class=line><span class=cl>        uses: actions/setup-node@v2
 </span></span><span class=line><span class=cl>        with:
-</span></span><span class=line><span class=cl>          node-version: ${{ matrix.node-version }}
+</span></span><span class=line><span class=cl>          node-version: <span class=si>${</span><span class=p>{ matrix.node-version </span><span class=si>}</span><span class=o>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>      - name: Configuration environment
 </span></span><span class=line><span class=cl>        env:
-</span></span><span class=line><span class=cl>          HEXO_DEPLOY_PRI: ${{ secrets.HEXO_DEPLOY_PRI }}
-</span></span><span class=line><span class=cl>        run: |
+</span></span><span class=line><span class=cl>          HEXO_DEPLOY_PRI: <span class=si>${</span><span class=p>{ secrets.HEXO_DEPLOY_PRI </span><span class=si>}</span><span class=o>}</span>
+</span></span><span class=line><span class=cl>        run: <span class=p>|</span>
 </span></span><span class=line><span class=cl>          mkdir -p ~/.ssh/
-</span></span><span class=line><span class=cl>          echo &#34;$HEXO_DEPLOY_PRI&#34; | tr -d &#39;\r&#39; &gt; ~/.ssh/id_rsa
-</span></span><span class=line><span class=cl>          chmod 600 ~/.ssh/id_rsa
+</span></span><span class=line><span class=cl>          <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$HEXO_DEPLOY_PRI</span><span class=s2>&#34;</span> <span class=p>|</span> tr -d <span class=s1>&#39;\r&#39;</span> &gt; ~/.ssh/id_rsa
+</span></span><span class=line><span class=cl>          chmod <span class=m>600</span> ~/.ssh/id_rsa
 </span></span><span class=line><span class=cl>          ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts
-</span></span><span class=line><span class=cl>          git config --global user.name &#34;Wh1teJ0ker&#34;
-</span></span><span class=line><span class=cl>          git config --global user.email &#34;1430100306@qq.com&#34;
+</span></span><span class=line><span class=cl>          git config --global user.name <span class=s2>&#34;Wh1teJ0ker&#34;</span>
+</span></span><span class=line><span class=cl>          git config --global user.email <span class=s2>&#34;1430100306@qq.com&#34;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>      - name: Install dependencies
-</span></span><span class=line><span class=cl>        run: |
+</span></span><span class=line><span class=cl>        run: <span class=p>|</span>
 </span></span><span class=line><span class=cl>          npm install -g hexo-cli
 </span></span><span class=line><span class=cl>          npm install
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>      - name: Deploy hexo
-</span></span><span class=line><span class=cl>        run: |
+</span></span><span class=line><span class=cl>        run: <span class=p>|</span>
 </span></span><span class=line><span class=cl>          hexo clean
 </span></span><span class=line><span class=cl>          hexo g
 </span></span><span class=line><span class=cl>          hexo d
