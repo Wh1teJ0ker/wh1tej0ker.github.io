@@ -36,37 +36,37 @@
 </span><span class=lnt>29
 </span><span class=lnt>30
 </span><span class=lnt>31
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/usr/bin/env python
-</span></span></span><span class=line><span class=cl><span class=cp></span><span class=c1># Version: Python 3.7</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=ch>#!/usr/bin/env python</span>
+</span></span><span class=line><span class=cl><span class=c1># Version: Python 3.7</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>def encode<span class=o>(</span>png<span class=o>)</span>:
-</span></span><span class=line><span class=cl>    <span class=nv>flag</span> <span class=o>=</span> <span class=s1>&#39;flag{eba771fd-2b03-418f-b11a-60f1141c99ee}&#39;</span>
-</span></span><span class=line><span class=cl>    <span class=nv>lens</span> <span class=o>=</span> len<span class=o>(</span>flag<span class=o>)</span>
-</span></span><span class=line><span class=cl>    with open<span class=o>(</span>png, <span class=s1>&#39;rb&#39;</span><span class=o>)</span> as f:
-</span></span><span class=line><span class=cl>        <span class=nv>pic_bytes</span> <span class=o>=</span> f.read<span class=o>()</span>
-</span></span><span class=line><span class=cl>        <span class=nv>output_bytes</span> <span class=o>=</span> bytearray<span class=o>()</span>
-</span></span><span class=line><span class=cl>        <span class=k>for</span> i in range<span class=o>(</span>len<span class=o>(</span>pic_bytes<span class=o>))</span>:
-</span></span><span class=line><span class=cl>            output_bytes.append<span class=o>(</span>pic_bytes<span class=o>[</span>i<span class=o>]</span> ^ ord<span class=o>(</span>flag<span class=o>[</span>i * <span class=m>2</span> % lens<span class=o>]))</span>
-</span></span><span class=line><span class=cl>    with open<span class=o>(</span>png, <span class=s1>&#39;wb&#39;</span><span class=o>)</span> as f:
-</span></span><span class=line><span class=cl>        f.write<span class=o>(</span>output_bytes<span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>encode</span><span class=p>(</span><span class=n>png</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span> <span class=o>=</span> <span class=s1>&#39;flag{eba771fd-2b03-418f-b11a-60f1141c99ee}&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>lens</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>png</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>pic_bytes</span> <span class=o>=</span> <span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>output_bytes</span> <span class=o>=</span> <span class=nb>bytearray</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>pic_bytes</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>            <span class=n>output_bytes</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>pic_bytes</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>^</span> <span class=nb>ord</span><span class=p>(</span><span class=n>flag</span><span class=p>[</span><span class=n>i</span> <span class=o>*</span> <span class=mi>2</span> <span class=o>%</span> <span class=n>lens</span><span class=p>]))</span>
+</span></span><span class=line><span class=cl>    <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>png</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>output_bytes</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>def decode<span class=o>(</span>png<span class=o>)</span>:
-</span></span><span class=line><span class=cl>    <span class=nv>flag</span> <span class=o>=</span> <span class=s1>&#39;flag{eba771fd-2b03-418f-b11a-60f1141c99ee}&#39;</span>
-</span></span><span class=line><span class=cl>    <span class=nv>lens</span> <span class=o>=</span> len<span class=o>(</span>flag<span class=o>)</span>
-</span></span><span class=line><span class=cl>    with open<span class=o>(</span>png, <span class=s1>&#39;rb&#39;</span><span class=o>)</span> as f:
-</span></span><span class=line><span class=cl>        <span class=nv>pic_bytes</span> <span class=o>=</span> f.read<span class=o>()</span>
-</span></span><span class=line><span class=cl>        <span class=nv>output_bytes</span> <span class=o>=</span> bytearray<span class=o>()</span>
-</span></span><span class=line><span class=cl>        <span class=k>for</span> i in range<span class=o>(</span>len<span class=o>(</span>pic_bytes<span class=o>))</span>:
-</span></span><span class=line><span class=cl>            output_bytes.append<span class=o>(</span>pic_bytes<span class=o>[</span>i<span class=o>]</span> ^ ord<span class=o>(</span>flag<span class=o>[</span>i * <span class=m>2</span> % lens<span class=o>]))</span>
-</span></span><span class=line><span class=cl>    with open<span class=o>(</span>png, <span class=s1>&#39;wb&#39;</span><span class=o>)</span> as f:
-</span></span><span class=line><span class=cl>        f.write<span class=o>(</span>output_bytes<span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>decode</span><span class=p>(</span><span class=n>png</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span> <span class=o>=</span> <span class=s1>&#39;flag{eba771fd-2b03-418f-b11a-60f1141c99ee}&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>lens</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>png</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>pic_bytes</span> <span class=o>=</span> <span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>output_bytes</span> <span class=o>=</span> <span class=nb>bytearray</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>pic_bytes</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>            <span class=n>output_bytes</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>pic_bytes</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>^</span> <span class=nb>ord</span><span class=p>(</span><span class=n>flag</span><span class=p>[</span><span class=n>i</span> <span class=o>*</span> <span class=mi>2</span> <span class=o>%</span> <span class=n>lens</span><span class=p>]))</span>
+</span></span><span class=line><span class=cl>    <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>png</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>output_bytes</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># 示例文件路径</span>
-</span></span><span class=line><span class=cl><span class=nv>file_path</span> <span class=o>=</span> <span class=s1>&#39;./flag.png&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>file_path</span> <span class=o>=</span> <span class=s1>&#39;./flag.png&#39;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># 使用示例</span>
 </span></span><span class=line><span class=cl><span class=c1>#encode(file_path)  # 加密</span>
-</span></span><span class=line><span class=cl>decode<span class=o>(</span>file_path<span class=o>)</span>  <span class=c1># 解密</span>
+</span></span><span class=line><span class=cl><span class=n>decode</span><span class=p>(</span><span class=n>file_path</span><span class=p>)</span>  <span class=c1># 解密</span>
 </span></span></code></pre></td></tr></table></div></div><p>最终得到flag</p><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155314-wtpmccl.png alt=image>​</p><h2 id=secret_3>secret_3</h2><blockquote><p>3.提交压缩包当中的flag值。</p></blockquote><p>待复现（</p><h2 id=history_1history_2>history_1&&amp;history_2</h2><blockquote><p>浏览器历史数据查找。</p><p>1.提交flag中uuid值32位小写md5加密第一位为4的uuid（提交示例：9c26d7a6-ea44-4beb-96a8-bc9c75866fef)</p><p>2.提交flag中uuid值32位小写md5加密第一位为a的uuid（提交示例：9c26d7a6-ea44-4beb-96a8-bc9c75866fef）</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>python2 vol.py -f ../data2.raw --profile<span class=o>=</span>Win7SP1x64  filescan <span class=p>|</span> grep <span class=s2>&#34;.ipynb&#34;</span>
 </span></span></code></pre></td></tr></table></div></div><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/image-20240929155457-glljhw5.png alt=image>​</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1

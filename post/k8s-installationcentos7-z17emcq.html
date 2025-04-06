@@ -5,10 +5,10 @@
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>$ vi /etc/sysconfig/network
-</span></span><span class=line><span class=cl># 添加下面的配置
-</span></span><span class=line><span class=cl>NETWORKING=yes
-</span></span><span class=line><span class=cl>HOSTNAME=master
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ vi /etc/sysconfig/network
+</span></span><span class=line><span class=cl><span class=c1># 添加下面的配置</span>
+</span></span><span class=line><span class=cl><span class=nv>NETWORKING</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>HOSTNAME</span><span class=o>=</span>master
 </span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -35,32 +35,32 @@
 </span><span class=lnt>24
 </span><span class=lnt>25
 </span><span class=lnt>26
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>$ vi /etc/sysconfig/network-scripts/ifcfg-ens33
-</span></span><span class=line><span class=cl># 配置如下
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ vi /etc/sysconfig/network-scripts/ifcfg-ens33
+</span></span><span class=line><span class=cl><span class=c1># 配置如下</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>TYPE=Ethernet
-</span></span><span class=line><span class=cl>PROXY_METHOD=none
-</span></span><span class=line><span class=cl>BROWSER_ONLY=no
-</span></span><span class=line><span class=cl>-BOOTPROTO=dchp
-</span></span><span class=line><span class=cl>+BOOTPROTO=static
-</span></span><span class=line><span class=cl>DEFROUTE=yes
-</span></span><span class=line><span class=cl>IPV4_FAILURE_FATAL=no
-</span></span><span class=line><span class=cl>IPV6INIT=yes
-</span></span><span class=line><span class=cl>IPV6_AUTOCONF=yes
-</span></span><span class=line><span class=cl>IPV6_DEFROUTE=yes
-</span></span><span class=line><span class=cl>IPV6_FAILURE_FATAL=no
-</span></span><span class=line><span class=cl>IPV6_ADDR_GEN_MODE=stable-privacy
-</span></span><span class=line><span class=cl>-UUID=XXXX-XXXX-XXXX
-</span></span><span class=line><span class=cl>-ONBOOT=no
-</span></span><span class=line><span class=cl>+ONBOOT=yes
-</span></span><span class=line><span class=cl>IPADDR=192.168.188.180  
-</span></span><span class=line><span class=cl>NETMASK=255.255.255.0
-</span></span><span class=line><span class=cl>GATEWAY=192.168.188.2   
-</span></span><span class=line><span class=cl>NAME=ens33
-</span></span><span class=line><span class=cl>DEVICE=ens33
-</span></span><span class=line><span class=cl>#DNS1采用本地网关，DNS2使用公共DNS
-</span></span><span class=line><span class=cl>DNS1=192.168.188.2  
-</span></span><span class=line><span class=cl>DNS2=114.114.114.114
+</span></span><span class=line><span class=cl><span class=nv>TYPE</span><span class=o>=</span>Ethernet
+</span></span><span class=line><span class=cl><span class=nv>PROXY_METHOD</span><span class=o>=</span>none
+</span></span><span class=line><span class=cl><span class=nv>BROWSER_ONLY</span><span class=o>=</span>no
+</span></span><span class=line><span class=cl>-BOOTPROTO<span class=o>=</span>dchp
+</span></span><span class=line><span class=cl>+BOOTPROTO<span class=o>=</span>static
+</span></span><span class=line><span class=cl><span class=nv>DEFROUTE</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>IPV4_FAILURE_FATAL</span><span class=o>=</span>no
+</span></span><span class=line><span class=cl><span class=nv>IPV6INIT</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>IPV6_AUTOCONF</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>IPV6_DEFROUTE</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>IPV6_FAILURE_FATAL</span><span class=o>=</span>no
+</span></span><span class=line><span class=cl><span class=nv>IPV6_ADDR_GEN_MODE</span><span class=o>=</span>stable-privacy
+</span></span><span class=line><span class=cl>-UUID<span class=o>=</span>XXXX-XXXX-XXXX
+</span></span><span class=line><span class=cl>-ONBOOT<span class=o>=</span>no
+</span></span><span class=line><span class=cl>+ONBOOT<span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>IPADDR</span><span class=o>=</span>192.168.188.180  
+</span></span><span class=line><span class=cl><span class=nv>NETMASK</span><span class=o>=</span>255.255.255.0
+</span></span><span class=line><span class=cl><span class=nv>GATEWAY</span><span class=o>=</span>192.168.188.2   
+</span></span><span class=line><span class=cl><span class=nv>NAME</span><span class=o>=</span>ens33
+</span></span><span class=line><span class=cl><span class=nv>DEVICE</span><span class=o>=</span>ens33
+</span></span><span class=line><span class=cl><span class=c1>#DNS1采用本地网关，DNS2使用公共DNS</span>
+</span></span><span class=line><span class=cl><span class=nv>DNS1</span><span class=o>=</span>192.168.188.2  
+</span></span><span class=line><span class=cl><span class=nv>DNS2</span><span class=o>=</span>114.114.114.114
 </span></span></code></pre></td></tr></table></div></div><p>配置hosts</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -68,26 +68,26 @@
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>$ vi /etc/hosts
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ vi /etc/hosts
 </span></span><span class=line><span class=cl>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 </span></span><span class=line><span class=cl>::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-</span></span><span class=line><span class=cl>#根据上述查看的NAT分配IP进行调整
+</span></span><span class=line><span class=cl><span class=c1>#根据上述查看的NAT分配IP进行调整</span>
 </span></span><span class=line><span class=cl>192.168.188.180 master
 </span></span><span class=line><span class=cl>192.168.188.181 node1
 </span></span><span class=line><span class=cl>192.168.188.182 node2
 </span></span></code></pre></td></tr></table></div></div><p>完成上述后，进行reboot并且进行ping确认是否能够联网</p><p><a href=https://blog.csdn.net/zhujing16/article/details/88677253>CentOS7安装VMware Tools_yun安装vmtools-CSDN博客</a></p><p>00:0c:29:84:5a:b4</p><h2 id=系统配置>系统配置</h2><p><strong>关闭防火墙</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>$ service iptables stop
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ service iptables stop
 </span></span><span class=line><span class=cl>$ systemctl disable iptables
 </span></span></code></pre></td></tr></table></div></div><p>若无，则会报错</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>  [root@master ~]# service iptables stop
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>  <span class=o>[</span>root@master ~<span class=o>]</span><span class=c1># service iptables stop</span>
 </span></span><span class=line><span class=cl>  Redirecting to /bin/systemctl stop iptables.service
 </span></span><span class=line><span class=cl>  Failed to stop iptables.service: Unit iptables.service not loaded.
-</span></span><span class=line><span class=cl>  [root@master ~]# systemctl disable iptables
+</span></span><span class=line><span class=cl>  <span class=o>[</span>root@master ~<span class=o>]</span><span class=c1># systemctl disable iptables</span>
 </span></span><span class=line><span class=cl>  Failed to execute operation: No such file or directory
 </span></span></code></pre></td></tr></table></div></div><p><strong>禁用selinux</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
@@ -97,17 +97,17 @@
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl># 查看selinux
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 查看selinux</span>
 </span></span><span class=line><span class=cl>$ getenforce
 </span></span><span class=line><span class=cl>Enforcing
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl># 关闭
+</span></span><span class=line><span class=cl><span class=c1># 关闭</span>
 </span></span><span class=line><span class=cl>$ vi /etc/selinux/config
-</span></span><span class=line><span class=cl># 修改为：disabled
-</span></span><span class=line><span class=cl>SELINUX=disabled
+</span></span><span class=line><span class=cl><span class=c1># 修改为：disabled</span>
+</span></span><span class=line><span class=cl><span class=nv>SELINUX</span><span class=o>=</span>disabled
 </span></span></code></pre></td></tr></table></div></div><p><strong>禁用防火墙</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>systemctl stop firewalld
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>systemctl stop firewalld
 </span></span><span class=line><span class=cl>systemctl disable firewalld
 </span></span></code></pre></td></tr></table></div></div><h2 id=ssh登录配置>SSH登录配置</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
@@ -115,31 +115,31 @@
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>$ vi /etc/ssh/sshd_config
-</span></span><span class=line><span class=cl># 修改
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ vi /etc/ssh/sshd_config
+</span></span><span class=line><span class=cl><span class=c1># 修改</span>
 </span></span><span class=line><span class=cl>UseDNS no
-</span></span><span class=line><span class=cl>PermitRootLogin yes #允许root登录
-</span></span><span class=line><span class=cl>PermitEmptyPasswords no #不允许空密码登录
-</span></span><span class=line><span class=cl>PasswordAuthentication yes # 设置是否使用口令验证
+</span></span><span class=line><span class=cl>PermitRootLogin yes <span class=c1>#允许root登录</span>
+</span></span><span class=line><span class=cl>PermitEmptyPasswords no <span class=c1>#不允许空密码登录</span>
+</span></span><span class=line><span class=cl>PasswordAuthentication yes <span class=c1># 设置是否使用口令验证</span>
 </span></span></code></pre></td></tr></table></div></div><p>440</p><h2 id=4关闭swap空间>4关闭Swap空间</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>[root@master ~]# swapoff -a
-</span></span><span class=line><span class=cl>[root@master ~]# sed -ie &#39;/swap/ s/^/# /&#39; /etc/fstab 
-</span></span><span class=line><span class=cl>[root@master ~]# free -m
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@master ~<span class=o>]</span><span class=c1># swapoff -a</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@master ~<span class=o>]</span><span class=c1># sed -ie &#39;/swap/ s/^/# /&#39; /etc/fstab </span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@master ~<span class=o>]</span><span class=c1># free -m</span>
 </span></span><span class=line><span class=cl>              total        used        free      shared  buff/cache   available
-</span></span><span class=line><span class=cl>Mem:           3770        1265        1304          12        1200        2267
-</span></span><span class=line><span class=cl>Swap:             0           0           0
+</span></span><span class=line><span class=cl>Mem:           <span class=m>3770</span>        <span class=m>1265</span>        <span class=m>1304</span>          <span class=m>12</span>        <span class=m>1200</span>        <span class=m>2267</span>
+</span></span><span class=line><span class=cl>Swap:             <span class=m>0</span>           <span class=m>0</span>           <span class=m>0</span>
 </span></span></code></pre></td></tr></table></div></div><h2 id=配置桥接流量>配置桥接流量</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>[root@k8s-master1 ~]# cat &gt; /etc/sysctl.d/k8s.conf &lt;&lt; EOF
-</span></span><span class=line><span class=cl>net.bridge.bridge-nf-call-ip6tables = 1
-</span></span><span class=line><span class=cl>net.bridge.bridge-nf-call-iptables = 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@k8s-master1 ~<span class=o>]</span><span class=c1># cat &gt; /etc/sysctl.d/k8s.conf &lt;&lt; EOF</span>
+</span></span><span class=line><span class=cl>net.bridge.bridge-nf-call-ip6tables <span class=o>=</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>net.bridge.bridge-nf-call-iptables <span class=o>=</span> <span class=m>1</span>
 </span></span><span class=line><span class=cl>EOF
 </span></span></code></pre></td></tr></table></div></div><h2 id=配置yum源>配置yum源</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -153,34 +153,34 @@
 </span><span class=lnt>10
 </span><span class=lnt>11
 </span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl># 配置阿里云源
-</span></span><span class=line><span class=cl># 备份
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 配置阿里云源</span>
+</span></span><span class=line><span class=cl><span class=c1># 备份</span>
 </span></span><span class=line><span class=cl>mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
-</span></span><span class=line><span class=cl># 配置
+</span></span><span class=line><span class=cl><span class=c1># 配置</span>
 </span></span><span class=line><span class=cl>curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
 </span></span><span class=line><span class=cl>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-</span></span><span class=line><span class=cl># 生成缓存
+</span></span><span class=line><span class=cl><span class=c1># 生成缓存</span>
 </span></span><span class=line><span class=cl>yum makecache
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl># 安装epel库
+</span></span><span class=line><span class=cl><span class=c1># 安装epel库</span>
 </span></span><span class=line><span class=cl>yum -y install epel-release
 </span></span><span class=line><span class=cl>yum -y update
 </span></span></code></pre></td></tr></table></div></div><h2 id=基本软件配置>基本软件配置</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>yum install -y wget
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>yum install -y wget
 </span></span><span class=line><span class=cl>yum install -y htop vim net-tools wget
 </span></span></code></pre></td></tr></table></div></div><h3 id=时间同步ntp>时间同步ntp</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>yum install ntp
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>yum install ntp
 </span></span></code></pre></td></tr></table></div></div><p>配置ntp：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl># 开启服务
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 开启服务</span>
 </span></span><span class=line><span class=cl>service ntpd start
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl># 开机启动
-</span></span><span class=line><span class=cl>systemctl enable ntpd
+</span></span><span class=line><span class=cl><span class=c1># 开机启动</span>
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> ntpd
 </span></span></code></pre></td></tr></table></div></div><h3 id=docker>Docker</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -208,33 +208,33 @@
 </span><span class=lnt>25
 </span><span class=lnt>26
 </span><span class=lnt>27
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>yum install -y yum-utils device-mapper-persistent-data lvm2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>yum install -y yum-utils device-mapper-persistent-data lvm2
 </span></span><span class=line><span class=cl>yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-</span></span><span class=line><span class=cl>sed -i &#39;s+download.docker.com+mirrors.aliyun.com/docker-ce+&#39; /etc/yum.repos.d/docker-ce.repo
-</span></span><span class=line><span class=cl># 更新源
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;s+download.docker.com+mirrors.aliyun.com/docker-ce+&#39;</span> /etc/yum.repos.d/docker-ce.repo
+</span></span><span class=line><span class=cl><span class=c1># 更新源</span>
 </span></span><span class=line><span class=cl>yum makecache fast
-</span></span><span class=line><span class=cl>#查看所有版本
-</span></span><span class=line><span class=cl>yum list docker-ce --showduplicates | sort -r
-</span></span><span class=line><span class=cl>#安装指定版本
+</span></span><span class=line><span class=cl><span class=c1>#查看所有版本</span>
+</span></span><span class=line><span class=cl>yum list docker-ce --showduplicates <span class=p>|</span> sort -r
+</span></span><span class=line><span class=cl><span class=c1>#安装指定版本</span>
 </span></span><span class=line><span class=cl>yum -y install docker-ce-19.03.9
 </span></span><span class=line><span class=cl>yum install -y docker-ce-19.03.9 docker-ce-cli-19.03.9 containerd.io
-</span></span><span class=line><span class=cl>#设置开机自启动
-</span></span><span class=line><span class=cl>systemctl enable docker &amp;&amp; systemctl start docker
-</span></span><span class=line><span class=cl>#配置镜像源
-</span></span><span class=line><span class=cl>cat &gt; /etc/docker/daemon.json &lt;&lt; EOF
-</span></span><span class=line><span class=cl>{
-</span></span><span class=line><span class=cl>  &#34;exec-opts&#34;: [“native.cgroupdriver=systemd”],
-</span></span><span class=line><span class=cl>  &#34;registry-mirrors&#34; : [
-</span></span><span class=line><span class=cl>    &#34;http://hub-mirror.c.163.com&#34;,
-</span></span><span class=line><span class=cl>    &#34;http://registry.docker-cn.com&#34;,
-</span></span><span class=line><span class=cl>    &#34;http://docker.mirrors.ustc.edu.cn&#34;
-</span></span><span class=line><span class=cl>  ]
-</span></span><span class=line><span class=cl>}
-</span></span><span class=line><span class=cl>EOF
+</span></span><span class=line><span class=cl><span class=c1>#设置开机自启动</span>
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> docker <span class=o>&amp;&amp;</span> systemctl start docker
+</span></span><span class=line><span class=cl><span class=c1>#配置镜像源</span>
+</span></span><span class=line><span class=cl>cat &gt; /etc/docker/daemon.json <span class=s>&lt;&lt; EOF
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;exec-opts&#34;: [“native.cgroupdriver=systemd”],
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;registry-mirrors&#34; : [
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;http://hub-mirror.c.163.com&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;http://registry.docker-cn.com&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;http://docker.mirrors.ustc.edu.cn&#34;
+</span></span></span><span class=line><span class=cl><span class=s>  ]
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>vi /etc/docker/daemon.json
-</span></span><span class=line><span class=cl>#重启docker
+</span></span><span class=line><span class=cl><span class=c1>#重启docker</span>
 </span></span><span class=line><span class=cl>systemctl restart docker
-</span></span><span class=line><span class=cl>docker info | grep &#39;Server Version&#39;
+</span></span><span class=line><span class=cl>docker info <span class=p>|</span> grep <span class=s1>&#39;Server Version&#39;</span>
 </span></span></code></pre></td></tr></table></div></div><h3 id=安装kubeadmkubelet和kubectl>安装kubeadm/kubelet和kubectl</h3><p>安装需要注意两问题，一个是安装的版本要统一，一个是安装的版本不要太新</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -244,24 +244,24 @@
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>cat  &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt;EOF
-</span></span><span class=line><span class=cl>[kubernetes]
-</span></span><span class=line><span class=cl>name=Kubernetes
-</span></span><span class=line><span class=cl>baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
-</span></span><span class=line><span class=cl>enabled=1
-</span></span><span class=line><span class=cl>gpgcheck=1
-</span></span><span class=line><span class=cl>repo_gpgcheck=1
-</span></span><span class=line><span class=cl>gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-</span></span><span class=line><span class=cl>EOF
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>cat  &gt; /etc/yum.repos.d/kubernetes.repo <span class=s>&lt;&lt;EOF
+</span></span></span><span class=line><span class=cl><span class=s>[kubernetes]
+</span></span></span><span class=line><span class=cl><span class=s>name=Kubernetes
+</span></span></span><span class=line><span class=cl><span class=s>baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+</span></span></span><span class=line><span class=cl><span class=s>enabled=1
+</span></span></span><span class=line><span class=cl><span class=s>gpgcheck=1
+</span></span></span><span class=line><span class=cl><span class=s>repo_gpgcheck=1
+</span></span></span><span class=line><span class=cl><span class=s>gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>yum install kubeadm-1.20.2 -y
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>yum install kubeadm-1.20.2 -y
 </span></span><span class=line><span class=cl>yum install -y kubelet-1.20.4 kubectl-1.20.4 kubeadm-1.20.4
-</span></span><span class=line><span class=cl>systemctl enable kubelet
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> kubelet
 </span></span><span class=line><span class=cl>kubectl version
 </span></span><span class=line><span class=cl>kubeadm version
 </span></span><span class=line><span class=cl>kubelet version
@@ -292,33 +292,33 @@
 </span><span class=lnt>25
 </span><span class=lnt>26
 </span><span class=lnt>27
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>$ vi /etc/sysconfig/network
-</span></span><span class=line><span class=cl>NETWORKING=yes
-</span></span><span class=line><span class=cl>HOSTNAME=master
-</span></span><span class=line><span class=cl>HOSTNAME=node1
-</span></span><span class=line><span class=cl>HOSTNAME=node2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ vi /etc/sysconfig/network
+</span></span><span class=line><span class=cl><span class=nv>NETWORKING</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>HOSTNAME</span><span class=o>=</span>master
+</span></span><span class=line><span class=cl><span class=nv>HOSTNAME</span><span class=o>=</span>node1
+</span></span><span class=line><span class=cl><span class=nv>HOSTNAME</span><span class=o>=</span>node2
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>$ vi /etc/sysconfig/network-scripts/ifcfg-ens33
-</span></span><span class=line><span class=cl>TYPE=Ethernet
-</span></span><span class=line><span class=cl>PROXY_METHOD=none
-</span></span><span class=line><span class=cl>BROWSER_ONLY=no
-</span></span><span class=line><span class=cl>BOOTPROTO=static
-</span></span><span class=line><span class=cl>DEFROUTE=yes
-</span></span><span class=line><span class=cl>IPV4_FAILURE_FATAL=no
-</span></span><span class=line><span class=cl>IPV6INIT=yes
-</span></span><span class=line><span class=cl>IPV6_AUTOCONF=yes
-</span></span><span class=line><span class=cl>IPV6_DEFROUTE=yes
-</span></span><span class=line><span class=cl>IPV6_FAILURE_FATAL=no
-</span></span><span class=line><span class=cl>IPV6_ADDR_GEN_MODE=stable-privacy
-</span></span><span class=line><span class=cl>- IPADDR=192.168.188.180
-</span></span><span class=line><span class=cl>+ IPADDR=192.168.188.181
-</span></span><span class=line><span class=cl>NETMASK=255.255.255.0
-</span></span><span class=line><span class=cl>GATEWAY=192.168.188.2
-</span></span><span class=line><span class=cl>NAME=ens33
-</span></span><span class=line><span class=cl>DEVICE=ens33
-</span></span><span class=line><span class=cl>ONBOOT=yes
-</span></span><span class=line><span class=cl>DNS1=192.168.188.2
-</span></span><span class=line><span class=cl>DNS2=114.114.114.114
+</span></span><span class=line><span class=cl><span class=nv>TYPE</span><span class=o>=</span>Ethernet
+</span></span><span class=line><span class=cl><span class=nv>PROXY_METHOD</span><span class=o>=</span>none
+</span></span><span class=line><span class=cl><span class=nv>BROWSER_ONLY</span><span class=o>=</span>no
+</span></span><span class=line><span class=cl><span class=nv>BOOTPROTO</span><span class=o>=</span>static
+</span></span><span class=line><span class=cl><span class=nv>DEFROUTE</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>IPV4_FAILURE_FATAL</span><span class=o>=</span>no
+</span></span><span class=line><span class=cl><span class=nv>IPV6INIT</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>IPV6_AUTOCONF</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>IPV6_DEFROUTE</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>IPV6_FAILURE_FATAL</span><span class=o>=</span>no
+</span></span><span class=line><span class=cl><span class=nv>IPV6_ADDR_GEN_MODE</span><span class=o>=</span>stable-privacy
+</span></span><span class=line><span class=cl>- <span class=nv>IPADDR</span><span class=o>=</span>192.168.188.180
+</span></span><span class=line><span class=cl>+ <span class=nv>IPADDR</span><span class=o>=</span>192.168.188.181
+</span></span><span class=line><span class=cl><span class=nv>NETMASK</span><span class=o>=</span>255.255.255.0
+</span></span><span class=line><span class=cl><span class=nv>GATEWAY</span><span class=o>=</span>192.168.188.2
+</span></span><span class=line><span class=cl><span class=nv>NAME</span><span class=o>=</span>ens33
+</span></span><span class=line><span class=cl><span class=nv>DEVICE</span><span class=o>=</span>ens33
+</span></span><span class=line><span class=cl><span class=nv>ONBOOT</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=nv>DNS1</span><span class=o>=</span>192.168.188.2
+</span></span><span class=line><span class=cl><span class=nv>DNS2</span><span class=o>=</span>114.114.114.114
 </span></span></code></pre></td></tr></table></div></div><p>使用ping分别对node1和ndoe2进行测试</p><h1 id=创建kubernetes集群>创建Kubernetes集群</h1><h2 id=初始化master>初始化master</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -327,14 +327,14 @@
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>[root@master ~]# kubeadm init \
-</span></span><span class=line><span class=cl>  --apiserver-advertise-address=192.168.188.180 \
-</span></span><span class=line><span class=cl>  --image-repository registry.aliyuncs.com/google_containers \
-</span></span><span class=line><span class=cl>  --kubernetes-version v1.28.2 \
-</span></span><span class=line><span class=cl>  --service-cidr=10.96.0.0/12 \
-</span></span><span class=line><span class=cl>  --pod-network-cidr=10.244.0.0/16 \
-</span></span><span class=line><span class=cl>  --ignore-preflight-errors=all
-</span></span><span class=line><span class=cl>  sudo kubeadm init --apiserver-advertise-address=192.168.188.180 --image-repository registry.aliyuncs.com/google_containers --pod-network-cidr=10.244.0.0/16 --service-cidr=10.96.0.0/12 --kubernetes-version=v1.20.4  --ignore-preflight-errors=all
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@master ~<span class=o>]</span><span class=c1># kubeadm init \</span>
+</span></span><span class=line><span class=cl>  --apiserver-advertise-address<span class=o>=</span>192.168.188.180 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  --image-repository registry.aliyuncs.com/google_containers <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  --kubernetes-version v1.28.2 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  --service-cidr<span class=o>=</span>10.96.0.0/12 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  --pod-network-cidr<span class=o>=</span>10.244.0.0/16 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  --ignore-preflight-errors<span class=o>=</span>all
+</span></span><span class=line><span class=cl>  sudo kubeadm init --apiserver-advertise-address<span class=o>=</span>192.168.188.180 --image-repository registry.aliyuncs.com/google_containers --pod-network-cidr<span class=o>=</span>10.244.0.0/16 --service-cidr<span class=o>=</span>10.96.0.0/12 --kubernetes-version<span class=o>=</span>v1.20.4  --ignore-preflight-errors<span class=o>=</span>all
 </span></span></code></pre></td></tr></table></div></div><p>配置文件同上</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -345,7 +345,7 @@
 </span><span class=lnt> 8
 </span><span class=lnt> 9
 </span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>  $ vi kubeadm.conf
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>  $ vi kubeadm.conf
 </span></span><span class=line><span class=cl>  apiVersion: kubeadm.k8s.io/v1beta2
 </span></span><span class=line><span class=cl>  kind: ClusterConfiguration
 </span></span><span class=line><span class=cl>  kubernetesVersion: v1.28.2
@@ -354,7 +354,7 @@
 </span></span><span class=line><span class=cl>    podSubnet: 10.244.0.0/16 
 </span></span><span class=line><span class=cl>    serviceSubnet: 10.96.0.0/12 
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  $ kubeadm init --config kubeadm.conf --ignore-preflight-errors=all
+</span></span><span class=line><span class=cl>  $ kubeadm init --config kubeadm.conf --ignore-preflight-errors<span class=o>=</span>all
 </span></span></code></pre></td></tr></table></div></div><p><strong>问题</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -365,39 +365,39 @@
 </span><span class=lnt> 8
 </span><span class=lnt> 9
 </span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>vim /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>vim /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>[Service]
-</span></span><span class=line><span class=cl>Environment=&#34;KUBELET_KUBECONFIG_ARGS=--bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf&#34;
-</span></span><span class=line><span class=cl>Environment=&#34;KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml&#34;
-</span></span><span class=line><span class=cl>EnvironmentFile=-/var/lib/kubelet/kubeadm-flags.env
-</span></span><span class=line><span class=cl># This is a file that the user can use for overrides of the kubelet args as a last resort. 
-</span></span><span class=line><span class=cl>EnvironmentFile=-/etc/default/kubelet
-</span></span><span class=line><span class=cl>ExecStart=
-</span></span><span class=line><span class=cl>ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_EXTRA_ARGS
+</span></span><span class=line><span class=cl><span class=o>[</span>Service<span class=o>]</span>
+</span></span><span class=line><span class=cl><span class=nv>Environment</span><span class=o>=</span><span class=s2>&#34;KUBELET_KUBECONFIG_ARGS=--bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf&#34;</span>
+</span></span><span class=line><span class=cl><span class=nv>Environment</span><span class=o>=</span><span class=s2>&#34;KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml&#34;</span>
+</span></span><span class=line><span class=cl><span class=nv>EnvironmentFile</span><span class=o>=</span>-/var/lib/kubelet/kubeadm-flags.env
+</span></span><span class=line><span class=cl><span class=c1># This is a file that the user can use for overrides of the kubelet args as a last resort. </span>
+</span></span><span class=line><span class=cl><span class=nv>EnvironmentFile</span><span class=o>=</span>-/etc/default/kubelet
+</span></span><span class=line><span class=cl><span class=nv>ExecStart</span><span class=o>=</span>
+</span></span><span class=line><span class=cl><span class=nv>ExecStart</span><span class=o>=</span>/usr/bin/kubelet <span class=nv>$KUBELET_KUBECONFIG_ARGS</span> <span class=nv>$KUBELET_CONFIG_ARGS</span> <span class=nv>$KUBELET_KUBEADM_ARGS</span> <span class=nv>$KUBELET_EXTRA_ARGS</span>
 </span></span></code></pre></td></tr></table></div></div><h2 id=拷贝认证文件>拷贝认证文件</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl># 拷贝kubectl使用的连接k8s认证文件到默认路径
-</span></span><span class=line><span class=cl>mkdir -p $HOME/.kube
-</span></span><span class=line><span class=cl>cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-</span></span><span class=line><span class=cl>chown $(id -u):$(id -g) $HOME/.kube/config
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 拷贝kubectl使用的连接k8s认证文件到默认路径</span>
+</span></span><span class=line><span class=cl>mkdir -p <span class=nv>$HOME</span>/.kube
+</span></span><span class=line><span class=cl>cp -i /etc/kubernetes/admin.conf <span class=nv>$HOME</span>/.kube/config
+</span></span><span class=line><span class=cl>chown <span class=k>$(</span>id -u<span class=k>)</span>:<span class=k>$(</span>id -g<span class=k>)</span> <span class=nv>$HOME</span>/.kube/config
 </span></span></code></pre></td></tr></table></div></div><h2 id=安装calico>安装Calico</h2><p>这里又卡了好一会儿，是需要又对应的k8s和calico的版本要求</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>curl https://docs.projectcalico.org/v3.20/manifests/calico.yaml -O
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>curl https://docs.projectcalico.org/v3.20/manifests/calico.yaml -O
 </span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>kubectl apply -f calico.yaml
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>kubectl apply -f calico.yaml
 </span></span></code></pre></td></tr></table></div></div><p><strong>检测</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>kubectl get pods -n kube-system
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>kubectl get pods -n kube-system
 </span></span><span class=line><span class=cl>kubectl get nodes
 </span></span></code></pre></td></tr></table></div></div><p><strong>创建鉴权token</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>kubeadm token create --print-join-command
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>kubeadm token create --print-join-command
 </span></span><span class=line><span class=cl>kubeadm join 192.168.188.180:6443 --token w928sh.9zjwu8hlfy12y3x6     --discovery-token-ca-cert-hash sha256:da708b8f6be1ed027ecc3910e3d13174fe8f608c3460d84c929fece921ed0597
 </span></span></code></pre></td></tr></table></div></div><p>如果出现服务未启动，先尝试重启再去查找问题，可能是镜像不适配</p><h1 id=部署webuidashboard>部署WebUI（Dashboard）</h1><h2 id=下载部署>下载部署</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.1.0/aio/deploy/recommended.yaml -O dashboard.yaml
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.1.0/aio/deploy/recommended.yaml -O dashboard.yaml
 </span></span><span class=line><span class=cl>wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml -O dashboard.yaml
 </span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -416,7 +416,7 @@
 </span><span class=lnt>15
 </span><span class=lnt>16
 </span><span class=lnt>17
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>vi dashboard.yaml
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>vi dashboard.yaml
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>kind: Service
 </span></span><span class=line><span class=cl>apiVersion: v1
@@ -428,45 +428,45 @@
 </span></span><span class=line><span class=cl>spec:
 </span></span><span class=line><span class=cl>+ type: NodePort
 </span></span><span class=line><span class=cl>  ports:
-</span></span><span class=line><span class=cl>    - port: 443
-</span></span><span class=line><span class=cl>      targetPort: 8443
-</span></span><span class=line><span class=cl>+     nodePort: 30001
+</span></span><span class=line><span class=cl>    - port: <span class=m>443</span>
+</span></span><span class=line><span class=cl>      targetPort: <span class=m>8443</span>
+</span></span><span class=line><span class=cl>+     nodePort: <span class=m>30001</span>
 </span></span><span class=line><span class=cl>  selector:
 </span></span><span class=line><span class=cl>    k8s-app: kubernetes-dashboard
 </span></span></code></pre></td></tr></table></div></div><p>配置文件应用即可</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>kubectl apply -f recommended.yaml
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>kubectl apply -f recommended.yaml
 </span></span></code></pre></td></tr></table></div></div><p>确认服务启用后running以及是否TYPE修改成功</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>kubectl get pods -n kubernetes-dashboard
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>kubectl get pods -n kubernetes-dashboard
 </span></span><span class=line><span class=cl>kubectl get svc -n kubernetes-dashboard
 </span></span><span class=line><span class=cl>kubectl get all -n kubernetes-dashboard
 </span></span></code></pre></td></tr></table></div></div><h2 id=证书修改方法存疑保留>证书修改（方法存疑）（保留）</h2><h3 id=删除默认的secret>删除默认的secret</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>kubectl delete secret -n kubernetes-dashboard kubernetes-dashboard-certs
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>kubectl delete secret -n kubernetes-dashboard kubernetes-dashboard-certs
 </span></span></code></pre></td></tr></table></div></div><h3 id=签发证书>签发证书</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>mkdir keys &amp; cd keys
-</span></span><span class=line><span class=cl>openssl genrsa -out tls.key 2048
-</span></span><span class=line><span class=cl>openssl req -new -out tls.csr -key tls.key -subj &#39;/CN=192.168.188.180&#39;
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>mkdir keys <span class=p>&amp;</span> <span class=nb>cd</span> keys
+</span></span><span class=line><span class=cl>openssl genrsa -out tls.key <span class=m>2048</span>
+</span></span><span class=line><span class=cl>openssl req -new -out tls.csr -key tls.key -subj <span class=s1>&#39;/CN=192.168.188.180&#39;</span>
 </span></span><span class=line><span class=cl>openssl x509 -req -in tls.csr -signkey tls.key -out tls.crt
 </span></span><span class=line><span class=cl>ls
 </span></span><span class=line><span class=cl>&gt;tls.crt tls.csr tls.key
 </span></span></code></pre></td></tr></table></div></div><h3 id=创建启用secret>创建启用secret</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>cd keys # 如果本身就在keys文件夹下，则可以省略该步骤
-</span></span><span class=line><span class=cl>kubectl create secret generic kubernetes-dashboard-certs --from-file=./ -n kubernetes-dashboard
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=nb>cd</span> keys <span class=c1># 如果本身就在keys文件夹下，则可以省略该步骤</span>
+</span></span><span class=line><span class=cl>kubectl create secret generic kubernetes-dashboard-certs --from-file<span class=o>=</span>./ -n kubernetes-dashboard
 </span></span><span class=line><span class=cl>kubectl edit deploy kubernetes-dashboard -n kubernetes-dashboard
 </span></span></code></pre></td></tr></table></div></div><h3 id=创建用户角色>创建用户角色</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>kubectl create serviceaccount dashboard-admin -n kube-system
-</span></span><span class=line><span class=cl>kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin
-</span></span><span class=line><span class=cl>kubectl describe secrets -n kube-system $(kubectl -n kube-system get secret | awk &#39;/dashboard-admin/{print $1}&#39;)
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>kubectl create serviceaccount dashboard-admin -n kube-system
+</span></span><span class=line><span class=cl>kubectl create clusterrolebinding dashboard-admin --clusterrole<span class=o>=</span>cluster-admin --serviceaccount<span class=o>=</span>kube-system:dashboard-admin
+</span></span><span class=line><span class=cl>kubectl describe secrets -n kube-system <span class=k>$(</span>kubectl -n kube-system get secret <span class=p>|</span> awk <span class=s1>&#39;/dashboard-admin/{print $1}&#39;</span><span class=k>)</span>
 </span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -481,7 +481,7 @@
 </span><span class=lnt>12
 </span><span class=lnt>13
 </span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>#用户信息
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1>#用户信息</span>
 </span></span><span class=line><span class=cl>Name:         dashboard-admin-token-2pnkj
 </span></span><span class=line><span class=cl>Namespace:    kube-system
 </span></span><span class=line><span class=cl>Labels:       &lt;none&gt;
@@ -490,10 +490,10 @@
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>Type:  kubernetes.io/service-account-token
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>Data
-</span></span><span class=line><span class=cl>====
-</span></span><span class=line><span class=cl>ca.crt:     1066 bytes
-</span></span><span class=line><span class=cl>namespace:  11 bytes
+</span></span><span class=line><span class=cl><span class=nv>Data</span>
+</span></span><span class=line><span class=cl><span class=o>====</span>
+</span></span><span class=line><span class=cl>ca.crt:     <span class=m>1066</span> bytes
+</span></span><span class=line><span class=cl>namespace:  <span class=m>11</span> bytes
 </span></span><span class=line><span class=cl>token:      eyJhbGciOiJSUzI1NiIsImtpZCI6Im5GbG83eUp0TThGeDNySHBUZ2pqSVE3UFg2empBYm1rbnFvVkVaYV8tVUEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkYXNoYm9hcmQtYWRtaW4tdG9rZW4tMnBua2oiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGFzaGJvYXJkLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiYzg3MjI5NWMtMzQ4My00NTU4LWE5NmUtNjE2MWNmOWY4NGNiIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmUtc3lzdGVtOmRhc2hib2FyZC1hZG1pbiJ9.WbaC6TYCnUvfg-N3EbZ6Um-jl78tU_KRLorYUtGG7_ZSR7of_z6cJTDjd4U87OKeNlmNRqEXQkEEx3JZMMiEB6UzCF7QrLN0hOhtKtlarL-xd3HVwuiK_9m8GYtKtvB7wMvrmX4VUNeib11QhMiNDbvYdZc6JdqsEiqdP5bq3_iVsrWFFj5g6B5Z-ZvhdeHRE9Yy9KNBXdItqjLCot5Azv7GXn58WP6E8sZ3zM52J5J5dE8fcArHTptY6kxn0L7qHnzUd2pzqiTWVNBAtGYw-FH42feMFG0dMPsI4o0QqVswxQlp0dZ5YQlmfFn5J1EPEo__-LFbA5sipHk_dKKmow
 </span></span></code></pre></td></tr></table></div></div><p>至此，k8s已经安装成功，中途大大小小的坑点真多，emmm</p><h1 id=安装metrics-server>安装metrics-server</h1><p>又碰到了一个小问题，这里主要是解决的无法查看cpu和内存的运行情况</p><p>需要安装一个新东西</p><p>修改相关yaml内容</p><ol><li>args增加参数：- –kubelet-insecure-tls #表示不验证客户端证书</li><li>image改为阿里镜像：registry.cn-hangzhou.aliyuncs.com/google_containers/metrics-server:v0.6.4</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
 </span><span class=lnt>  2
@@ -692,7 +692,7 @@
 </span><span class=lnt>195
 </span><span class=lnt>196
 </span><span class=lnt>197
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>apiVersion: v1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>apiVersion: v1
 </span></span><span class=line><span class=cl>kind: ServiceAccount
 </span></span><span class=line><span class=cl>metadata:
 </span></span><span class=line><span class=cl>  labels:
@@ -705,9 +705,9 @@
 </span></span><span class=line><span class=cl>metadata:
 </span></span><span class=line><span class=cl>  labels:
 </span></span><span class=line><span class=cl>    k8s-app: metrics-server
-</span></span><span class=line><span class=cl>    rbac.authorization.k8s.io/aggregate-to-admin: &#34;true&#34;
-</span></span><span class=line><span class=cl>    rbac.authorization.k8s.io/aggregate-to-edit: &#34;true&#34;
-</span></span><span class=line><span class=cl>    rbac.authorization.k8s.io/aggregate-to-view: &#34;true&#34;
+</span></span><span class=line><span class=cl>    rbac.authorization.k8s.io/aggregate-to-admin: <span class=s2>&#34;true&#34;</span>
+</span></span><span class=line><span class=cl>    rbac.authorization.k8s.io/aggregate-to-edit: <span class=s2>&#34;true&#34;</span>
+</span></span><span class=line><span class=cl>    rbac.authorization.k8s.io/aggregate-to-view: <span class=s2>&#34;true&#34;</span>
 </span></span><span class=line><span class=cl>  name: system:aggregated-metrics-reader
 </span></span><span class=line><span class=cl>rules:
 </span></span><span class=line><span class=cl>- apiGroups:
@@ -728,13 +728,13 @@
 </span></span><span class=line><span class=cl>  name: system:metrics-server
 </span></span><span class=line><span class=cl>rules:
 </span></span><span class=line><span class=cl>- apiGroups:
-</span></span><span class=line><span class=cl>  - &#34;&#34;
+</span></span><span class=line><span class=cl>  - <span class=s2>&#34;&#34;</span>
 </span></span><span class=line><span class=cl>  resources:
 </span></span><span class=line><span class=cl>  - nodes/metrics
 </span></span><span class=line><span class=cl>  verbs:
 </span></span><span class=line><span class=cl>  - get
 </span></span><span class=line><span class=cl>- apiGroups:
-</span></span><span class=line><span class=cl>  - &#34;&#34;
+</span></span><span class=line><span class=cl>  - <span class=s2>&#34;&#34;</span>
 </span></span><span class=line><span class=cl>  resources:
 </span></span><span class=line><span class=cl>  - pods
 </span></span><span class=line><span class=cl>  - nodes
@@ -799,7 +799,7 @@
 </span></span><span class=line><span class=cl>spec:
 </span></span><span class=line><span class=cl>  ports:
 </span></span><span class=line><span class=cl>  - name: https
-</span></span><span class=line><span class=cl>    port: 443
+</span></span><span class=line><span class=cl>    port: <span class=m>443</span>
 </span></span><span class=line><span class=cl>    protocol: TCP
 </span></span><span class=line><span class=cl>    targetPort: https
 </span></span><span class=line><span class=cl>  selector:
@@ -818,7 +818,7 @@
 </span></span><span class=line><span class=cl>      k8s-app: metrics-server
 </span></span><span class=line><span class=cl>  strategy:
 </span></span><span class=line><span class=cl>    rollingUpdate:
-</span></span><span class=line><span class=cl>      maxUnavailable: 0
+</span></span><span class=line><span class=cl>      maxUnavailable: <span class=m>0</span>
 </span></span><span class=line><span class=cl>  template:
 </span></span><span class=line><span class=cl>    metadata:
 </span></span><span class=line><span class=cl>      labels:
@@ -826,43 +826,43 @@
 </span></span><span class=line><span class=cl>    spec:
 </span></span><span class=line><span class=cl>      containers:
 </span></span><span class=line><span class=cl>      - args:
-</span></span><span class=line><span class=cl>        - --cert-dir=/tmp
-</span></span><span class=line><span class=cl>        - --secure-port=4443
-</span></span><span class=line><span class=cl>        - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+</span></span><span class=line><span class=cl>        - --cert-dir<span class=o>=</span>/tmp
+</span></span><span class=line><span class=cl>        - --secure-port<span class=o>=</span><span class=m>4443</span>
+</span></span><span class=line><span class=cl>        - --kubelet-preferred-address-types<span class=o>=</span>InternalIP,ExternalIP,Hostname
 </span></span><span class=line><span class=cl>        - --kubelet-use-node-status-port
-</span></span><span class=line><span class=cl>        - --metric-resolution=15s
-</span></span><span class=line><span class=cl>        - --kubelet-insecure-tls   #表示不验证客户端证书
-</span></span><span class=line><span class=cl>        image: registry.cn-hangzhou.aliyuncs.com/google_containers/metrics-server:v0.6.4  #使用阿里镜像
+</span></span><span class=line><span class=cl>        - --metric-resolution<span class=o>=</span>15s
+</span></span><span class=line><span class=cl>        - --kubelet-insecure-tls   <span class=c1>#表示不验证客户端证书</span>
+</span></span><span class=line><span class=cl>        image: registry.cn-hangzhou.aliyuncs.com/google_containers/metrics-server:v0.6.4  <span class=c1>#使用阿里镜像</span>
 </span></span><span class=line><span class=cl>        imagePullPolicy: IfNotPresent
 </span></span><span class=line><span class=cl>        livenessProbe:
-</span></span><span class=line><span class=cl>          failureThreshold: 3
+</span></span><span class=line><span class=cl>          failureThreshold: <span class=m>3</span>
 </span></span><span class=line><span class=cl>          httpGet:
 </span></span><span class=line><span class=cl>            path: /livez
 </span></span><span class=line><span class=cl>            port: https
 </span></span><span class=line><span class=cl>            scheme: HTTPS
-</span></span><span class=line><span class=cl>          periodSeconds: 10
+</span></span><span class=line><span class=cl>          periodSeconds: <span class=m>10</span>
 </span></span><span class=line><span class=cl>        name: metrics-server
 </span></span><span class=line><span class=cl>        ports:
-</span></span><span class=line><span class=cl>        - containerPort: 4443
+</span></span><span class=line><span class=cl>        - containerPort: <span class=m>4443</span>
 </span></span><span class=line><span class=cl>          name: https
 </span></span><span class=line><span class=cl>          protocol: TCP
 </span></span><span class=line><span class=cl>        readinessProbe:
-</span></span><span class=line><span class=cl>          failureThreshold: 3
+</span></span><span class=line><span class=cl>          failureThreshold: <span class=m>3</span>
 </span></span><span class=line><span class=cl>          httpGet:
 </span></span><span class=line><span class=cl>            path: /readyz
 </span></span><span class=line><span class=cl>            port: https
 </span></span><span class=line><span class=cl>            scheme: HTTPS
-</span></span><span class=line><span class=cl>          initialDelaySeconds: 20
-</span></span><span class=line><span class=cl>          periodSeconds: 10
+</span></span><span class=line><span class=cl>          initialDelaySeconds: <span class=m>20</span>
+</span></span><span class=line><span class=cl>          periodSeconds: <span class=m>10</span>
 </span></span><span class=line><span class=cl>        resources:
 </span></span><span class=line><span class=cl>          requests:
 </span></span><span class=line><span class=cl>            cpu: 100m
 </span></span><span class=line><span class=cl>            memory: 200Mi
 </span></span><span class=line><span class=cl>        securityContext:
-</span></span><span class=line><span class=cl>          allowPrivilegeEscalation: false
-</span></span><span class=line><span class=cl>          readOnlyRootFilesystem: true
-</span></span><span class=line><span class=cl>          runAsNonRoot: true
-</span></span><span class=line><span class=cl>          runAsUser: 1000
+</span></span><span class=line><span class=cl>          allowPrivilegeEscalation: <span class=nb>false</span>
+</span></span><span class=line><span class=cl>          readOnlyRootFilesystem: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>          runAsNonRoot: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>          runAsUser: <span class=m>1000</span>
 </span></span><span class=line><span class=cl>        volumeMounts:
 </span></span><span class=line><span class=cl>        - mountPath: /tmp
 </span></span><span class=line><span class=cl>          name: tmp-dir
@@ -871,7 +871,7 @@
 </span></span><span class=line><span class=cl>      priorityClassName: system-cluster-critical
 </span></span><span class=line><span class=cl>      serviceAccountName: metrics-server
 </span></span><span class=line><span class=cl>      volumes:
-</span></span><span class=line><span class=cl>      - emptyDir: {}
+</span></span><span class=line><span class=cl>      - emptyDir: <span class=o>{}</span>
 </span></span><span class=line><span class=cl>        name: tmp-dir
 </span></span><span class=line><span class=cl>---
 </span></span><span class=line><span class=cl>apiVersion: apiregistration.k8s.io/v1
@@ -882,15 +882,15 @@
 </span></span><span class=line><span class=cl>  name: v1beta1.metrics.k8s.io
 </span></span><span class=line><span class=cl>spec:
 </span></span><span class=line><span class=cl>  group: metrics.k8s.io
-</span></span><span class=line><span class=cl>  groupPriorityMinimum: 100
-</span></span><span class=line><span class=cl>  insecureSkipTLSVerify: true
+</span></span><span class=line><span class=cl>  groupPriorityMinimum: <span class=m>100</span>
+</span></span><span class=line><span class=cl>  insecureSkipTLSVerify: <span class=nb>true</span>
 </span></span><span class=line><span class=cl>  service:
 </span></span><span class=line><span class=cl>    name: metrics-server
 </span></span><span class=line><span class=cl>    namespace: kube-system
 </span></span><span class=line><span class=cl>  version: v1beta1
-</span></span><span class=line><span class=cl>  versionPriority: 100
+</span></span><span class=line><span class=cl>  versionPriority: <span class=m>100</span>
 </span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>kubectl apply -f components.yaml
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>kubectl apply -f components.yaml
 </span></span></code></pre></td></tr></table></div></div><p>进行部署</p><p>另外还有一个dashboard可能会有点问题</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -924,22 +924,22 @@
 </span><span class=lnt>31
 </span><span class=lnt>32
 </span><span class=lnt>33
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>---
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>---
 </span></span><span class=line><span class=cl>apiVersion: rbac.authorization.k8s.io/v1
 </span></span><span class=line><span class=cl>kind: ClusterRole
 </span></span><span class=line><span class=cl>metadata:
 </span></span><span class=line><span class=cl>  name: system:metrics-server
 </span></span><span class=line><span class=cl>rules:
 </span></span><span class=line><span class=cl>- apiGroups:
-</span></span><span class=line><span class=cl>  - &#34;&#34;
+</span></span><span class=line><span class=cl>  - <span class=s2>&#34;&#34;</span>
 </span></span><span class=line><span class=cl>  resources:
 </span></span><span class=line><span class=cl>  - pods
 </span></span><span class=line><span class=cl>  - nodes
 </span></span><span class=line><span class=cl>  - nodes/stats
 </span></span><span class=line><span class=cl>  - namespaces
 </span></span><span class=line><span class=cl>  - configmaps
-</span></span><span class=line><span class=cl>  - nodes/stats # 添加
-</span></span><span class=line><span class=cl>  - pods/stats # 添加
+</span></span><span class=line><span class=cl>  - nodes/stats <span class=c1># 添加</span>
+</span></span><span class=line><span class=cl>  - pods/stats <span class=c1># 添加</span>
 </span></span><span class=line><span class=cl>  verbs:
 </span></span><span class=line><span class=cl>  - get
 </span></span><span class=line><span class=cl>  - list
