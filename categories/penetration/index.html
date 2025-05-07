@@ -137,7 +137,23 @@
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>ssh
 </span></span></code></pre></td></tr></table></div></div><ol start=4><li>Find directories on the web server using the GoBuster tool<br>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/network-asset-JAeXCag7i4V6nPt-20250507212933-k85p9yu.png alt>​</li><li>What is the hidden directory?</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>/panel/
-</span></span></code></pre></td></tr></table></div></div><h1 id=getting-a-shell>Getting a shell</h1><p>在上面找到相关路径之后，是一个文件上传的入口，同时还有一个uploads，是上传文件的存放地址</p></div></article></div></div></div></div><footer class=footer><p>&copy; 2025 <a href=https://wh1tej0ker.github.io/>Wh1teJ0kerのBlog</a>
+</span></span></code></pre></td></tr></table></div></div><h1 id=getting-a-shell>Getting a shell</h1><p>在上面找到相关路径之后，是一个文件上传的入口，同时还有一个uploads，是上传文件的存放地址</p></div></article><article><div class=card><h3><a href=/post/tryhackmeeasyagent-sudo-z1k6ga4.html>Tryhackme-easy-Agent Sudo</a></h3><p><small>August 14, 2024&nbsp;· &nbsp;·</small><p><h1 id=tryhackme-easy-agent-sudo>Tryhackme-easy-Agent Sudo</h1><h1 id=agent-sudo>+Agent Sudo</h1><h2 id=enumerate>Enumerate</h2><ol><li>How many open ports?<br>可能是因为网络延迟的问题，导致开始的时候一个端口都没扫描出来，延时可以适当开高一点点</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>3
+</span></span></code></pre></td></tr></table></div></div><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/network-asset-pV4LatyfSXNCl35-20250507212926-cbjebbe.png alt>​</p><ol start=2><li>How you redirect yourself to a secret page?</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>user-agent
+</span></span></code></pre></td></tr></table></div></div><p>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/network-asset-OlMXjakTzYwE74N-20250507212926-z7uw9w0.png alt>​</p><ol start=3><li>What is the agent name?<br>user-agent参数为C的时候，可以收到回复</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Attention chris,
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>From,
+</span></span><span class=line><span class=cl>Agent R
+</span></span></code></pre></td></tr></table></div></div><p>因此可以获取本题的答案是</p></div></article></div></div></div></div><footer class=footer><p>&copy; 2025 <a href=https://wh1tej0ker.github.io/>Wh1teJ0kerのBlog</a>
 Powered by
 <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo️️</a>
 <a href=https://github.com/guangzhengli/hugo-theme-ladder rel=noopener target=_blank>Ladder</a>
