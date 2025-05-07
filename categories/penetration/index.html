@@ -105,7 +105,39 @@
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>Listen Morty... I need your help, I&#39;ve turned myself into a pickle again and this time I can&#39;t change back!
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>I need you to *BURRRP*....Morty, logon to my computer and find the last three secret ingredients to finish my pickle-reverse potion. The only problem is, I have no idea what the *BURRRRRRRRP*, password was! Help Morty, Help!
-</span></span></code></pre></td></tr></table></div></div><p>很明显提示说使用burpsuite</p></div></article></div></div></div></div><footer class=footer><p>&copy; 2025 <a href=https://wh1tej0ker.github.io/>Wh1teJ0kerのBlog</a>
+</span></span></code></pre></td></tr></table></div></div><p>很明显提示说使用burpsuite</p></div></article><article><div class=card><h3><a href=/post/tryhackmeeasyrootme-1bz4w8.html>Tryhackme-easy-RootMe</a></h3><p><small>August 14, 2024&nbsp;· &nbsp;·</small><p><h1 id=tryhackme-easy-rootme>Tryhackme-easy-RootMe</h1><h1 id=reconnaissance>Reconnaissance</h1><ol><li>Scan the machine, how many ports are open?</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>2
+</span></span></code></pre></td></tr></table></div></div><p>nmap扫描</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>─$ nmap -sV 10.10.24.147            
+</span></span><span class=line><span class=cl>Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-02-27 03:47 EST
+</span></span><span class=line><span class=cl>Nmap scan report for 10.10.24.147 (10.10.24.147)
+</span></span><span class=line><span class=cl>Host is up (0.29s latency).
+</span></span><span class=line><span class=cl>Not shown: 998 filtered tcp ports (no-response)
+</span></span><span class=line><span class=cl>PORT   STATE SERVICE VERSION
+</span></span><span class=line><span class=cl>22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+</span></span><span class=line><span class=cl>80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+</span></span><span class=line><span class=cl>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span class=line><span class=cl>Nmap done: 1 IP address (1 host up) scanned in 39.87 seconds
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li>What version of Apache is running?<br>根据上述扫描结果得出</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>2.4.29
+</span></span></code></pre></td></tr></table></div></div><ol start=3><li>What service is running on port 22?</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>ssh
+</span></span></code></pre></td></tr></table></div></div><ol start=4><li>Find directories on the web server using the GoBuster tool<br>​<img src=https://raw.githubusercontent.com/Wh1teJ0ker/PicGo/main/Pic/network-asset-JAeXCag7i4V6nPt-20250507212933-k85p9yu.png alt>​</li><li>What is the hidden directory?</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>/panel/
+</span></span></code></pre></td></tr></table></div></div><h1 id=getting-a-shell>Getting a shell</h1><p>在上面找到相关路径之后，是一个文件上传的入口，同时还有一个uploads，是上传文件的存放地址</p></div></article></div></div></div></div><footer class=footer><p>&copy; 2025 <a href=https://wh1tej0ker.github.io/>Wh1teJ0kerのBlog</a>
 Powered by
 <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo️️</a>
 <a href=https://github.com/guangzhengli/hugo-theme-ladder rel=noopener target=_blank>Ladder</a>
