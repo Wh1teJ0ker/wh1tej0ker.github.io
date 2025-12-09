@@ -494,11 +494,11 @@
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>bkcrack -C strong_encrypted.zip -c veracrypt.core -k 25b0091d 6687a00d 791e474d -d veracrypt.core
 </span></span><span class=line><span class=cl>bkcrack -C strong_encrypted.zip -c veracrypt.core -k 25b0091d 6687a00d 791e474d -d <span class=m>1</span>
 </span></span></code></pre></td></tr></table></div></div><p>在core文件内查找到密码</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Plain data-lang=Plain><span class=line><span class=cl>strings veracrypt.core | grep -i &#34;password&#34;
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>strings veracrypt.core <span class=p>|</span> grep -i <span class=s2>&#34;password&#34;</span>
 </span></span></code></pre></td></tr></table></div></div><p><img src=assets/network-asset-asynccode-20251209221117-ulfdiyo.png alt></p><p>然后看到这个SecurePassword12</p><p>然后挂载</p><p><img src=assets/network-asset-asynccode-20251209221117-3bmttxl.png alt></p><p>使用rstudio就可以扫描恢复文件，在.snap下找到2，点进去就是flag</p><p><img src=assets/network-asset-asynccode-20251209221117-0m53ddg.png alt></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Plain data-lang=Plain><span class=line><span class=cl>flag{Fr33BSD_part1t10n_taB1e_Is_StraNg3}
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>flag<span class=o>{</span>Fr33BSD_part1t10n_taB1e_Is_StraNg3<span class=o>}</span>
 </span></span></code></pre></td></tr></table></div></div><h2 id=vanyousee>VanYouSee</h2><p>🤡修了一个晚上</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>https</span><span class=p>:</span><span class=o>//</span><span class=n>pan</span><span class=o>.</span><span class=n>baidu</span><span class=o>.</span><span class=n>com</span><span class=o>/</span><span class=n>s</span><span class=o>/</span><span class=mi>1</span><span class=n>Tzad98GtbeuLs5RS0V_wuw</span><span class=err>?</span><span class=n>pwd</span><span class=o>=</span><span class=n>avev</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>https://pan.baidu.com/s/1Tzad98GtbeuLs5RS0V_wuw?pwd<span class=o>=</span>avev
 </span></span></code></pre></td></tr></table></div></div><h1 id=crypto>Crypto</h1><h2 id=scan4flag>Scan4fLaG</h2><p><img src=assets/image-20251209221319-c54z0c2.png alt=image></p><p>扫码得</p><p><img src=assets/image-20251209221519-rcj9twr.png alt=image></p><p>PS：被密码手猜出来的，郁郁了🤡</p><p>分离压缩包，用上面的密码解密</p><p><img src=assets/image-20251209221616-ss3ggts.png alt=image></p><h1 id=reverse>Reverse</h1><h2 id=easyvm>EasyVm</h2><p>七道re，我们一个re手不堪重任，帮忙做了一题easy的，AI太好用了</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
 </span><span class=lnt>  2
 </span><span class=lnt>  3
@@ -812,8 +812,8 @@
 </span><span class=lnt>311
 </span><span class=lnt>312
 </span><span class=lnt>313
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/usr/bin/env python3
-</span></span></span><span class=line><span class=cl><span class=cp></span><span class=c1># -*- coding: utf-8 -*-</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=ch>#!/usr/bin/env python3</span>
+</span></span><span class=line><span class=cl><span class=c1># -*- coding: utf-8 -*-</span>
 </span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;
 </span></span></span><span class=line><span class=cl><span class=s2>逆向自 Calendar.dll 中的自定义 VM，恢复 FLAG 的脚本。
 </span></span></span><span class=line><span class=cl><span class=s2>
@@ -827,223 +827,223 @@
 </span></span><span class=line><span class=cl><span class=c1># ----------------------------</span>
 </span></span><span class=line><span class=cl><span class=c1># 1. 还原出来的 VM 字节码</span>
 </span></span><span class=line><span class=cl><span class=c1># ----------------------------</span>
-</span></span><span class=line><span class=cl><span class=nv>CODE</span> <span class=o>=</span> bytes<span class=o>([</span>
-</span></span><span class=line><span class=cl>    0x0D,0x3C,0x01,0x06,0x0A,0x01,0x02,0x6F,0x01,0x00,0x57,0x01,0x05,0x21,0x01,0x03,
-</span></span><span class=line><span class=cl>    0x6E,0x01,0x01,0x72,0x01,0x04,0x67,0x01,0x07,0x00,0x11,0x00,0x01,0x04,0x65,0x01,
-</span></span><span class=line><span class=cl>    0x05,0x63,0x01,0x09,0x00,0x01,0x01,0x6F,0x01,0x03,0x72,0x01,0x07,0x21,0x01,0x02,
-</span></span><span class=line><span class=cl>    0x72,0x01,0x08,0x0A,0x01,0x00,0x43,0x01,0x06,0x74,0x11,0x00,0x10,0x02,0x00,0x00,
-</span></span><span class=line><span class=cl>    0x0C,0x00,0x66,0x0E,0x02,0x02,0x00,0x01,0x03,0x01,0x00,0x06,0x01,0x01,0x0C,0x01,
-</span></span><span class=line><span class=cl>    0x6D,0x0E,0x02,0x02,0x01,0x02,0x02,0x02,0x03,0x02,0x03,0x04,0x03,0x00,0x01,0x09,
-</span></span><span class=line><span class=cl>    0x00,0x02,0x0C,0x00,0x06,0x0E,0x02,0x03,0x00,0x02,0x09,0x00,0x03,0x0C,0x00,0x1C,
-</span></span><span class=line><span class=cl>    0x0E,0x02,0x03,0x00,0x01,0x09,0x00,0x03,0x0C,0x00,0x1A,0x0E,0x02,0x02,0x01,0x05,
-</span></span><span class=line><span class=cl>    0x02,0x02,0x06,0x02,0x03,0x07,0x0C,0x02,0x69,0x0E,0x02,0x03,0x00,0x01,0x09,0x00,
-</span></span><span class=line><span class=cl>    0x02,0x0C,0x00,0x21,0x0E,0x02,0x03,0x00,0x03,0x09,0x00,0x02,0x0C,0x00,0x3D,0x0E,
-</span></span><span class=line><span class=cl>    0x02,0x02,0x04,0x08,0x02,0x05,0x09,0x02,0x06,0x0A,0x0B,0x05,0x03,0x0E,0x02,0x03,
-</span></span><span class=line><span class=cl>    0x00,0x04,0x09,0x00,0x05,0x0C,0x00,0x17,0x0E,0x02,0x03,0x00,0x06,0x09,0x00,0x05,
-</span></span><span class=line><span class=cl>    0x0C,0x00,0x12,0x0E,0x02,0x02,0x01,0x0B,0x02,0x02,0x0C,0x02,0x03,0x0D,0x02,0x04,
-</span></span><span class=line><span class=cl>    0x0E,0x02,0x05,0x0F,0x02,0x06,0x10,0x02,0x07,0x11,0x0B,0x02,0x04,0x0E,0x02,0x03,
-</span></span><span class=line><span class=cl>    0x00,0x01,0x05,0x00,0x00,0x0C,0x00,0xBE,0x0E,0x02,0x09,0x00,0x00,0x0B,0x00,0x07,
-</span></span><span class=line><span class=cl>    0x0E,0x02,0x05,0x00,0x02,0x0C,0x00,0x32,0x0E,0x02,0x08,0x00,0x02,0x0C,0x00,0x30,
-</span></span><span class=line><span class=cl>    0x0E,0x02,0x06,0x00,0x05,0x0B,0x00,0x05,0x0E,0x02,0x02,0x00,0x04,0x07,0x06,0x00,
-</span></span><span class=line><span class=cl>    0x0C,0x06,0x02,0x0E,0x02,0x0D,0x1C,0x00
-</span></span><span class=line><span class=cl><span class=o>])</span>
+</span></span><span class=line><span class=cl><span class=n>CODE</span> <span class=o>=</span> <span class=nb>bytes</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x0D</span><span class=p>,</span><span class=mh>0x3C</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x0A</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x6F</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x57</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span><span class=mh>0x21</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x6E</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x72</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x04</span><span class=p>,</span><span class=mh>0x67</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x07</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x11</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x04</span><span class=p>,</span><span class=mh>0x65</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x05</span><span class=p>,</span><span class=mh>0x63</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x6F</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x72</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x07</span><span class=p>,</span><span class=mh>0x21</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x72</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x08</span><span class=p>,</span><span class=mh>0x0A</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x43</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x74</span><span class=p>,</span><span class=mh>0x11</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x10</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x66</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x6D</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x04</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x00</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x1C</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x1A</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x07</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x69</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x02</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x21</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x3D</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x04</span><span class=p>,</span><span class=mh>0x08</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x0A</span><span class=p>,</span><span class=mh>0x0B</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x00</span><span class=p>,</span><span class=mh>0x04</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x17</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x12</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x0B</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span><span class=mh>0x0D</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x04</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span><span class=mh>0x0F</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x10</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x07</span><span class=p>,</span><span class=mh>0x11</span><span class=p>,</span><span class=mh>0x0B</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x04</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x03</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x00</span><span class=p>,</span><span class=mh>0x01</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0xBE</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x09</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x0B</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x07</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x32</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x08</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x30</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span><span class=mh>0x0B</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x05</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span><span class=mh>0x04</span><span class=p>,</span><span class=mh>0x07</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x00</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mh>0x0C</span><span class=p>,</span><span class=mh>0x06</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x0E</span><span class=p>,</span><span class=mh>0x02</span><span class=p>,</span><span class=mh>0x0D</span><span class=p>,</span><span class=mh>0x1C</span><span class=p>,</span><span class=mh>0x00</span>
+</span></span><span class=line><span class=cl><span class=p>])</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># 操作码到名字，仅用于调试（脚本真正执行不依赖这个）</span>
-</span></span><span class=line><span class=cl><span class=nv>OPMAP</span> <span class=o>=</span> <span class=o>{</span>
-</span></span><span class=line><span class=cl>    0: <span class=s2>&#34;HALT&#34;</span>,
-</span></span><span class=line><span class=cl>    1: <span class=s2>&#34;STORE&#34;</span>,
-</span></span><span class=line><span class=cl>    2: <span class=s2>&#34;LDMEM&#34;</span>,
-</span></span><span class=line><span class=cl>    3: <span class=s2>&#34;MOV&#34;</span>,
-</span></span><span class=line><span class=cl>    4: <span class=s2>&#34;LDI&#34;</span>,
-</span></span><span class=line><span class=cl>    5: <span class=s2>&#34;ADD&#34;</span>,
-</span></span><span class=line><span class=cl>    6: <span class=s2>&#34;ADD_I&#34;</span>,
-</span></span><span class=line><span class=cl>    7: <span class=s2>&#34;SUB&#34;</span>,
-</span></span><span class=line><span class=cl>    8: <span class=s2>&#34;SUB_I&#34;</span>,
-</span></span><span class=line><span class=cl>    9: <span class=s2>&#34;XOR&#34;</span>,
-</span></span><span class=line><span class=cl>    10: <span class=s2>&#34;XOR_I&#34;</span>,
-</span></span><span class=line><span class=cl>    11: <span class=s2>&#34;CMP&#34;</span>,
-</span></span><span class=line><span class=cl>    12: <span class=s2>&#34;CMP_I&#34;</span>,
-</span></span><span class=line><span class=cl>    13: <span class=s2>&#34;JMP&#34;</span>,
-</span></span><span class=line><span class=cl>    14: <span class=s2>&#34;JNZ&#34;</span>,
-</span></span><span class=line><span class=cl>    16: <span class=s2>&#34;IN&#34;</span>,
-</span></span><span class=line><span class=cl>    17: <span class=s2>&#34;OUT&#34;</span>,
-</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=n>OPMAP</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=mi>0</span><span class=p>:</span> <span class=s2>&#34;HALT&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>1</span><span class=p>:</span> <span class=s2>&#34;STORE&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>2</span><span class=p>:</span> <span class=s2>&#34;LDMEM&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>3</span><span class=p>:</span> <span class=s2>&#34;MOV&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>4</span><span class=p>:</span> <span class=s2>&#34;LDI&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>5</span><span class=p>:</span> <span class=s2>&#34;ADD&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>6</span><span class=p>:</span> <span class=s2>&#34;ADD_I&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>7</span><span class=p>:</span> <span class=s2>&#34;SUB&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>8</span><span class=p>:</span> <span class=s2>&#34;SUB_I&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>9</span><span class=p>:</span> <span class=s2>&#34;XOR&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>10</span><span class=p>:</span> <span class=s2>&#34;XOR_I&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>11</span><span class=p>:</span> <span class=s2>&#34;CMP&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>12</span><span class=p>:</span> <span class=s2>&#34;CMP_I&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>13</span><span class=p>:</span> <span class=s2>&#34;JMP&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>14</span><span class=p>:</span> <span class=s2>&#34;JNZ&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>16</span><span class=p>:</span> <span class=s2>&#34;IN&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>17</span><span class=p>:</span> <span class=s2>&#34;OUT&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># -------------------------------------------------</span>
 </span></span><span class=line><span class=cl><span class=c1># 2. Python 版 VM 解释器：仿 sub_140001270 的核心逻辑</span>
 </span></span><span class=line><span class=cl><span class=c1># -------------------------------------------------</span>
-</span></span><span class=line><span class=cl>def vm_run<span class=o>(</span>flag_bytes: bytes, debug: <span class=nv>bool</span> <span class=o>=</span> False<span class=o>)</span> -&gt; bool:
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>vm_run</span><span class=p>(</span><span class=n>flag_bytes</span><span class=p>:</span> <span class=nb>bytes</span><span class=p>,</span> <span class=n>debug</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=kc>False</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>bool</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
 </span></span></span><span class=line><span class=cl><span class=s2>    用 Python 跑一遍 VM 逻辑，判断给定输入是否走到“正确”分支。
 </span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    flag_bytes：我们要传给 VM 的“输入字符串”（不含 \n），
+</span></span></span><span class=line><span class=cl><span class=s2>    flag_bytes：我们要传给 VM 的“输入字符串”（不含 </span><span class=se>\n</span><span class=s2>），
 </span></span></span><span class=line><span class=cl><span class=s2>                VM 读不到的位置按 0 处理。
 </span></span></span><span class=line><span class=cl><span class=s2>    返回值：True 表示通过所有校验，走到了成功分支；False 表示走错分支。
 </span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
-</span></span><span class=line><span class=cl>    <span class=nv>code</span> <span class=o>=</span> CODE
-</span></span><span class=line><span class=cl>    <span class=nv>regs</span> <span class=o>=</span> <span class=o>[</span>0<span class=o>]</span> * <span class=m>8</span>           <span class=c1># 8 个通用寄存器 r0..r7，每个 32 bit</span>
-</span></span><span class=line><span class=cl>    <span class=nv>zf</span> <span class=o>=</span> <span class=m>0</span>                   <span class=c1># 只模拟 Zero Flag（ZF），对应 a1+1064 的最低位</span>
-</span></span><span class=line><span class=cl>    <span class=nv>ip</span> <span class=o>=</span> <span class=m>0</span>                   <span class=c1># instruction pointer，从 0 开始</span>
-</span></span><span class=line><span class=cl>    <span class=nv>steps</span> <span class=o>=</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl>    <span class=n>code</span> <span class=o>=</span> <span class=n>CODE</span>
+</span></span><span class=line><span class=cl>    <span class=n>regs</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=mi>8</span>           <span class=c1># 8 个通用寄存器 r0..r7，每个 32 bit</span>
+</span></span><span class=line><span class=cl>    <span class=n>zf</span> <span class=o>=</span> <span class=mi>0</span>                   <span class=c1># 只模拟 Zero Flag（ZF），对应 a1+1064 的最低位</span>
+</span></span><span class=line><span class=cl>    <span class=n>ip</span> <span class=o>=</span> <span class=mi>0</span>                   <span class=c1># instruction pointer，从 0 开始</span>
+</span></span><span class=line><span class=cl>    <span class=n>steps</span> <span class=o>=</span> <span class=mi>0</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># 实际 VM 里：输入从 a1+1084 开始，我们这里直接用 flag_bytes 数组代替</span>
-</span></span><span class=line><span class=cl>    def read_input<span class=o>(</span>idx: int<span class=o>)</span> -&gt; int:
-</span></span><span class=line><span class=cl>        <span class=k>return</span> flag_bytes<span class=o>[</span>idx<span class=o>]</span> <span class=k>if</span> idx &lt; len<span class=o>(</span>flag_bytes<span class=o>)</span> <span class=k>else</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>read_input</span><span class=p>(</span><span class=n>idx</span><span class=p>:</span> <span class=nb>int</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>int</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>flag_bytes</span><span class=p>[</span><span class=n>idx</span><span class=p>]</span> <span class=k>if</span> <span class=n>idx</span> <span class=o>&lt;</span> <span class=nb>len</span><span class=p>(</span><span class=n>flag_bytes</span><span class=p>)</span> <span class=k>else</span> <span class=mi>0</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>while</span> ip &lt; len<span class=o>(</span>code<span class=o>)</span>:
-</span></span><span class=line><span class=cl>        <span class=nv>steps</span> <span class=o>+=</span> <span class=m>1</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> steps &gt; 20000:
+</span></span><span class=line><span class=cl>    <span class=k>while</span> <span class=n>ip</span> <span class=o>&lt;</span> <span class=nb>len</span><span class=p>(</span><span class=n>code</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>steps</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>steps</span> <span class=o>&gt;</span> <span class=mi>20000</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>            <span class=c1># 理论上不会死循环，这里加个保险</span>
-</span></span><span class=line><span class=cl>            raise RuntimeError<span class=o>(</span><span class=s2>&#34;VM 可能陷入死循环，终止调试&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>raise</span> <span class=ne>RuntimeError</span><span class=p>(</span><span class=s2>&#34;VM 可能陷入死循环，终止调试&#34;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=nv>op</span> <span class=o>=</span> code<span class=o>[</span>ip<span class=o>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>op</span> <span class=o>=</span> <span class=n>code</span><span class=p>[</span><span class=n>ip</span><span class=p>]</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> debug:
-</span></span><span class=line><span class=cl>            print<span class=o>(</span>f<span class=s2>&#34;IP={ip:03d} OP={op:02X} {OPMAP.get(op, &#39;?&#39;):&lt;5} regs={regs} ZF={zf}&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>debug</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;IP=</span><span class=si>{</span><span class=n>ip</span><span class=si>:</span><span class=s2>03d</span><span class=si>}</span><span class=s2> OP=</span><span class=si>{</span><span class=n>op</span><span class=si>:</span><span class=s2>02X</span><span class=si>}</span><span class=s2> </span><span class=si>{</span><span class=n>OPMAP</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>op</span><span class=p>,</span> <span class=s1>&#39;?&#39;</span><span class=p>)</span><span class=si>:</span><span class=s2>&lt;5</span><span class=si>}</span><span class=s2> regs=</span><span class=si>{</span><span class=n>regs</span><span class=si>}</span><span class=s2> ZF=</span><span class=si>{</span><span class=n>zf</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>        <span class=c1># ------- 无参数指令 -------</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nv>op</span> <span class=o>==</span> 0:  <span class=c1># HALT</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>  <span class=c1># HALT</span>
 </span></span><span class=line><span class=cl>            <span class=c1># 题目里有两个 HALT：</span>
 </span></span><span class=line><span class=cl>            <span class=c1>#  - 错误分支是前面构造 &#34;Wrong...&#34; 后的 HALT（在 ip=27）</span>
 </span></span><span class=line><span class=cl>            <span class=c1>#  - 正确分支在最后构造 &#34;Correct!&#34; 后 HALT（在 ip=279）</span>
-</span></span><span class=line><span class=cl>            <span class=k>return</span> ip !<span class=o>=</span> <span class=m>27</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>ip</span> <span class=o>!=</span> <span class=mi>27</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 16:  <span class=c1># IN：真实程序里 fgets 读入，我们在脚本中直接忽略</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>16</span><span class=p>:</span>  <span class=c1># IN：真实程序里 fgets 读入，我们在脚本中直接忽略</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>1</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 17:  <span class=c1># OUT：真实程序把 a1+1134 的字符串输出，这里也直接跳过</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>17</span><span class=p>:</span>  <span class=c1># OUT：真实程序把 a1+1134 的字符串输出，这里也直接跳过</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>1</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>        <span class=c1># ------- 单字节参数（跳转） -------</span>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 13:  <span class=c1># JMP imm8</span>
-</span></span><span class=line><span class=cl>            <span class=nv>target</span> <span class=o>=</span> code<span class=o>[</span>ip + 1<span class=o>]</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>=</span> target
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>13</span><span class=p>:</span>  <span class=c1># JMP imm8</span>
+</span></span><span class=line><span class=cl>            <span class=n>target</span> <span class=o>=</span> <span class=n>code</span><span class=p>[</span><span class=n>ip</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>=</span> <span class=n>target</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 14:  <span class=c1># JNZ imm8 ：如果 ZF == 0 就跳转</span>
-</span></span><span class=line><span class=cl>            <span class=nv>target</span> <span class=o>=</span> code<span class=o>[</span>ip + 1<span class=o>]</span>
-</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nv>zf</span> <span class=o>==</span> 0:
-</span></span><span class=line><span class=cl>                <span class=nv>ip</span> <span class=o>=</span> target
-</span></span><span class=line><span class=cl>            <span class=k>else</span>:
-</span></span><span class=line><span class=cl>                <span class=nv>ip</span> <span class=o>+=</span> <span class=m>2</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>14</span><span class=p>:</span>  <span class=c1># JNZ imm8 ：如果 ZF == 0 就跳转</span>
+</span></span><span class=line><span class=cl>            <span class=n>target</span> <span class=o>=</span> <span class=n>code</span><span class=p>[</span><span class=n>ip</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>zf</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>ip</span> <span class=o>=</span> <span class=n>target</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>ip</span> <span class=o>+=</span> <span class=mi>2</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>        <span class=c1># ------- 双字节参数的算术 / 访存 / mov / cmp -------</span>
 </span></span><span class=line><span class=cl>        <span class=c1># 下面所有分支都会读两个紧跟的字节作为参数</span>
 </span></span><span class=line><span class=cl>        <span class=c1># 形式统一： [op, a, b]</span>
 </span></span><span class=line><span class=cl>        <span class=c1># --------------------------------------------</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> ip + <span class=m>2</span> &gt;<span class=o>=</span> len<span class=o>(</span>code<span class=o>)</span>:
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>ip</span> <span class=o>+</span> <span class=mi>2</span> <span class=o>&gt;=</span> <span class=nb>len</span><span class=p>(</span><span class=n>code</span><span class=p>):</span>
 </span></span><span class=line><span class=cl>            <span class=c1># 防御性检查</span>
-</span></span><span class=line><span class=cl>            raise RuntimeError<span class=o>(</span><span class=s2>&#34;字节码非法，读取越界&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>raise</span> <span class=ne>RuntimeError</span><span class=p>(</span><span class=s2>&#34;字节码非法，读取越界&#34;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=nv>a</span> <span class=o>=</span> code<span class=o>[</span>ip + 1<span class=o>]</span>
-</span></span><span class=line><span class=cl>        <span class=nv>b</span> <span class=o>=</span> code<span class=o>[</span>ip + 2<span class=o>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>a</span> <span class=o>=</span> <span class=n>code</span><span class=p>[</span><span class=n>ip</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>b</span> <span class=o>=</span> <span class=n>code</span><span class=p>[</span><span class=n>ip</span> <span class=o>+</span> <span class=mi>2</span><span class=p>]</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>        <span class=c1># 说明：原 VM 对寄存器编号 &gt;=8 会返回错误，这个字节码里都在 0..7 范围</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nv>op</span> <span class=o>==</span> 1:  <span class=c1># STORE；只影响 VM 内部的输出缓冲，对逻辑无影响，这里忽略</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>1</span><span class=p>:</span>  <span class=c1># STORE；只影响 VM 内部的输出缓冲，对逻辑无影响，这里忽略</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 2:  <span class=c1># LDMEM r, idx   -&gt; 从输入缓冲 flag[idx] 读入寄存器</span>
-</span></span><span class=line><span class=cl>            r, <span class=nv>idx</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            regs<span class=o>[</span>r<span class=o>]</span> <span class=o>=</span> read_input<span class=o>(</span>idx<span class=o>)</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>2</span><span class=p>:</span>  <span class=c1># LDMEM r, idx   -&gt; 从输入缓冲 flag[idx] 读入寄存器</span>
+</span></span><span class=line><span class=cl>            <span class=n>r</span><span class=p>,</span> <span class=n>idx</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>=</span> <span class=n>read_input</span><span class=p>(</span><span class=n>idx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 3:  <span class=c1># MOV rd, rs</span>
-</span></span><span class=line><span class=cl>            rd, <span class=nv>rs</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            regs<span class=o>[</span>rd<span class=o>]</span> <span class=o>=</span> regs<span class=o>[</span>rs<span class=o>]</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>3</span><span class=p>:</span>  <span class=c1># MOV rd, rs</span>
+</span></span><span class=line><span class=cl>            <span class=n>rd</span><span class=p>,</span> <span class=n>rs</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>=</span> <span class=n>regs</span><span class=p>[</span><span class=n>rs</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 4:  <span class=c1># LDI r, imm8</span>
-</span></span><span class=line><span class=cl>            r, <span class=nv>imm</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            regs<span class=o>[</span>r<span class=o>]</span> <span class=o>=</span> imm
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>4</span><span class=p>:</span>  <span class=c1># LDI r, imm8</span>
+</span></span><span class=line><span class=cl>            <span class=n>r</span><span class=p>,</span> <span class=n>imm</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>=</span> <span class=n>imm</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 5:  <span class=c1># ADD rd, rs</span>
-</span></span><span class=line><span class=cl>            rd, <span class=nv>rs</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            regs<span class=o>[</span>rd<span class=o>]</span> <span class=o>=</span> <span class=o>(</span>regs<span class=o>[</span>rd<span class=o>]</span> + regs<span class=o>[</span>rs<span class=o>])</span> <span class=p>&amp;</span> 0xFFFFFFFF
-</span></span><span class=line><span class=cl>            <span class=nv>zf</span> <span class=o>=</span> <span class=m>1</span> <span class=k>if</span> regs<span class=o>[</span>rd<span class=o>]</span> <span class=o>==</span> <span class=m>0</span> <span class=k>else</span> <span class=m>0</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>5</span><span class=p>:</span>  <span class=c1># ADD rd, rs</span>
+</span></span><span class=line><span class=cl>            <span class=n>rd</span><span class=p>,</span> <span class=n>rs</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>+</span> <span class=n>regs</span><span class=p>[</span><span class=n>rs</span><span class=p>])</span> <span class=o>&amp;</span> <span class=mh>0xFFFFFFFF</span>
+</span></span><span class=line><span class=cl>            <span class=n>zf</span> <span class=o>=</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span> <span class=k>else</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 6:  <span class=c1># ADD_I r, imm8</span>
-</span></span><span class=line><span class=cl>            r, <span class=nv>imm</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            regs<span class=o>[</span>r<span class=o>]</span> <span class=o>=</span> <span class=o>(</span>regs<span class=o>[</span>r<span class=o>]</span> + imm<span class=o>)</span> <span class=p>&amp;</span> 0xFFFFFFFF
-</span></span><span class=line><span class=cl>            <span class=nv>zf</span> <span class=o>=</span> <span class=m>1</span> <span class=k>if</span> regs<span class=o>[</span>r<span class=o>]</span> <span class=o>==</span> <span class=m>0</span> <span class=k>else</span> <span class=m>0</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>6</span><span class=p>:</span>  <span class=c1># ADD_I r, imm8</span>
+</span></span><span class=line><span class=cl>            <span class=n>r</span><span class=p>,</span> <span class=n>imm</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>+</span> <span class=n>imm</span><span class=p>)</span> <span class=o>&amp;</span> <span class=mh>0xFFFFFFFF</span>
+</span></span><span class=line><span class=cl>            <span class=n>zf</span> <span class=o>=</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span> <span class=k>else</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 7:  <span class=c1># SUB rd, rs</span>
-</span></span><span class=line><span class=cl>            rd, <span class=nv>rs</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            regs<span class=o>[</span>rd<span class=o>]</span> <span class=o>=</span> <span class=o>(</span>regs<span class=o>[</span>rd<span class=o>]</span> - regs<span class=o>[</span>rs<span class=o>])</span> <span class=p>&amp;</span> 0xFFFFFFFF
-</span></span><span class=line><span class=cl>            <span class=nv>zf</span> <span class=o>=</span> <span class=m>1</span> <span class=k>if</span> regs<span class=o>[</span>rd<span class=o>]</span> <span class=o>==</span> <span class=m>0</span> <span class=k>else</span> <span class=m>0</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>7</span><span class=p>:</span>  <span class=c1># SUB rd, rs</span>
+</span></span><span class=line><span class=cl>            <span class=n>rd</span><span class=p>,</span> <span class=n>rs</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>-</span> <span class=n>regs</span><span class=p>[</span><span class=n>rs</span><span class=p>])</span> <span class=o>&amp;</span> <span class=mh>0xFFFFFFFF</span>
+</span></span><span class=line><span class=cl>            <span class=n>zf</span> <span class=o>=</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span> <span class=k>else</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 8:  <span class=c1># SUB_I r, imm8</span>
-</span></span><span class=line><span class=cl>            r, <span class=nv>imm</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            regs<span class=o>[</span>r<span class=o>]</span> <span class=o>=</span> <span class=o>(</span>regs<span class=o>[</span>r<span class=o>]</span> - imm<span class=o>)</span> <span class=p>&amp;</span> 0xFFFFFFFF
-</span></span><span class=line><span class=cl>            <span class=nv>zf</span> <span class=o>=</span> <span class=m>1</span> <span class=k>if</span> regs<span class=o>[</span>r<span class=o>]</span> <span class=o>==</span> <span class=m>0</span> <span class=k>else</span> <span class=m>0</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>8</span><span class=p>:</span>  <span class=c1># SUB_I r, imm8</span>
+</span></span><span class=line><span class=cl>            <span class=n>r</span><span class=p>,</span> <span class=n>imm</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>-</span> <span class=n>imm</span><span class=p>)</span> <span class=o>&amp;</span> <span class=mh>0xFFFFFFFF</span>
+</span></span><span class=line><span class=cl>            <span class=n>zf</span> <span class=o>=</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span> <span class=k>else</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 9:  <span class=c1># XOR rd, rs</span>
-</span></span><span class=line><span class=cl>            rd, <span class=nv>rs</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            regs<span class=o>[</span>rd<span class=o>]</span> <span class=o>=</span> regs<span class=o>[</span>rd<span class=o>]</span> ^ regs<span class=o>[</span>rs<span class=o>]</span>
-</span></span><span class=line><span class=cl>            <span class=nv>zf</span> <span class=o>=</span> <span class=m>1</span> <span class=k>if</span> regs<span class=o>[</span>rd<span class=o>]</span> <span class=o>==</span> <span class=m>0</span> <span class=k>else</span> <span class=m>0</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>9</span><span class=p>:</span>  <span class=c1># XOR rd, rs</span>
+</span></span><span class=line><span class=cl>            <span class=n>rd</span><span class=p>,</span> <span class=n>rs</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>=</span> <span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>^</span> <span class=n>regs</span><span class=p>[</span><span class=n>rs</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>zf</span> <span class=o>=</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>regs</span><span class=p>[</span><span class=n>rd</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span> <span class=k>else</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 10:  <span class=c1># XOR_I r, imm8</span>
-</span></span><span class=line><span class=cl>            r, <span class=nv>imm</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            regs<span class=o>[</span>r<span class=o>]</span> <span class=o>=</span> regs<span class=o>[</span>r<span class=o>]</span> ^ imm
-</span></span><span class=line><span class=cl>            <span class=nv>zf</span> <span class=o>=</span> <span class=m>1</span> <span class=k>if</span> regs<span class=o>[</span>r<span class=o>]</span> <span class=o>==</span> <span class=m>0</span> <span class=k>else</span> <span class=m>0</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>10</span><span class=p>:</span>  <span class=c1># XOR_I r, imm8</span>
+</span></span><span class=line><span class=cl>            <span class=n>r</span><span class=p>,</span> <span class=n>imm</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>=</span> <span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>^</span> <span class=n>imm</span>
+</span></span><span class=line><span class=cl>            <span class=n>zf</span> <span class=o>=</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span> <span class=k>else</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 11:  <span class=c1># CMP r1, r2  -&gt; 设置 ZF = (r1 - r2 == 0)</span>
-</span></span><span class=line><span class=cl>            r1, <span class=nv>r2</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            <span class=nv>res</span> <span class=o>=</span> <span class=o>(</span>regs<span class=o>[</span>r1<span class=o>]</span> - regs<span class=o>[</span>r2<span class=o>])</span> <span class=p>&amp;</span> 0xFFFFFFFF
-</span></span><span class=line><span class=cl>            <span class=nv>zf</span> <span class=o>=</span> <span class=m>1</span> <span class=k>if</span> <span class=nv>res</span> <span class=o>==</span> <span class=m>0</span> <span class=k>else</span> <span class=m>0</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>11</span><span class=p>:</span>  <span class=c1># CMP r1, r2  -&gt; 设置 ZF = (r1 - r2 == 0)</span>
+</span></span><span class=line><span class=cl>            <span class=n>r1</span><span class=p>,</span> <span class=n>r2</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>res</span> <span class=o>=</span> <span class=p>(</span><span class=n>regs</span><span class=p>[</span><span class=n>r1</span><span class=p>]</span> <span class=o>-</span> <span class=n>regs</span><span class=p>[</span><span class=n>r2</span><span class=p>])</span> <span class=o>&amp;</span> <span class=mh>0xFFFFFFFF</span>
+</span></span><span class=line><span class=cl>            <span class=n>zf</span> <span class=o>=</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>res</span> <span class=o>==</span> <span class=mi>0</span> <span class=k>else</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nv>op</span> <span class=o>==</span> 12:  <span class=c1># CMP_I r, imm8 -&gt; 设置 ZF = (r - imm == 0)</span>
-</span></span><span class=line><span class=cl>            r, <span class=nv>imm</span> <span class=o>=</span> a, b
-</span></span><span class=line><span class=cl>            <span class=nv>res</span> <span class=o>=</span> <span class=o>(</span>regs<span class=o>[</span>r<span class=o>]</span> - imm<span class=o>)</span> <span class=p>&amp;</span> 0xFFFFFFFF
-</span></span><span class=line><span class=cl>            <span class=nv>zf</span> <span class=o>=</span> <span class=m>1</span> <span class=k>if</span> <span class=nv>res</span> <span class=o>==</span> <span class=m>0</span> <span class=k>else</span> <span class=m>0</span>
-</span></span><span class=line><span class=cl>            <span class=nv>ip</span> <span class=o>+=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>op</span> <span class=o>==</span> <span class=mi>12</span><span class=p>:</span>  <span class=c1># CMP_I r, imm8 -&gt; 设置 ZF = (r - imm == 0)</span>
+</span></span><span class=line><span class=cl>            <span class=n>r</span><span class=p>,</span> <span class=n>imm</span> <span class=o>=</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>            <span class=n>res</span> <span class=o>=</span> <span class=p>(</span><span class=n>regs</span><span class=p>[</span><span class=n>r</span><span class=p>]</span> <span class=o>-</span> <span class=n>imm</span><span class=p>)</span> <span class=o>&amp;</span> <span class=mh>0xFFFFFFFF</span>
+</span></span><span class=line><span class=cl>            <span class=n>zf</span> <span class=o>=</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>res</span> <span class=o>==</span> <span class=mi>0</span> <span class=k>else</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=n>ip</span> <span class=o>+=</span> <span class=mi>3</span>
 </span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>else</span>:
-</span></span><span class=line><span class=cl>            raise RuntimeError<span class=o>(</span>f<span class=s2>&#34;未知指令 op={op} @ ip={ip}&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>raise</span> <span class=ne>RuntimeError</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;未知指令 op=</span><span class=si>{</span><span class=n>op</span><span class=si>}</span><span class=s2> @ ip=</span><span class=si>{</span><span class=n>ip</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># 正常不会跑到这里</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> False
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>False</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># -------------------------------------------------</span>
 </span></span><span class=line><span class=cl><span class=c1># 3. 利用逆向出来的方程，在 Python 里还原 FLAG</span>
 </span></span><span class=line><span class=cl><span class=c1># -------------------------------------------------</span>
-</span></span><span class=line><span class=cl>def solve_flag<span class=o>()</span> -&gt; str:
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>solve_flag</span><span class=p>()</span> <span class=o>-&gt;</span> <span class=nb>str</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
 </span></span></span><span class=line><span class=cl><span class=s2>    根据 VM 中的比较与跳转逻辑，恢复所有字符。
 </span></span></span><span class=line><span class=cl><span class=s2>    这里只做“数学解方程”，而不是瞎枚举。
 </span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># flag[i] 代表第 i 个字符（0-based）</span>
-</span></span><span class=line><span class=cl>    <span class=nv>flag</span> <span class=o>=</span> <span class=o>[</span>0<span class=o>]</span> * <span class=m>17</span>  <span class=c1># 实际用到索引 0..16，其中 17 位置在内存中是 0 终止符</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=mi>17</span>  <span class=c1># 实际用到索引 0..16，其中 17 位置在内存中是 0 终止符</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># ---- 0,1: 直接比较 ----</span>
 </span></span><span class=line><span class=cl>    <span class=c1># LDMEM r0, [0] ; CMP_I r0, 102 (&#39;f&#39;)</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>0<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;f&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;f&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=c1># LDMEM r0, [1] ; MOV r1, r0 ; ADD_I r1, 1 ; CMP_I r1, 109</span>
 </span></span><span class=line><span class=cl>    <span class=c1># =&gt; flag[1] + 1 = 109 -&gt; flag[1] = 108 (&#39;l&#39;)</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>1<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;l&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;l&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># ---- 2,3,4: 三个异或方程 ----</span>
 </span></span><span class=line><span class=cl>    <span class=c1>#  r1 = flag[2]</span>
@@ -1058,34 +1058,34 @@
 </span></span><span class=line><span class=cl>    <span class=c1>#   ord(&#39;a&#39;) ^ ord(&#39;g&#39;) == 6</span>
 </span></span><span class=line><span class=cl>    <span class=c1>#   ord(&#39;g&#39;) ^ ord(&#39;{&#39;) == 28</span>
 </span></span><span class=line><span class=cl>    <span class=c1>#   ord(&#39;a&#39;) ^ ord(&#39;{&#39;) == 26</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>2<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;a&#39;</span><span class=o>)</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>3<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;g&#39;</span><span class=o>)</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>4<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;{&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;a&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;g&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>4</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;{&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># ---- 5,6,7: 与 &#39;H&#39;,&#39;i&#39;,&#39;T&#39; 相关 ----</span>
 </span></span><span class=line><span class=cl>    <span class=c1># LDMEM r1,[5]; LDMEM r2,[6]; LDMEM r3,[7]</span>
 </span></span><span class=line><span class=cl>    <span class=c1># CMP_I r2, 105          -&gt; flag[6] == &#39;i&#39;</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>6<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;i&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>6</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;i&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=c1># MOV r0,r1; XOR r0,r2; CMP_I r0,33  -&gt; flag[5] ^ flag[6] = 33</span>
 </span></span><span class=line><span class=cl>    <span class=c1>#     ord(&#39;H&#39;) ^ ord(&#39;i&#39;) == 72 ^ 105 == 33</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>5<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;H&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>5</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;H&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=c1># MOV r0,r3; XOR r0,r2; CMP_I r0,61  -&gt; flag[7] ^ flag[6] = 61 -&gt; flag[7] = 84 &#39;T&#39;</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>7<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;T&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>7</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;T&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># ---- 8,9,10: 与前面的 &#39;T&#39; 组合出来 &#34;CTF&#34; ----</span>
 </span></span><span class=line><span class=cl>    <span class=c1># LDMEM r4,[8]; LDMEM r5,[9]; LDMEM r6,[10]</span>
 </span></span><span class=line><span class=cl>    <span class=c1># CMP r5,r3     -&gt; flag[9] == flag[7] == &#39;T&#39;</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>9<span class=o>]</span> <span class=o>=</span> flag<span class=o>[</span>7<span class=o>]</span>                <span class=c1># &#39;T&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>9</span><span class=p>]</span> <span class=o>=</span> <span class=n>flag</span><span class=p>[</span><span class=mi>7</span><span class=p>]</span>                <span class=c1># &#39;T&#39;</span>
 </span></span><span class=line><span class=cl>    <span class=c1># MOV r0,r4; XOR r0,r5; CMP_I r0,23 -&gt; flag[8] ^ flag[9] = 23</span>
 </span></span><span class=line><span class=cl>    <span class=c1># MOV r0,r6; XOR r0,r5; CMP_I r0,18 -&gt; flag[10] ^ flag[9] = 18</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>8<span class=o>]</span> <span class=o>=</span> flag<span class=o>[</span>9<span class=o>]</span> ^ <span class=m>23</span>           <span class=c1># &#39;C&#39;</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>10<span class=o>]</span> <span class=o>=</span> flag<span class=o>[</span>9<span class=o>]</span> ^ <span class=m>18</span>          <span class=c1># &#39;F&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>8</span><span class=p>]</span> <span class=o>=</span> <span class=n>flag</span><span class=p>[</span><span class=mi>9</span><span class=p>]</span> <span class=o>^</span> <span class=mi>23</span>           <span class=c1># &#39;C&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>10</span><span class=p>]</span> <span class=o>=</span> <span class=n>flag</span><span class=p>[</span><span class=mi>9</span><span class=p>]</span> <span class=o>^</span> <span class=mi>18</span>          <span class=c1># &#39;F&#39;</span>
 </span></span><span class=line><span class=cl>    <span class=c1># 验证一下：chr(flag[8]) == &#39;C&#39;, chr(flag[9]) == &#39;T&#39;, chr(flag[10]) == &#39;F&#39;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># ---- 11..16: 尾巴部分 ----</span>
 </span></span><span class=line><span class=cl>    <span class=c1># LDMEM r1,[11] ; r1 = flag[11]</span>
 </span></span><span class=line><span class=cl>    <span class=c1># CMP_I (r1+r1), 190          -&gt; 2*flag[11] = 190 -&gt; flag[11] = 95 -&gt; &#39;_&#39;</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>11<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;_&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>11</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;_&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># r7 = flag[17], 经过一系列操作后要求 0，说明第 18 个位置是 0 终止符，</span>
 </span></span><span class=line><span class=cl>    <span class=c1># 而不是我们输入的字符（也就是说输入长度不用到 18）。</span>
@@ -1094,37 +1094,37 @@
 </span></span><span class=line><span class=cl>    <span class=c1># 后面：</span>
 </span></span><span class=line><span class=cl>    <span class=c1>#   r0 = flag[12]; CMP_I r0,50 -&gt; flag[12] == &#39;2&#39;</span>
 </span></span><span class=line><span class=cl>    <span class=c1>#   然后 r0 -= 2 == 48 再加 5 == 53 与 flag[15] 比较 -&gt; flag[15] == &#39;5&#39;</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>12<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;2&#39;</span><span class=o>)</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>14<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;2&#39;</span><span class=o>)</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>15<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;5&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>12</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;2&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>14</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;2&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>15</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;5&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># 最后：</span>
 </span></span><span class=line><span class=cl>    <span class=c1>#   LDMEM r0,[4] -&gt; r0=flag[4]=&#39;{&#39;</span>
 </span></span><span class=line><span class=cl>    <span class=c1>#   SUB r6,r0   -&gt; r6 = flag[16] - flag[4]</span>
 </span></span><span class=line><span class=cl>    <span class=c1>#   CMP_I r6,2  -&gt; flag[16] - flag[4] = 2  -&gt; flag[16] = &#39;{&#39; + 2 = &#39;}&#39;</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>16<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;}&#39;</span><span class=o>)</span>  <span class=c1># 123 + 2 = 125 -&gt; &#39;}&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>16</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;}&#39;</span><span class=p>)</span>  <span class=c1># 123 + 2 = 125 -&gt; &#39;}&#39;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># flag[13] 在字节码中仅被 LDMEM 读入，从未参与比较，因此是自由变量。</span>
 </span></span><span class=line><span class=cl>    <span class=c1># 结合 CTF 年份，“_2 0 2 5” 比较自然，我们就填 &#39;0&#39;。</span>
-</span></span><span class=line><span class=cl>    flag<span class=o>[</span>13<span class=o>]</span> <span class=o>=</span> ord<span class=o>(</span><span class=s1>&#39;0&#39;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span><span class=p>[</span><span class=mi>13</span><span class=p>]</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;0&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=s2>&#34;&#34;</span>.join<span class=o>(</span>chr<span class=o>(</span>c<span class=o>)</span> <span class=k>for</span> c in flag<span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=s2>&#34;&#34;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>chr</span><span class=p>(</span><span class=n>c</span><span class=p>)</span> <span class=k>for</span> <span class=n>c</span> <span class=ow>in</span> <span class=n>flag</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>def main<span class=o>()</span>:
-</span></span><span class=line><span class=cl>    <span class=nv>flag</span> <span class=o>=</span> solve_flag<span class=o>()</span>
-</span></span><span class=line><span class=cl>    print<span class=o>(</span><span class=s2>&#34;Recovered flag:&#34;</span>, flag<span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=n>flag</span> <span class=o>=</span> <span class=n>solve_flag</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Recovered flag:&#34;</span><span class=p>,</span> <span class=n>flag</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># 用 VM 真机跑一遍校验</span>
-</span></span><span class=line><span class=cl>    <span class=nv>ok</span> <span class=o>=</span> vm_run<span class=o>(</span>flag.encode<span class=o>())</span>
-</span></span><span class=line><span class=cl>    print<span class=o>(</span><span class=s2>&#34;VM check:&#34;</span>, <span class=s2>&#34;PASS&#34;</span> <span class=k>if</span> ok <span class=k>else</span> <span class=s2>&#34;FAIL&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>ok</span> <span class=o>=</span> <span class=n>vm_run</span><span class=p>(</span><span class=n>flag</span><span class=o>.</span><span class=n>encode</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;VM check:&#34;</span><span class=p>,</span> <span class=s2>&#34;PASS&#34;</span> <span class=k>if</span> <span class=n>ok</span> <span class=k>else</span> <span class=s2>&#34;FAIL&#34;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> not ok:
-</span></span><span class=line><span class=cl>        raise SystemExit<span class=o>(</span><span class=s2>&#34;求出来的 flag 没通过 VM 校验，请检查脚本逻辑。&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>ok</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>raise</span> <span class=ne>SystemExit</span><span class=p>(</span><span class=s2>&#34;求出来的 flag 没通过 VM 校验，请检查脚本逻辑。&#34;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nv>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span>:
-</span></span><span class=line><span class=cl>    main<span class=o>()</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span>
 </span></span></code></pre></td></tr></table></div></div></section><div class=comments><script>const getTheme=window.localStorage&&window.localStorage.getItem("theme");let theme=getTheme==="dark"?"dark":"light",s=document.createElement("script");s.src="https://giscus.app/client.js",s.setAttribute("data-repo","Wh1teJ0ker/discussion"),s.setAttribute("data-repo-id","R_kgDOOTzcZA"),s.setAttribute("data-category","Announcements"),s.setAttribute("data-category-id","DIC_kwDOOTzcZM4CoxXV"),s.setAttribute("data-mapping","pathname"),s.setAttribute("data-strict","0"),s.setAttribute("data-reactions-enabled","1"),s.setAttribute("data-emit-metadata","0"),s.setAttribute("data-input-position","top"),s.setAttribute("data-theme",theme),s.setAttribute("data-lang","zh-CN"),s.setAttribute("data-loading","lazy"),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div><div class=paginator><a class=next href=https://wh1tej0ker.github.io/post/2025uwsp-pointer-overflow-ctf-zrympb.html><span>2025UWSP Pointer Overflow CTF</span><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3.77086 21.1546C11.0491 22.698 21.4339 21.7773 21.4339 16.3608V4.63375c0-.69413-.075800000000001-1.3284-.2422-1.86588M3.77086 21.1546C1.9934 20.7777.973585 18.7264 1.08749 16.688c.17931-3.209.06972-7.25665-.08236-10.47293C.87809 3.52811 3.12891 1.16316 5.51029 1.25008c4.25565.15534 9.86671-.04779 13.28091-.24466 1.2952-.074686 2.0494.62843 2.4005 1.76245M3.77086 21.1546C4.56586 21.4723 5.49168 21.7879 6.5 22.0658M21.1917 2.76787c1.918 1.4143 1.9383 9.65123 1.7087 13.59293-2.0526 7.6586-10.5943 7.3054-16.4004 5.705M21.1917 2.76787C21.7612 4.51192 22.7203 9.67216 22 16.3608 21.2797 23.0494 11.3665 22.9511 6.5 22.0658M12.055 9C12.711 9.61644 14.3679 10.997 15.9519 11.7966 16.0174 11.8297 16.0154 11.9753 15.9494 12.0063 14.945 12.4779 13.0706 13.9264 12.055 15m3.5006-3.0333C13.1345 12.0608 8 12 6 11" stroke="currentcolor" stroke-linecap="round"/></svg></a></div></article></div><footer class=footer><p>&copy; 2025 <a href=https://wh1tej0ker.github.io/>Wh1teJ0kerのBlog</a>
 Powered by
 <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo️️</a>
